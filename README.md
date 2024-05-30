@@ -1,5 +1,5 @@
 # Ascon IP for Zynq 7000
- An HDL implementation of the Ascon algorithm using the official C reference implementation. Part of a project for Embedded Systems Exam, more reference on [naplespu.com/es](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon) (need credentials to have access).
+ An HDL implementation of the Ascon algorithm using the official C reference implementation. Part of a project for Embedded Systems Exam, more reference on [naplespu.com/es](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon) (need credentials to have access). The IP is meant to be integrated on a Xilinx Zynq 7000 Zybo Board. You can see this as a simple guide (in Italian) to program a Zynq 7000 Zybo with a custom IP using Vitis HLS, Vivado e Vitis.
 
 ## Codice:
 Codice soluzione 1: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source_8bit/
@@ -58,7 +58,7 @@ Dettagli sulle interfacce AXI per le ip in C:\Path\To\Vitis\Platform\Project\pla
 Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\ApplicationAscon_FromTemplateHelloWorld\src
 
 ## Versioni 
-| Numero versione relativo alle immagini  | Source Dir   | IP | 
+| Numero versione relativo alle immagini  | Source Dir   | IP |
 |-----------------------------------------|--------------|----|
 |       1                                 | source_8bit  | 1  |
 |       2                                 |              |    |
@@ -68,6 +68,15 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 |       6                                 | source       | 3  |
 
 
-La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(1).
+|IP  | Performance Encryption | Performance Decryption  |
+|----|------------------------|
+|1   |![Performance encryption 1](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|![Performance decryption 1](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|
+|2   |![Performance encryption 2](RefactoringImages/HLS_PerformanceSintesi_encrypt5(DatiRaggruppatiA64BitConAxiFull).pngHLS_PerformanceSintesi_encrypt1.png.png)|![Performance decryption 2](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|
+|3   |![Performance encryption 3](RefactoringImages/HLS_PerformanceSintesi_encrypt6(DatiRaggruppatiA64BitConAxiFullCaricamentoParallelizato).pngHLS_PerformanceSintesi_encrypt1.png.png)|![Performance decryption 3](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|
+
+
+
+
+La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(3).
 
 

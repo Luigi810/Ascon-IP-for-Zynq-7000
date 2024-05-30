@@ -1,15 +1,29 @@
 # Ascon IP for Zynq 7000
  An HDL implementation of the Ascon algorithm using the official C reference implementation. Part of a project for Embedded Systems Exam, more reference on [naplespu.com/es](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon) (need credentials to have access). The IP is meant to be integrated on a Xilinx Zynq 7000 Zybo Board. You can see this as a simple guide (in Italian) to program a Zynq 7000 Zybo with a custom IP using Vitis HLS, Vivado e Vitis.
+**Target Board : xc7z010-clg400-1**
 
 ## Codice:
-Codice soluzione 1: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source_8bit/
 
-Codice soluzione 2: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source_64bit/
+Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/
 
-Codice soluzione 3: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/
+Codice soluzione 1: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_8bit/
 
+Codice soluzione 2: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_64bit/
+
+Codice soluzione 3: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source/
+
+### Per la soluzione finale
+Il codice rilevante è quello dei moduli :
+
+- **aead.c**, in cui vengono riscritte le funzioni **crypto_aead_encrypt()** e **crypto_aead_decrypt()** in termini delle sottofunzioni initialize_state, additional_data_func, process_data_enc(/process_data_dec), finalize_state_enc(/finalize_state_dec) e ascon_state_set;
+- **axi_ascon.c**, in cui vengono definiti i wrapper delle suddette funzioni di crittografia al fine di adattarle al protocollo di interfacciamento AXI Full, e dove si sfrutta per adattare i dati in ingresso una utility function u64_to_u8_array;
+- **axi_ascon.h**, in cui sono semplicemente presentate le interfacce delle nuove funzioni wrapper.
+
+### Per le Soluzioni precedenti
 Il codice relativo alle funzioni axi_encrypt e axi_decrypt sono contenute nel file temp.c e i prototipi sono contenuti nel file temp.h. Tali File sono poi usati oltre che per la sintesi di Vitis HLS anche del testbench tb_temp.c.
 
+### Rilevanza delle soluzioni precedenti 
+Il senso di implementazioni alternative nasce dal fatto che per via di esigenze di progetto potrei avere dei vincoli di spazio più stringenti e più tolleranza per quanto riguarda i tempi di esecuzione. In tal caso in base ai vincoli di progetto si può intergrare una IP più adatta alle esigenze specifiche. In particolare le IP della soluzione 1 occupano un numero di LUTs che è circa la metà di quelle occupate dalle IP della soluzione finale, la quale invece compensa con prestazioni in termini di throughput migliori.
 
 ## Obiettivo primario
 Questo progetto nasce dal tentativo di migliorare la legibilità del codice, utilizzare il protocollo AXI Full invece che AXI lite in quanto più adatto per la trasmissione di dati più corposi di 32 bit e migliorare le performance della IP presentata nel [articolo di documentazione](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon), in particolare si cerca di usare in un primo momento le seguenti direttive per migliorare le performance in termini di latenza a discapito di una maggiore occupazione in termini di risorse Hardware su FPGA. Le seguenti direttive servono a ottimizzare il codice come descritto:
@@ -31,6 +45,8 @@ Questo progetto nasce dal tentativo di migliorare la legibilità del codice, uti
 Tuttavia tali ottimizzazioni tendono a parallelizzare le operazioni ma risulta una intrinseca dipendenza tra le operazioni in termini temporali quindi la maggior parte delle operazioni non può essere parallelizzata, come mostrato nella seguente immagine.
 
 ![Dipendenza temporale tra le invocazioni di ROUND](RefactoringImages/HLS_ScheduleView_encrypt1Lvl2(EncryptInvocaLePermutazioniCheInvocanoRoundFortementeSequenziali).png)
+
+Inoltre non è stato necessario quasi in nessun caso l'utilizzo delle direttive pragma in quanto la maggior parte delle volte Vitis opera autonomamente le ottimizzazioni possibili.
 
 ## Versione Pipelined (soluzione 4)
 Tuttavia si può cercare ancora di scomporre l'algoritmo di Ascon in un certo numero di fasi separate per ottenere una struttura pipelined in modo che i risultati del primo blocco vengano presi in ingresso dal successivo. 
@@ -121,6 +137,6 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 
 
 
-La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(3).
+La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(3). In casi di workload dove si riesce a tenere la pipeline sempre piena allora la soluzione 4 offre notevoli benefici prestazionali.
 
 

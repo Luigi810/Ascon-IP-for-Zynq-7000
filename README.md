@@ -35,7 +35,7 @@ Tuttavia tali ottimizzazioni tendono a parallelizzare le operazioni ma risulta u
 ## Versione Pipelined (soluzione 4)
 Tuttavia si può cercare ancora di scomporre l'algoritmo di Ascon in un certo numero di fasi separate per ottenere una struttura pipelined in modo che i risultati del primo blocco vengano presi in ingresso dal successivo. 
 
-Il beneficio di tale approccio potrebbe esistere nel momento in cui si richiedano numerose e sequenziali operazioni di encrypt o decrypt. Ciò ha particolarmente senso se il tempo di computazione dell'algoritmo è varie volte maggiore del tempo richiesto per la manipolazione dei dati (che sfrutta il protocollo AXI per il caricamento dei dati nell'IP e l'utility function u64_to_u8_array())in ingresso che costituisce di fatto il primo blocco di tale pipeline.
+Il beneficio di tale approccio potrebbe esistere nel momento in cui si richiedano ripetute operazioni di encrypt o decrypt. Ciò ha particolarmente senso se il tempo di computazione dell'algoritmo è varie volte maggiore del tempo richiesto per la manipolazione dei dati (che sfrutta il protocollo AXI per il caricamento dei dati nell'IP e l'utility function **u64_to_u8_array()**)in ingresso che costituisce di fatto il primo blocco di tale pipeline.
 
 Il codice relativo a tale soluzione è quello nella directory Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source, in particolare abbiamo le top function (relative alle IP) nel file
 
@@ -45,12 +45,13 @@ mentre le modifiche per rendere l'IP pipelined (con una pipeline di 4 stadi in e
 
 Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/axi_ascon.c
 
-Le performance di tale soluzione sono nettamente migliori rispetto alle altre in termini di latenza (ma non in termini di occupazione spaziale): 
+Le performance teoriche di tale soluzione sono nettamente migliori rispetto alle altre in termini di latenza (ma non in termini di occupazione spaziale): 
 
 ![Encrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
 
 ![Decrypt](RefactoringImages/HLS_PerformanceSintesi_decrypt7(AeadPipelined).png)
 
+Sebbene la latenza teorica risulti molto bassa in realtà il vantaggio vero si ha quanto più si può tenere piena la pipeline nel tempo, in un caso di workload di questo tipo allora si può ottenere un throughput (Throughput= (numero di operazioni)/(tempo per la loro esecuzione)) prossimo a quello teorico, ossia che tende al limite superiore (upperbound) pari al reciproco del tempo di esecuzione (latenza) del blocco più lento della pipe. Ci si avvicina a tale valore nel caso in cui si abbia un gran numero di operazioni di encrypt(o decrypt) consecutive e si tiene la pipeline sempre piena.
 
 Alla base di tale soluzione ci sono dei registri a cavallo tra due blocchi consecutivi della pipe volto a mantenere lo stato. Si usa a tal scopo in C una variabile di stato ascon_state_t s relativa a ciascun stadio della pipeline. In C tale comportamento è ottenuto tramite 4 variabili di stato s1,s2,s3,s4 e un utility function per l'assegnazione:
 
@@ -99,7 +100,7 @@ Dettagli sulle interfacce AXI per le ip in C:\Path\To\Vitis\Platform\Project\pla
 Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\ApplicationAscon_FromTemplateHelloWorld\src
 
 ## Versioni 
-| Numero versione relativo alle immagini  | Source Dir   | IP |
+| Numero versione relativo alle immagini  | Source Dir   | IP | 
 |-----------------------------------------|--------------|----|
 |       1                                 | source_8bit  | 1  |
 |       2                                 |              |    |
@@ -107,6 +108,7 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 |       4                                 |              |    |
 |       5                                 | source_64bit | 2  |
 |       6                                 | source       | 3  |
+|       7                                 | source       | 4  |
 
 
 |IP  | Performance Encryption | Performance Decryption  |
@@ -114,6 +116,7 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 |1   |![Performance encryption 1](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png)|![Performance decryption 1](RefactoringImages/HLS_PerformanceSintesi_decrypt1.png)|
 |2   |![Performance encryption 2](RefactoringImages/HLS_PerformanceSintesi_encrypt5(DatiRaggruppatiA64BitConAxiFull).png)|![Performance decryption 2](RefactoringImages/HLS_PerformanceSintesi_decrypt5(DatiRaggruppatiA64BitConAxiFull).png)|
 |3   |![Performance encryption 3](RefactoringImages/HLS_PerformanceSintesi_encrypt6(DatiRaggruppatiA64BitConAxiFullCaricamentoParallelizato).png)|![Performance decryption 3](RefactoringImages/HLS_PerformanceSintesi_decrypt6(DatiRaggruppatiA64BitConAxiFullCaricamentoParallelizato).png)|
+|4   |![Performance encryption 4](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)|![Performance decryption 3](RefactoringImages/HLS_PerformanceSintesi_decrypt7(AeadPipelined).png)|
 
 
 

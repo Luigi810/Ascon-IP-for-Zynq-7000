@@ -54,7 +54,7 @@ Le performance di tale soluzione sono nettamente migliori rispetto alle altre in
 
 Alla base di tale soluzione ci sono dei registri a cavallo tra due blocchi consecutivi della pipe volto a mantenere lo stato. Si usa a tal scopo in C una variabile di stato ascon_state_t s relativa a ciascun stadio della pipeline. In C tale comportamento è ottenuto tramite 4 variabili di stato s1,s2,s3,s4 e un utility function per l'assegnazione:
 
-'''c
+```
 void ascon_state_set(ascon_state_t *a, ascon_state_t b){
 	a->x[0]=b.x[0];
 	a->x[1]=b.x[1];
@@ -62,7 +62,7 @@ void ascon_state_set(ascon_state_t *a, ascon_state_t b){
 	a->x[3]=b.x[3];
 	a->x[4]=b.x[4];
 }
-
+```
 
 ## Come aggiungere l'IP al catalogo di Vivado
 Dopo aver eseguito i test necessari nel testbench previsto sul codice C si può eseguire il comando Run Syntesis. Una volta valutate che le performance soddisfino le proprie esigenze (performance relative alle 3 soluzioni in RefactoringImages) si può passare ad esportare l'IP da VitisHLS con File->Export che genererà un archivio zip Export.zip che costituisce il blocco della IP specificata come top level function in Project Settings-> Syntesis.

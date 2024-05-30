@@ -77,6 +77,7 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 
 
 
+
 La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(3).
 
 

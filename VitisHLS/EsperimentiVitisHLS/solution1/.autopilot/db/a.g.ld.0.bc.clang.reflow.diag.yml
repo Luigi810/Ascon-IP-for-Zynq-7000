@@ -1,0 +1,1134 @@
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 12, Column: 19 }
+Function:        u64_to_u8_array
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_12_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 7, Column: 0 }
+Function:        u64_to_u8_array
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_12_1
+  - String:          ''' ('
+  - LoopLoc:         'EsperimentiVitisHLS/source/temp.c:12:19'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          u64_to_u8_array
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: source/round.h, Line: 12, Column: 0 }
+Function:        ROUND.6
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          ROR
+    DebugLoc:        { File: source/round.h, Line: 8, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          ROUND.6
+    DebugLoc:        { File: source/round.h, Line: 12, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: source/aead.c, Line: 13, Column: 0 }
+Function:        crypto_aead_encrypt
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          P12
+    DebugLoc:        { File: source/permutations.h, Line: 11, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          crypto_aead_encrypt
+    DebugLoc:        { File: source/aead.c, Line: 13, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: source/aead.c, Line: 13, Column: 0 }
+Function:        crypto_aead_encrypt
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          P6
+    DebugLoc:        { File: source/permutations.h, Line: 37, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          crypto_aead_encrypt
+    DebugLoc:        { File: source/aead.c, Line: 13, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: source/aead.c, Line: 13, Column: 0 }
+Function:        crypto_aead_encrypt
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          STOREBYTES
+    DebugLoc:        { File: source/word.h, Line: 27, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          crypto_aead_encrypt
+    DebugLoc:        { File: source/aead.c, Line: 13, Column: 0 }
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            WarningOutOfBoundArrayAccess
+DebugLoc:        { File: source/word.h, Line: 29, Column: 53 }
+Function:        crypto_aead_encrypt
+Args:            
+  - String:          The program may have out of bound array access
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 125, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        c12seq
+  - ArrayName:       c
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 125, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.46
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 126, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.49
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 127, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.52
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 128, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.55
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 130, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        m13seq
+  - ArrayName:       m
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 130, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.62
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 131, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.65
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 133, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        ad14seq
+  - ArrayName:       ad
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 133, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.72
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 134, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.75
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 136, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        nsec15seq
+  - ArrayName:       nsec
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 136, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.82
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 137, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.85
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 139, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        npub16seq
+  - ArrayName:       npub
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 139, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.92
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 140, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.95
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 142, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        k17seq
+  - ArrayName:       k
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 142, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.102
+  - OrigAccess:      load
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 143, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          entry.load.105
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 125, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i64
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 125, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          c12seq
+  - ArrayName:       c
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 130, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i64
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 130, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          m13seq
+  - ArrayName:       m
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 133, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i64
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 133, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          ad14seq
+  - ArrayName:       ad
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 136, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i64
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 136, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          nsec15seq
+  - ArrayName:       nsec
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 139, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i64
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 139, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          npub16seq
+  - ArrayName:       npub
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 142, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i64
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 142, 
+                       Column: 18 }
+  - OrigDirection:   read
+  - OrigID:          k17seq
+  - ArrayName:       k
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_22_1
+  - String:          '> at '
+  - LoopLoc:         'source/word.h:22:20'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_29_1
+  - String:          '> at '
+  - LoopLoc:         'source/word.h:29:20'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_29_1
+  - String:          '> at '
+  - LoopLoc:         'source/word.h:29:20'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_29_1
+  - String:          '> at '
+  - LoopLoc:         'source/word.h:29:20'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 118, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=cyclic factor=4 variable=c_u8'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  axi_encrypt
+  - String:          ' '
+  - varLoc:          'EsperimentiVitisHLS/source/temp.c:118:10'
+  - String:          ' '
+  - PragmaSrcLoc:    'EsperimentiVitisHLS/source/temp.c:9:9'
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, 
+                       Column: 9 }
+  - VarName:         c_u8
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, Column: 9 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            cyclic
+  - String:          ' factor='
+  - Factor:          '4'
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            c_u8
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 119, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=m_u8'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  axi_encrypt
+  - String:          ' '
+  - varLoc:          'EsperimentiVitisHLS/source/temp.c:119:10'
+  - String:          ' '
+  - PragmaSrcLoc:    'EsperimentiVitisHLS/source/temp.c:9:9'
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, 
+                       Column: 9 }
+  - VarName:         m_u8
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, Column: 9 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            m_u8
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 120, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=ad_u8'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  axi_encrypt
+  - String:          ' '
+  - varLoc:          'EsperimentiVitisHLS/source/temp.c:120:10'
+  - String:          ' '
+  - PragmaSrcLoc:    'EsperimentiVitisHLS/source/temp.c:9:9'
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, 
+                       Column: 9 }
+  - VarName:         ad_u8
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, Column: 9 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            ad_u8
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 121, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=nsec_u8'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  axi_encrypt
+  - String:          ' '
+  - varLoc:          'EsperimentiVitisHLS/source/temp.c:121:10'
+  - String:          ' '
+  - PragmaSrcLoc:    'EsperimentiVitisHLS/source/temp.c:9:9'
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, 
+                       Column: 9 }
+  - VarName:         nsec_u8
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, Column: 9 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            nsec_u8
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 122, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=npub_u8'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  axi_encrypt
+  - String:          ' '
+  - varLoc:          'EsperimentiVitisHLS/source/temp.c:122:10'
+  - String:          ' '
+  - PragmaSrcLoc:    'EsperimentiVitisHLS/source/temp.c:9:9'
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, 
+                       Column: 9 }
+  - VarName:         npub_u8
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, Column: 9 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            npub_u8
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 123, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=k_u8'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  axi_encrypt
+  - String:          ' '
+  - varLoc:          'EsperimentiVitisHLS/source/temp.c:123:10'
+  - String:          ' '
+  - PragmaSrcLoc:    'EsperimentiVitisHLS/source/temp.c:9:9'
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, 
+                       Column: 9 }
+  - VarName:         k_u8
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 9, Column: 9 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            k_u8
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 118, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          c_u8
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '4'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 119, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          m_u8
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 120, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          ad_u8
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 121, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          nsec_u8
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 122, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          npub_u8
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 123, 
+                   Column: 10 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          k_u8
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 125, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 125, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 130, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 130, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 133, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq2
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 133, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 136, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq3
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 136, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 139, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq4
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 139, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 142, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq5
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        axi_encrypt
+    DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 95, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: EsperimentiVitisHLS/source/temp.c, Line: 142, 
+                   Column: 18 }
+Function:        axi_encrypt
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' and bit width '
+  - Width:           '64'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

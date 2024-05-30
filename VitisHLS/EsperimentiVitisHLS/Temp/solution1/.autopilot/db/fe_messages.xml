@@ -1,0 +1,120 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/aead.c:61:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crypto_aead_encrypt" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=m offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:19:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=nsec offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:20:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=c offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=ad offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=npub offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:23:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=k offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:25:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=m bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:26:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=nsec bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:27:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=c bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:28:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=ad bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:29:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=npub bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:30:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=k bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:31:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_decrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/lguer/AppData/Roaming/Xilinx/Vitis/AsconOptimizedHLS/EsperimentiVitisHLS/Temp/solution1/csynth.tcl:27:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=axi_encrypt" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:59:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=c offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:60:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=m offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:61:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=ad offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:62:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=nsec offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:63:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=npub offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:64:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=k offset=slave bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:66:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=c bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:67:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=m bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:68:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=ad bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:69:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=nsec bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:70:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=npub bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:71:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=k bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="source/temp.c:72:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="axi_encrypt" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="source/aead.c:64:19" msg_body="Loop 'VITIS_LOOP_64_7' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_64_7"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="source/aead.c:43:20" msg_body="Loop 'VITIS_LOOP_43_3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_43_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="source/word.h:29:19" msg_body="Loop 'VITIS_LOOP_29_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_29_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="source/word.h:22:19" msg_body="Loop 'VITIS_LOOP_22_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_22_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="source/aead.c:12:0" msg_body="Unrolling loop 'VITIS_LOOP_64_7' (source/aead.c:64:19) in function 'crypto_aead_encrypt' completely with a factor of 2">
+        <args Factor="2" LoopLoc="source/aead.c:64:19" LoopName="VITIS_LOOP_64_7"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="source/aead.c:12:0" msg_body="Unrolling loop 'VITIS_LOOP_43_3' (source/aead.c:43:20) in function 'crypto_aead_encrypt' completely with a factor of 2">
+        <args Factor="2" LoopLoc="source/aead.c:43:20" LoopName="VITIS_LOOP_43_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="source/round.h:12:0" msg_body="Inlining function 'ROR' into 'ROUND.6'">
+        <args Callee="ROR" Callee-DebugLoc="File source/round.h Line 8 Column 0" Caller="ROUND.6" Caller-DebugLoc="File source/round.h Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="source/aead.c:12:0" msg_body="Inlining function 'P12' into 'crypto_aead_encrypt'">
+        <args Callee="P12" Callee-DebugLoc="File source/permutations.h Line 11 Column 0" Caller="crypto_aead_encrypt" Caller-DebugLoc="File source/aead.c Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="source/aead.c:12:0" msg_body="Inlining function 'P6' into 'crypto_aead_encrypt'">
+        <args Callee="P6" Callee-DebugLoc="File source/permutations.h Line 37 Column 0" Caller="crypto_aead_encrypt" Caller-DebugLoc="File source/aead.c Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="source/aead.c:12:0" msg_body="Inlining function 'STOREBYTES' into 'crypto_aead_encrypt'">
+        <args Callee="STOREBYTES" Callee-DebugLoc="File source/word.h Line 27 Column 0" Caller="crypto_aead_encrypt" Caller-DebugLoc="File source/aead.c Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="source/aead.c:12:0" msg_body="Unrolling loop 'VITIS_LOOP_29_1' (source/word.h:29:19) in function 'crypto_aead_encrypt' completely with a factor of 8">
+        <args Factor="8" LoopLoc="source/word.h:29:19" LoopName="VITIS_LOOP_29_1"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

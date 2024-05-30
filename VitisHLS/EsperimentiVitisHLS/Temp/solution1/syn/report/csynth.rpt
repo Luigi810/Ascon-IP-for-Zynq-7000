@@ -1,0 +1,213 @@
+
+
+================================================================
+== Synthesis Summary Report of 'axi_encrypt'
+================================================================
++ General Information: 
+    * Date:           Mon May 27 18:05:30 2024
+    * Version:        2023.2 (Build 4023990 on Oct 11 2023)
+    * Project:        Temp
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z010-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------+--------+-------+---------+-----------+----------+---------+------+----------+--------+----+------------+------------+-----+
+    |          Modules         |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |        |    |            |            |     |
+    |          & Loops         |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM  | DSP|     FF     |     LUT    | URAM|
+    +--------------------------+--------+-------+---------+-----------+----------+---------+------+----------+--------+----+------------+------------+-----+
+    |+ axi_encrypt             |  Timing|  -0.95|      413|  4.130e+03|         -|      414|     -|        no|  2 (1%)|   -|  4063 (11%)|  7089 (40%)|    -|
+    | + crypto_aead_encrypt_1  |  Timing|  -0.95|      411|  4.110e+03|         -|      411|     -|        no|       -|   -|   2385 (6%)|  5298 (30%)|    -|
+    |  + LOADBYTES_1           |       -|   0.00|       33|    330.000|         -|       33|     -|        no|       -|   -|   158 (~0%)|    458 (2%)|    -|
+    |   o VITIS_LOOP_22_1      |       -|   7.30|       24|    240.000|         3|        -|     8|        no|       -|   -|           -|           -|    -|
+    |  + ROUND_6               |      II|   2.35|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|  2112 (12%)|    -|
+    +--------------------------+--------+-------+---------+-----------+----------+---------+------+----------+--------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | 8 -> 8     | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=2            |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 24     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | ap_return | 0x10   | 32    | R      | Data signal of ap_return         |                                                                      |
+| s_axi_control | c_1       | 0x18   | 32    | W      | Data signal of c                 |                                                                      |
+| s_axi_control | c_2       | 0x1c   | 32    | W      | Data signal of c                 |                                                                      |
+| s_axi_control | m_1       | 0x24   | 32    | W      | Data signal of m                 |                                                                      |
+| s_axi_control | m_2       | 0x28   | 32    | W      | Data signal of m                 |                                                                      |
+| s_axi_control | ad_1      | 0x30   | 32    | W      | Data signal of ad                |                                                                      |
+| s_axi_control | ad_2      | 0x34   | 32    | W      | Data signal of ad                |                                                                      |
+| s_axi_control | nsec_1    | 0x3c   | 32    | W      | Data signal of nsec              |                                                                      |
+| s_axi_control | nsec_2    | 0x40   | 32    | W      | Data signal of nsec              |                                                                      |
+| s_axi_control | npub_1    | 0x48   | 32    | W      | Data signal of npub              |                                                                      |
+| s_axi_control | npub_2    | 0x4c   | 32    | W      | Data signal of npub              |                                                                      |
+| s_axi_control | k_1       | 0x54   | 32    | W      | Data signal of k                 |                                                                      |
+| s_axi_control | k_2       | 0x58   | 32    | W      | Data signal of k                 |                                                                      |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+-----------------------+
+| Argument | Direction | Datatype              |
++----------+-----------+-----------------------+
+| c        | inout     | unsigned char*        |
+| m        | inout     | unsigned char const * |
+| ad       | inout     | unsigned char const * |
+| nsec     | inout     | unsigned char*        |
+| npub     | inout     | unsigned char const * |
+| k        | inout     | unsigned char const * |
+| return   | out       | int                   |
++----------+-----------+-----------------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                             |
++----------+---------------+-----------+----------+-------------------------------------+
+| c        | m_axi_gmem    | interface |          |                                     |
+| c        | s_axi_control | register  | offset   | name=c_1 offset=0x18 range=32       |
+| c        | s_axi_control | register  | offset   | name=c_2 offset=0x1c range=32       |
+| m        | m_axi_gmem    | interface |          |                                     |
+| m        | s_axi_control | register  | offset   | name=m_1 offset=0x24 range=32       |
+| m        | s_axi_control | register  | offset   | name=m_2 offset=0x28 range=32       |
+| ad       | m_axi_gmem    | interface |          |                                     |
+| ad       | s_axi_control | register  | offset   | name=ad_1 offset=0x30 range=32      |
+| ad       | s_axi_control | register  | offset   | name=ad_2 offset=0x34 range=32      |
+| nsec     | m_axi_gmem    | interface |          |                                     |
+| nsec     | s_axi_control | register  | offset   | name=nsec_1 offset=0x3c range=32    |
+| nsec     | s_axi_control | register  | offset   | name=nsec_2 offset=0x40 range=32    |
+| npub     | m_axi_gmem    | interface |          |                                     |
+| npub     | s_axi_control | register  | offset   | name=npub_1 offset=0x48 range=32    |
+| npub     | s_axi_control | register  | offset   | name=npub_2 offset=0x4c range=32    |
+| k        | m_axi_gmem    | interface |          |                                     |
+| k        | s_axi_control | register  | offset   | name=k_1 offset=0x54 range=32       |
+| k        | s_axi_control | register  | offset   | name=k_2 offset=0x58 range=32       |
+| return   | s_axi_control | register  |          | name=ap_return offset=0x10 range=32 |
++----------+---------------+-----------+----------+-------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+-----------------+---------------------+
+| HW Interface | Direction | Length   | Width | Loop            | Loop Location       |
++--------------+-----------+----------+-------+-----------------+---------------------+
+| m_axi_gmem   | write     | 32       | 8     |                 |                     |
+| m_axi_gmem   | read      | variable | 8     | VITIS_LOOP_22_1 | source/word.h:22:19 |
++--------------+-----------+----------+-------+-----------------+---------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+---------------------+-----------+--------------+----------+-----------------+---------------------+------------+------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location     | Direction | Burst Status | Length   | Loop            | Loop Location       | Resolution | Problem                                                                                              |
++--------------+----------+---------------------+-----------+--------------+----------+-----------------+---------------------+------------+------------------------------------------------------------------------------------------------------+
+| m_axi_gmem   | bytes    | source/word.h:22:60 | read      | Widen Fail   |          | VITIS_LOOP_22_1 | source/word.h:22:19 | 214-353    | Could not widen since type i8 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | bytes    | source/word.h:22:60 | read      | Inferred     | variable | VITIS_LOOP_22_1 | source/word.h:22:19 |            |                                                                                                      |
+| m_axi_gmem   | c        | source/word.h:29:52 | write     | Widen Fail   |          |                 |                     | 214-353    | Could not widen since type i8 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | c        | source/word.h:29:52 | write     | Inferred     | 32       |                 |                     |            |                                                                                                      |
++--------------+----------+---------------------+-----------+--------------+----------+-----------------+---------------------+------------+------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------+-----+--------+------------+-----+--------+---------+
+| Name                     | DSP | Pragma | Variable   | Op  | Impl   | Latency |
++--------------------------+-----+--------+------------+-----+--------+---------+
+| + axi_encrypt            | 0   |        |            |     |        |         |
+|  + crypto_aead_encrypt_1 | 0   |        |            |     |        |         |
+|   + LOADBYTES_1          | 0   |        |            |     |        |         |
+|     add_ln22_fu_100_p2   |     |        | add_ln22   | add | fabric | 0       |
+|     add_ln22_1_fu_135_p2 |     |        | add_ln22_1 | add | fabric | 0       |
+|     sub_ln22_fu_157_p2   |     |        | sub_ln22   | sub | fabric | 0       |
++--------------------------+-----+--------+------------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |           |           |      |      |        |          |      |         | Banks            |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + axi_encrypt     |           |           | 2    | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface | m_axi     | 2    |      |        |          |      |         |                  |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+------------------------------------------+-----------------------------------------+
+| Type      | Options                                  | Location                                |
++-----------+------------------------------------------+-----------------------------------------+
+| pipeline  |                                          | source/aead.c:61 in crypto_aead_encrypt |
+| interface | m_axi port=m offset=slave bundle=gmem    | source/temp.c:18 in axi_decrypt, m      |
+| interface | m_axi port=nsec offset=slave bundle=gmem | source/temp.c:19 in axi_decrypt, nsec   |
+| interface | m_axi port=c offset=slave bundle=gmem    | source/temp.c:20 in axi_decrypt, c      |
+| interface | m_axi port=ad offset=slave bundle=gmem   | source/temp.c:21 in axi_decrypt, ad     |
+| interface | m_axi port=npub offset=slave bundle=gmem | source/temp.c:22 in axi_decrypt, npub   |
+| interface | m_axi port=k offset=slave bundle=gmem    | source/temp.c:23 in axi_decrypt, k      |
+| interface | s_axilite port=m bundle=control          | source/temp.c:25 in axi_decrypt, m      |
+| interface | s_axilite port=nsec bundle=control       | source/temp.c:26 in axi_decrypt, nsec   |
+| interface | s_axilite port=c bundle=control          | source/temp.c:27 in axi_decrypt, c      |
+| interface | s_axilite port=ad bundle=control         | source/temp.c:28 in axi_decrypt, ad     |
+| interface | s_axilite port=npub bundle=control       | source/temp.c:29 in axi_decrypt, npub   |
+| interface | s_axilite port=k bundle=control          | source/temp.c:30 in axi_decrypt, k      |
+| interface | s_axilite port=return bundle=control     | source/temp.c:31 in axi_decrypt, return |
+| interface | m_axi port=c offset=slave bundle=gmem    | source/temp.c:59 in axi_encrypt, c      |
+| interface | m_axi port=m offset=slave bundle=gmem    | source/temp.c:60 in axi_encrypt, m      |
+| interface | m_axi port=ad offset=slave bundle=gmem   | source/temp.c:61 in axi_encrypt, ad     |
+| interface | m_axi port=nsec offset=slave bundle=gmem | source/temp.c:62 in axi_encrypt, nsec   |
+| interface | m_axi port=npub offset=slave bundle=gmem | source/temp.c:63 in axi_encrypt, npub   |
+| interface | m_axi port=k offset=slave bundle=gmem    | source/temp.c:64 in axi_encrypt, k      |
+| interface | s_axilite port=c bundle=control          | source/temp.c:66 in axi_encrypt, c      |
+| interface | s_axilite port=m bundle=control          | source/temp.c:67 in axi_encrypt, m      |
+| interface | s_axilite port=ad bundle=control         | source/temp.c:68 in axi_encrypt, ad     |
+| interface | s_axilite port=nsec bundle=control       | source/temp.c:69 in axi_encrypt, nsec   |
+| interface | s_axilite port=npub bundle=control       | source/temp.c:70 in axi_encrypt, npub   |
+| interface | s_axilite port=k bundle=control          | source/temp.c:71 in axi_encrypt, k      |
+| interface | s_axilite port=return bundle=control     | source/temp.c:72 in axi_encrypt, return |
++-----------+------------------------------------------+-----------------------------------------+
+
+

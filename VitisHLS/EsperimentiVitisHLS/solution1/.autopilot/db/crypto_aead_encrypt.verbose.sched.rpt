@@ -1,0 +1,997 @@
+
+
+================================================================
+== Vitis HLS Report for 'crypto_aead_encrypt'
+================================================================
+* Date:           Tue May 28 19:29:17 2024
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        EsperimentiVitisHLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  8.008 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      126|      182|  1.260 us|  1.820 us|  126|  182|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_40_3  |       20|       36|   10 ~ 18|          -|          -|     2|        no|
+        |- VITIS_LOOP_58_7  |       40|       56|   20 ~ 28|          -|          -|     2|        no|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 55
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 23 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 15 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 39 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 31 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.79>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%idx = alloca i32 1"   --->   Operation 56 'alloca' 'idx' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%adlen_assign = alloca i32 1" [source/aead.c:11]   --->   Operation 57 'alloca' 'adlen_assign' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%s_0_0 = alloca i32 1"   --->   Operation 58 'alloca' 's_0_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%s_1_0 = alloca i32 1"   --->   Operation 59 'alloca' 's_1_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%s_2_0 = alloca i32 1"   --->   Operation 60 'alloca' 's_2_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%s_3_0 = alloca i32 1"   --->   Operation 61 'alloca' 's_3_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%s_4_0 = alloca i32 1"   --->   Operation 62 'alloca' 's_4_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%p_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read64" [source/aead.c:20]   --->   Operation 63 'read' 'p_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%p_read_16 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read63" [source/aead.c:20]   --->   Operation 64 'read' 'p_read_16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%p_read_17 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read62" [source/aead.c:20]   --->   Operation 65 'read' 'p_read_17' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%p_read_18 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read61" [source/aead.c:20]   --->   Operation 66 'read' 'p_read_18' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%p_read_19 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read60" [source/aead.c:20]   --->   Operation 67 'read' 'p_read_19' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%p_read_20 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read59" [source/aead.c:20]   --->   Operation 68 'read' 'p_read_20' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%p_read_21 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read58" [source/aead.c:20]   --->   Operation 69 'read' 'p_read_21' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%p_read_22 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read57" [source/aead.c:20]   --->   Operation 70 'read' 'p_read_22' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%p_read_23 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read56" [source/aead.c:20]   --->   Operation 71 'read' 'p_read_23' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%p_read_24 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read55" [source/aead.c:20]   --->   Operation 72 'read' 'p_read_24' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%p_read_25 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read54" [source/aead.c:20]   --->   Operation 73 'read' 'p_read_25' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%p_read_26 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read53" [source/aead.c:20]   --->   Operation 74 'read' 'p_read_26' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%p_read_27 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read52" [source/aead.c:20]   --->   Operation 75 'read' 'p_read_27' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%p_read_28 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read51" [source/aead.c:20]   --->   Operation 76 'read' 'p_read_28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%p_read_29 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read50" [source/aead.c:20]   --->   Operation 77 'read' 'p_read_29' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 78 [1/1] (0.00ns)   --->   "%p_read_30 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read49" [source/aead.c:20]   --->   Operation 78 'read' 'p_read_30' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 79 [1/1] (0.00ns)   --->   "%p_read_31 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read48" [source/aead.c:20]   --->   Operation 79 'read' 'p_read_31' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%p_read_32 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read47" [source/aead.c:20]   --->   Operation 80 'read' 'p_read_32' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.00ns)   --->   "%p_read_33 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read46" [source/aead.c:20]   --->   Operation 81 'read' 'p_read_33' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 82 [1/1] (0.00ns)   --->   "%p_read_34 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read45" [source/aead.c:20]   --->   Operation 82 'read' 'p_read_34' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 83 [1/1] (0.00ns)   --->   "%p_read_35 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read44" [source/aead.c:20]   --->   Operation 83 'read' 'p_read_35' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%p_read_36 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read43" [source/aead.c:20]   --->   Operation 84 'read' 'p_read_36' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 85 [1/1] (0.00ns)   --->   "%p_read_37 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read42" [source/aead.c:20]   --->   Operation 85 'read' 'p_read_37' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%p_read_38 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read41" [source/aead.c:20]   --->   Operation 86 'read' 'p_read_38' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 87 [1/1] (0.00ns)   --->   "%p_read_39 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read40" [source/aead.c:20]   --->   Operation 87 'read' 'p_read_39' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 88 [1/1] (0.00ns)   --->   "%p_read_40 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read39" [source/aead.c:20]   --->   Operation 88 'read' 'p_read_40' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%p_read_41 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read38" [source/aead.c:20]   --->   Operation 89 'read' 'p_read_41' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%p_read_42 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read37" [source/aead.c:20]   --->   Operation 90 'read' 'p_read_42' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%p_read_43 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read36" [source/aead.c:20]   --->   Operation 91 'read' 'p_read_43' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%p_read_44 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read35" [source/aead.c:20]   --->   Operation 92 'read' 'p_read_44' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.00ns)   --->   "%p_read_45 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read34" [source/aead.c:20]   --->   Operation 93 'read' 'p_read_45' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 94 [1/1] (0.00ns)   --->   "%p_read_46 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read33" [source/aead.c:20]   --->   Operation 94 'read' 'p_read_46' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 95 [2/2] (3.79ns)   --->   "%K0 = call i64 @LOADBYTES, i8 %p_read_30, i8 %p_read_29, i8 %p_read_28, i8 %p_read_27, i8 %p_read_26, i8 %p_read_25, i8 %p_read_24, i8 %p_read_23, i8 %p_read_22, i8 %p_read_21, i8 %p_read_20, i8 %p_read_19, i8 %p_read_18, i8 %p_read_17, i8 %p_read_16, i8 %p_read, i4 8, i4 0" [source/aead.c:20]   --->   Operation 95 'call' 'K0' <Predicate = true> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 96 [2/2] (3.79ns)   --->   "%K1 = call i64 @LOADBYTES, i8 %p_read_30, i8 %p_read_29, i8 %p_read_28, i8 %p_read_27, i8 %p_read_26, i8 %p_read_25, i8 %p_read_24, i8 %p_read_23, i8 %p_read_22, i8 %p_read_21, i8 %p_read_20, i8 %p_read_19, i8 %p_read_18, i8 %p_read_17, i8 %p_read_16, i8 %p_read, i4 8, i4 8" [source/aead.c:21]   --->   Operation 96 'call' 'K1' <Predicate = true> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 97 [2/2] (3.79ns)   --->   "%N0 = call i64 @LOADBYTES, i8 %p_read_46, i8 %p_read_45, i8 %p_read_44, i8 %p_read_43, i8 %p_read_42, i8 %p_read_41, i8 %p_read_40, i8 %p_read_39, i8 %p_read_38, i8 %p_read_37, i8 %p_read_36, i8 %p_read_35, i8 %p_read_34, i8 %p_read_33, i8 %p_read_32, i8 %p_read_31, i4 8, i4 0" [source/aead.c:22]   --->   Operation 97 'call' 'N0' <Predicate = true> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 98 [2/2] (3.79ns)   --->   "%N1 = call i64 @LOADBYTES, i8 %p_read_46, i8 %p_read_45, i8 %p_read_44, i8 %p_read_43, i8 %p_read_42, i8 %p_read_41, i8 %p_read_40, i8 %p_read_39, i8 %p_read_38, i8 %p_read_37, i8 %p_read_36, i8 %p_read_35, i8 %p_read_34, i8 %p_read_33, i8 %p_read_32, i8 %p_read_31, i4 8, i4 8" [source/aead.c:23]   --->   Operation 98 'call' 'N1' <Predicate = true> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 99 [1/1] (1.58ns)   --->   "%store_ln11 = store i5 16, i5 %adlen_assign" [source/aead.c:11]   --->   Operation 99 'store' 'store_ln11' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 100 [1/1] (1.58ns)   --->   "%store_ln0 = store i5 0, i5 %idx"   --->   Operation 100 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 6.53>
+ST_2 : Operation 101 [1/2] (1.58ns)   --->   "%K0 = call i64 @LOADBYTES, i8 %p_read_30, i8 %p_read_29, i8 %p_read_28, i8 %p_read_27, i8 %p_read_26, i8 %p_read_25, i8 %p_read_24, i8 %p_read_23, i8 %p_read_22, i8 %p_read_21, i8 %p_read_20, i8 %p_read_19, i8 %p_read_18, i8 %p_read_17, i8 %p_read_16, i8 %p_read, i4 8, i4 0" [source/aead.c:20]   --->   Operation 101 'call' 'K0' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 102 [1/2] (1.58ns)   --->   "%K1 = call i64 @LOADBYTES, i8 %p_read_30, i8 %p_read_29, i8 %p_read_28, i8 %p_read_27, i8 %p_read_26, i8 %p_read_25, i8 %p_read_24, i8 %p_read_23, i8 %p_read_22, i8 %p_read_21, i8 %p_read_20, i8 %p_read_19, i8 %p_read_18, i8 %p_read_17, i8 %p_read_16, i8 %p_read, i4 8, i4 8" [source/aead.c:21]   --->   Operation 102 'call' 'K1' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 103 [1/2] (1.58ns)   --->   "%N0 = call i64 @LOADBYTES, i8 %p_read_46, i8 %p_read_45, i8 %p_read_44, i8 %p_read_43, i8 %p_read_42, i8 %p_read_41, i8 %p_read_40, i8 %p_read_39, i8 %p_read_38, i8 %p_read_37, i8 %p_read_36, i8 %p_read_35, i8 %p_read_34, i8 %p_read_33, i8 %p_read_32, i8 %p_read_31, i4 8, i4 0" [source/aead.c:22]   --->   Operation 103 'call' 'N0' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 104 [1/2] (1.58ns)   --->   "%N1 = call i64 @LOADBYTES, i8 %p_read_46, i8 %p_read_45, i8 %p_read_44, i8 %p_read_43, i8 %p_read_42, i8 %p_read_41, i8 %p_read_40, i8 %p_read_39, i8 %p_read_38, i8 %p_read_37, i8 %p_read_36, i8 %p_read_35, i8 %p_read_34, i8 %p_read_33, i8 %p_read_32, i8 %p_read_31, i4 8, i4 8" [source/aead.c:23]   --->   Operation 104 'call' 'N1' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 105 [1/1] (4.95ns)   --->   "%call_ret1 = call i320 @ROUND.6, i64 9241399655273594880, i64 %K0, i64 %K1, i64 %N0, i64 %N1, i8 240" [source/permutations.h:12->source/aead.c:33]   --->   Operation 105 'call' 'call_ret1' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%s_0 = extractvalue i320 %call_ret1" [source/permutations.h:12->source/aead.c:33]   --->   Operation 106 'extractvalue' 's_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%s_1_1 = extractvalue i320 %call_ret1" [source/permutations.h:12->source/aead.c:33]   --->   Operation 107 'extractvalue' 's_1_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.00ns)   --->   "%s_2_1 = extractvalue i320 %call_ret1" [source/permutations.h:12->source/aead.c:33]   --->   Operation 108 'extractvalue' 's_2_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%s_3_1 = extractvalue i320 %call_ret1" [source/permutations.h:12->source/aead.c:33]   --->   Operation 109 'extractvalue' 's_3_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 110 [1/1] (0.00ns)   --->   "%s_4_1 = extractvalue i320 %call_ret1" [source/permutations.h:12->source/aead.c:33]   --->   Operation 110 'extractvalue' 's_4_1' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.95>
+ST_3 : Operation 111 [1/1] (4.95ns)   --->   "%call_ret2 = call i320 @ROUND.6, i64 %s_0, i64 %s_1_1, i64 %s_2_1, i64 %s_3_1, i64 %s_4_1, i8 225" [source/permutations.h:13->source/aead.c:33]   --->   Operation 111 'call' 'call_ret2' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%s_0_1 = extractvalue i320 %call_ret2" [source/permutations.h:13->source/aead.c:33]   --->   Operation 112 'extractvalue' 's_0_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%s_1_2 = extractvalue i320 %call_ret2" [source/permutations.h:13->source/aead.c:33]   --->   Operation 113 'extractvalue' 's_1_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%s_2_2 = extractvalue i320 %call_ret2" [source/permutations.h:13->source/aead.c:33]   --->   Operation 114 'extractvalue' 's_2_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%s_3_2 = extractvalue i320 %call_ret2" [source/permutations.h:13->source/aead.c:33]   --->   Operation 115 'extractvalue' 's_3_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%s_4_2 = extractvalue i320 %call_ret2" [source/permutations.h:13->source/aead.c:33]   --->   Operation 116 'extractvalue' 's_4_2' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 4.95>
+ST_4 : Operation 117 [1/1] (4.95ns)   --->   "%call_ret3 = call i320 @ROUND.6, i64 %s_0_1, i64 %s_1_2, i64 %s_2_2, i64 %s_3_2, i64 %s_4_2, i8 210" [source/permutations.h:14->source/aead.c:33]   --->   Operation 117 'call' 'call_ret3' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 118 [1/1] (0.00ns)   --->   "%s_0_2 = extractvalue i320 %call_ret3" [source/permutations.h:14->source/aead.c:33]   --->   Operation 118 'extractvalue' 's_0_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 119 [1/1] (0.00ns)   --->   "%s_1_3 = extractvalue i320 %call_ret3" [source/permutations.h:14->source/aead.c:33]   --->   Operation 119 'extractvalue' 's_1_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 120 [1/1] (0.00ns)   --->   "%s_2_3 = extractvalue i320 %call_ret3" [source/permutations.h:14->source/aead.c:33]   --->   Operation 120 'extractvalue' 's_2_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 121 [1/1] (0.00ns)   --->   "%s_3_3 = extractvalue i320 %call_ret3" [source/permutations.h:14->source/aead.c:33]   --->   Operation 121 'extractvalue' 's_3_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 122 [1/1] (0.00ns)   --->   "%s_4_3 = extractvalue i320 %call_ret3" [source/permutations.h:14->source/aead.c:33]   --->   Operation 122 'extractvalue' 's_4_3' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 4.95>
+ST_5 : Operation 123 [1/1] (4.95ns)   --->   "%call_ret4 = call i320 @ROUND.6, i64 %s_0_2, i64 %s_1_3, i64 %s_2_3, i64 %s_3_3, i64 %s_4_3, i8 195" [source/permutations.h:15->source/aead.c:33]   --->   Operation 123 'call' 'call_ret4' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 124 [1/1] (0.00ns)   --->   "%s_0_3 = extractvalue i320 %call_ret4" [source/permutations.h:15->source/aead.c:33]   --->   Operation 124 'extractvalue' 's_0_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 125 [1/1] (0.00ns)   --->   "%s_1_4 = extractvalue i320 %call_ret4" [source/permutations.h:15->source/aead.c:33]   --->   Operation 125 'extractvalue' 's_1_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 126 [1/1] (0.00ns)   --->   "%s_2_4 = extractvalue i320 %call_ret4" [source/permutations.h:15->source/aead.c:33]   --->   Operation 126 'extractvalue' 's_2_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 127 [1/1] (0.00ns)   --->   "%s_3_4 = extractvalue i320 %call_ret4" [source/permutations.h:15->source/aead.c:33]   --->   Operation 127 'extractvalue' 's_3_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 128 [1/1] (0.00ns)   --->   "%s_4_4 = extractvalue i320 %call_ret4" [source/permutations.h:15->source/aead.c:33]   --->   Operation 128 'extractvalue' 's_4_4' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 4.95>
+ST_6 : Operation 129 [1/1] (4.95ns)   --->   "%call_ret5 = call i320 @ROUND.6, i64 %s_0_3, i64 %s_1_4, i64 %s_2_4, i64 %s_3_4, i64 %s_4_4, i8 180" [source/permutations.h:16->source/aead.c:33]   --->   Operation 129 'call' 'call_ret5' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 130 [1/1] (0.00ns)   --->   "%s_0_4 = extractvalue i320 %call_ret5" [source/permutations.h:16->source/aead.c:33]   --->   Operation 130 'extractvalue' 's_0_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 131 [1/1] (0.00ns)   --->   "%s_1_5 = extractvalue i320 %call_ret5" [source/permutations.h:16->source/aead.c:33]   --->   Operation 131 'extractvalue' 's_1_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 132 [1/1] (0.00ns)   --->   "%s_2_5 = extractvalue i320 %call_ret5" [source/permutations.h:16->source/aead.c:33]   --->   Operation 132 'extractvalue' 's_2_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 133 [1/1] (0.00ns)   --->   "%s_3_5 = extractvalue i320 %call_ret5" [source/permutations.h:16->source/aead.c:33]   --->   Operation 133 'extractvalue' 's_3_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 134 [1/1] (0.00ns)   --->   "%s_4_5 = extractvalue i320 %call_ret5" [source/permutations.h:16->source/aead.c:33]   --->   Operation 134 'extractvalue' 's_4_5' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 4.95>
+ST_7 : Operation 135 [1/1] (4.95ns)   --->   "%call_ret6 = call i320 @ROUND.6, i64 %s_0_4, i64 %s_1_5, i64 %s_2_5, i64 %s_3_5, i64 %s_4_5, i8 165" [source/permutations.h:17->source/aead.c:33]   --->   Operation 135 'call' 'call_ret6' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_7 : Operation 136 [1/1] (0.00ns)   --->   "%s_0_5 = extractvalue i320 %call_ret6" [source/permutations.h:17->source/aead.c:33]   --->   Operation 136 'extractvalue' 's_0_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 137 [1/1] (0.00ns)   --->   "%s_1_6 = extractvalue i320 %call_ret6" [source/permutations.h:17->source/aead.c:33]   --->   Operation 137 'extractvalue' 's_1_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 138 [1/1] (0.00ns)   --->   "%s_2_6 = extractvalue i320 %call_ret6" [source/permutations.h:17->source/aead.c:33]   --->   Operation 138 'extractvalue' 's_2_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 139 [1/1] (0.00ns)   --->   "%s_3_6 = extractvalue i320 %call_ret6" [source/permutations.h:17->source/aead.c:33]   --->   Operation 139 'extractvalue' 's_3_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 140 [1/1] (0.00ns)   --->   "%s_4_6 = extractvalue i320 %call_ret6" [source/permutations.h:17->source/aead.c:33]   --->   Operation 140 'extractvalue' 's_4_6' <Predicate = true> <Delay = 0.00>
+
+State 8 <SV = 7> <Delay = 4.95>
+ST_8 : Operation 141 [1/1] (4.95ns)   --->   "%call_ret7 = call i320 @ROUND.6, i64 %s_0_5, i64 %s_1_6, i64 %s_2_6, i64 %s_3_6, i64 %s_4_6, i8 150" [source/permutations.h:18->source/aead.c:33]   --->   Operation 141 'call' 'call_ret7' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_8 : Operation 142 [1/1] (0.00ns)   --->   "%s_0_6 = extractvalue i320 %call_ret7" [source/permutations.h:18->source/aead.c:33]   --->   Operation 142 'extractvalue' 's_0_6' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 143 [1/1] (0.00ns)   --->   "%s_1_7 = extractvalue i320 %call_ret7" [source/permutations.h:18->source/aead.c:33]   --->   Operation 143 'extractvalue' 's_1_7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 144 [1/1] (0.00ns)   --->   "%s_2_7 = extractvalue i320 %call_ret7" [source/permutations.h:18->source/aead.c:33]   --->   Operation 144 'extractvalue' 's_2_7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 145 [1/1] (0.00ns)   --->   "%s_3_7 = extractvalue i320 %call_ret7" [source/permutations.h:18->source/aead.c:33]   --->   Operation 145 'extractvalue' 's_3_7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 146 [1/1] (0.00ns)   --->   "%s_4_7 = extractvalue i320 %call_ret7" [source/permutations.h:18->source/aead.c:33]   --->   Operation 146 'extractvalue' 's_4_7' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 8> <Delay = 4.95>
+ST_9 : Operation 147 [1/1] (4.95ns)   --->   "%call_ret8 = call i320 @ROUND.6, i64 %s_0_6, i64 %s_1_7, i64 %s_2_7, i64 %s_3_7, i64 %s_4_7, i8 135" [source/permutations.h:19->source/aead.c:33]   --->   Operation 147 'call' 'call_ret8' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_9 : Operation 148 [1/1] (0.00ns)   --->   "%s_0_7 = extractvalue i320 %call_ret8" [source/permutations.h:19->source/aead.c:33]   --->   Operation 148 'extractvalue' 's_0_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 149 [1/1] (0.00ns)   --->   "%s_1_8 = extractvalue i320 %call_ret8" [source/permutations.h:19->source/aead.c:33]   --->   Operation 149 'extractvalue' 's_1_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 150 [1/1] (0.00ns)   --->   "%s_2_8 = extractvalue i320 %call_ret8" [source/permutations.h:19->source/aead.c:33]   --->   Operation 150 'extractvalue' 's_2_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 151 [1/1] (0.00ns)   --->   "%s_3_8 = extractvalue i320 %call_ret8" [source/permutations.h:19->source/aead.c:33]   --->   Operation 151 'extractvalue' 's_3_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 152 [1/1] (0.00ns)   --->   "%s_4_8 = extractvalue i320 %call_ret8" [source/permutations.h:19->source/aead.c:33]   --->   Operation 152 'extractvalue' 's_4_8' <Predicate = true> <Delay = 0.00>
+
+State 10 <SV = 9> <Delay = 4.95>
+ST_10 : Operation 153 [1/1] (4.95ns)   --->   "%call_ret9 = call i320 @ROUND.6, i64 %s_0_7, i64 %s_1_8, i64 %s_2_8, i64 %s_3_8, i64 %s_4_8, i8 120" [source/permutations.h:20->source/aead.c:33]   --->   Operation 153 'call' 'call_ret9' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 154 [1/1] (0.00ns)   --->   "%s_0_8 = extractvalue i320 %call_ret9" [source/permutations.h:20->source/aead.c:33]   --->   Operation 154 'extractvalue' 's_0_8' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 155 [1/1] (0.00ns)   --->   "%s_1_9 = extractvalue i320 %call_ret9" [source/permutations.h:20->source/aead.c:33]   --->   Operation 155 'extractvalue' 's_1_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 156 [1/1] (0.00ns)   --->   "%s_2_9 = extractvalue i320 %call_ret9" [source/permutations.h:20->source/aead.c:33]   --->   Operation 156 'extractvalue' 's_2_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 157 [1/1] (0.00ns)   --->   "%s_3_9 = extractvalue i320 %call_ret9" [source/permutations.h:20->source/aead.c:33]   --->   Operation 157 'extractvalue' 's_3_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 158 [1/1] (0.00ns)   --->   "%s_4_9 = extractvalue i320 %call_ret9" [source/permutations.h:20->source/aead.c:33]   --->   Operation 158 'extractvalue' 's_4_9' <Predicate = true> <Delay = 0.00>
+
+State 11 <SV = 10> <Delay = 4.95>
+ST_11 : Operation 159 [1/1] (4.95ns)   --->   "%call_ret10 = call i320 @ROUND.6, i64 %s_0_8, i64 %s_1_9, i64 %s_2_9, i64 %s_3_9, i64 %s_4_9, i8 105" [source/permutations.h:21->source/aead.c:33]   --->   Operation 159 'call' 'call_ret10' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 160 [1/1] (0.00ns)   --->   "%s_0_9 = extractvalue i320 %call_ret10" [source/permutations.h:21->source/aead.c:33]   --->   Operation 160 'extractvalue' 's_0_9' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 161 [1/1] (0.00ns)   --->   "%s_1_10 = extractvalue i320 %call_ret10" [source/permutations.h:21->source/aead.c:33]   --->   Operation 161 'extractvalue' 's_1_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 162 [1/1] (0.00ns)   --->   "%s_2_10 = extractvalue i320 %call_ret10" [source/permutations.h:21->source/aead.c:33]   --->   Operation 162 'extractvalue' 's_2_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 163 [1/1] (0.00ns)   --->   "%s_3_11 = extractvalue i320 %call_ret10" [source/permutations.h:21->source/aead.c:33]   --->   Operation 163 'extractvalue' 's_3_11' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 164 [1/1] (0.00ns)   --->   "%s_4_10 = extractvalue i320 %call_ret10" [source/permutations.h:21->source/aead.c:33]   --->   Operation 164 'extractvalue' 's_4_10' <Predicate = true> <Delay = 0.00>
+
+State 12 <SV = 11> <Delay = 4.95>
+ST_12 : Operation 165 [1/1] (4.95ns)   --->   "%call_ret11 = call i320 @ROUND.6, i64 %s_0_9, i64 %s_1_10, i64 %s_2_10, i64 %s_3_11, i64 %s_4_10, i8 90" [source/permutations.h:22->source/aead.c:33]   --->   Operation 165 'call' 'call_ret11' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_12 : Operation 166 [1/1] (0.00ns)   --->   "%s_0_10 = extractvalue i320 %call_ret11" [source/permutations.h:22->source/aead.c:33]   --->   Operation 166 'extractvalue' 's_0_10' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 167 [1/1] (0.00ns)   --->   "%s_1_11 = extractvalue i320 %call_ret11" [source/permutations.h:22->source/aead.c:33]   --->   Operation 167 'extractvalue' 's_1_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 168 [1/1] (0.00ns)   --->   "%s_2_11 = extractvalue i320 %call_ret11" [source/permutations.h:22->source/aead.c:33]   --->   Operation 168 'extractvalue' 's_2_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 169 [1/1] (0.00ns)   --->   "%s_3_12 = extractvalue i320 %call_ret11" [source/permutations.h:22->source/aead.c:33]   --->   Operation 169 'extractvalue' 's_3_12' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 170 [1/1] (0.00ns)   --->   "%s_4_11 = extractvalue i320 %call_ret11" [source/permutations.h:22->source/aead.c:33]   --->   Operation 170 'extractvalue' 's_4_11' <Predicate = true> <Delay = 0.00>
+
+State 13 <SV = 12> <Delay = 6.53>
+ST_13 : Operation 171 [1/1] (4.95ns)   --->   "%call_ret12 = call i320 @ROUND.6, i64 %s_0_10, i64 %s_1_11, i64 %s_2_11, i64 %s_3_12, i64 %s_4_11, i8 75" [source/permutations.h:23->source/aead.c:33]   --->   Operation 171 'call' 'call_ret12' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_13 : Operation 172 [1/1] (0.00ns)   --->   "%s_0_11 = extractvalue i320 %call_ret12" [source/permutations.h:23->source/aead.c:33]   --->   Operation 172 'extractvalue' 's_0_11' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 173 [1/1] (0.00ns)   --->   "%s_1_12 = extractvalue i320 %call_ret12" [source/permutations.h:23->source/aead.c:33]   --->   Operation 173 'extractvalue' 's_1_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 174 [1/1] (0.00ns)   --->   "%s_2_12 = extractvalue i320 %call_ret12" [source/permutations.h:23->source/aead.c:33]   --->   Operation 174 'extractvalue' 's_2_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 175 [1/1] (0.00ns) (grouped into LUT with out node s_3_14)   --->   "%s_3_13 = extractvalue i320 %call_ret12" [source/permutations.h:23->source/aead.c:33]   --->   Operation 175 'extractvalue' 's_3_13' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 176 [1/1] (0.00ns) (grouped into LUT with out node s_4_13)   --->   "%s_4_12 = extractvalue i320 %call_ret12" [source/permutations.h:23->source/aead.c:33]   --->   Operation 176 'extractvalue' 's_4_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 177 [1/1] (0.99ns) (out node of the LUT)   --->   "%s_3_14 = xor i64 %s_3_13, i64 %K0" [source/aead.c:34]   --->   Operation 177 'xor' 's_3_14' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 178 [1/1] (0.99ns) (out node of the LUT)   --->   "%s_4_13 = xor i64 %s_4_12, i64 %K1" [source/aead.c:35]   --->   Operation 178 'xor' 's_4_13' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 179 [1/1] (1.58ns)   --->   "%store_ln23 = store i64 %s_2_12, i64 %s_2_0" [source/permutations.h:23->source/aead.c:33]   --->   Operation 179 'store' 'store_ln23' <Predicate = true> <Delay = 1.58>
+ST_13 : Operation 180 [1/1] (1.58ns)   --->   "%store_ln23 = store i64 %s_1_12, i64 %s_1_0" [source/permutations.h:23->source/aead.c:33]   --->   Operation 180 'store' 'store_ln23' <Predicate = true> <Delay = 1.58>
+ST_13 : Operation 181 [1/1] (1.58ns)   --->   "%store_ln23 = store i64 %s_0_11, i64 %s_0_0" [source/permutations.h:23->source/aead.c:33]   --->   Operation 181 'store' 'store_ln23' <Predicate = true> <Delay = 1.58>
+
+State 14 <SV = 13> <Delay = 1.58>
+ST_14 : Operation 182 [1/1] (0.00ns)   --->   "%p_read_47 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read32" [source/aead.c:20]   --->   Operation 182 'read' 'p_read_47' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 183 [1/1] (0.00ns)   --->   "%p_read_48 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read31" [source/aead.c:20]   --->   Operation 183 'read' 'p_read_48' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 184 [1/1] (0.00ns)   --->   "%p_read3039 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read30" [source/aead.c:20]   --->   Operation 184 'read' 'p_read3039' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 185 [1/1] (0.00ns)   --->   "%p_read_49 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read29" [source/aead.c:20]   --->   Operation 185 'read' 'p_read_49' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 186 [1/1] (0.00ns)   --->   "%p_read_50 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read28" [source/aead.c:20]   --->   Operation 186 'read' 'p_read_50' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 187 [1/1] (0.00ns)   --->   "%p_read_51 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read27" [source/aead.c:20]   --->   Operation 187 'read' 'p_read_51' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 188 [1/1] (0.00ns)   --->   "%p_read_52 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read26" [source/aead.c:20]   --->   Operation 188 'read' 'p_read_52' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 189 [1/1] (0.00ns)   --->   "%p_read_53 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read25" [source/aead.c:20]   --->   Operation 189 'read' 'p_read_53' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 190 [1/1] (0.00ns)   --->   "%p_read_54 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read24" [source/aead.c:20]   --->   Operation 190 'read' 'p_read_54' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 191 [1/1] (0.00ns)   --->   "%p_read_55 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read23" [source/aead.c:20]   --->   Operation 191 'read' 'p_read_55' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 192 [1/1] (0.00ns)   --->   "%p_read_56 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read22" [source/aead.c:20]   --->   Operation 192 'read' 'p_read_56' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 193 [1/1] (0.00ns)   --->   "%p_read_57 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read21" [source/aead.c:20]   --->   Operation 193 'read' 'p_read_57' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 194 [1/1] (0.00ns)   --->   "%p_read2029 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read20" [source/aead.c:20]   --->   Operation 194 'read' 'p_read2029' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 195 [1/1] (0.00ns)   --->   "%p_read_58 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read19" [source/aead.c:20]   --->   Operation 195 'read' 'p_read_58' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 196 [1/1] (0.00ns)   --->   "%p_read_59 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read18" [source/aead.c:20]   --->   Operation 196 'read' 'p_read_59' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 197 [1/1] (0.00ns)   --->   "%p_read_60 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read17" [source/aead.c:20]   --->   Operation 197 'read' 'p_read_60' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 198 [1/1] (0.00ns)   --->   "%p_read_61 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read16" [source/aead.c:20]   --->   Operation 198 'read' 'p_read_61' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 199 [1/1] (0.00ns)   --->   "%p_read_62 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read15" [source/aead.c:20]   --->   Operation 199 'read' 'p_read_62' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 200 [1/1] (0.00ns)   --->   "%p_read_63 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read14" [source/aead.c:20]   --->   Operation 200 'read' 'p_read_63' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 201 [1/1] (0.00ns)   --->   "%p_read_64 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read13" [source/aead.c:20]   --->   Operation 201 'read' 'p_read_64' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 202 [1/1] (0.00ns)   --->   "%p_read_65 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read12" [source/aead.c:20]   --->   Operation 202 'read' 'p_read_65' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 203 [1/1] (0.00ns)   --->   "%p_read_66 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read11" [source/aead.c:20]   --->   Operation 203 'read' 'p_read_66' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 204 [1/1] (0.00ns)   --->   "%p_read1019 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read10" [source/aead.c:20]   --->   Operation 204 'read' 'p_read1019' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 205 [1/1] (0.00ns)   --->   "%p_read918 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read9" [source/aead.c:20]   --->   Operation 205 'read' 'p_read918' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 206 [1/1] (0.00ns)   --->   "%p_read817 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read8" [source/aead.c:20]   --->   Operation 206 'read' 'p_read817' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 207 [1/1] (0.00ns)   --->   "%p_read716 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read7" [source/aead.c:20]   --->   Operation 207 'read' 'p_read716' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 208 [1/1] (0.00ns)   --->   "%p_read615 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read6" [source/aead.c:20]   --->   Operation 208 'read' 'p_read615' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 209 [1/1] (0.00ns)   --->   "%p_read514 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read5" [source/aead.c:20]   --->   Operation 209 'read' 'p_read514' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 210 [1/1] (0.00ns)   --->   "%p_read413 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read4" [source/aead.c:20]   --->   Operation 210 'read' 'p_read413' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 211 [1/1] (0.00ns)   --->   "%p_read312 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read3" [source/aead.c:20]   --->   Operation 211 'read' 'p_read312' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 212 [1/1] (0.00ns)   --->   "%p_read211 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read2" [source/aead.c:20]   --->   Operation 212 'read' 'p_read211' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 213 [1/1] (0.00ns)   --->   "%p_read110 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read1" [source/aead.c:20]   --->   Operation 213 'read' 'p_read110' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 214 [1/1] (1.58ns)   --->   "%store_ln35 = store i64 %s_4_13, i64 %s_4_0" [source/aead.c:35]   --->   Operation 214 'store' 'store_ln35' <Predicate = true> <Delay = 1.58>
+ST_14 : Operation 215 [1/1] (1.58ns)   --->   "%store_ln34 = store i64 %s_3_14, i64 %s_3_0" [source/aead.c:34]   --->   Operation 215 'store' 'store_ln34' <Predicate = true> <Delay = 1.58>
+ST_14 : Operation 216 [1/1] (0.00ns)   --->   "%br_ln40 = br void %do.end27" [source/aead.c:40]   --->   Operation 216 'br' 'br_ln40' <Predicate = true> <Delay = 0.00>
+
+State 15 <SV = 14> <Delay = 5.36>
+ST_15 : Operation 217 [1/1] (0.00ns)   --->   "%adlen_assign_load = load i5 %adlen_assign" [source/aead.c:45]   --->   Operation 217 'load' 'adlen_assign_load' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 218 [1/1] (0.00ns)   --->   "%tmp_4 = partselect i2 @_ssdm_op_PartSelect.i2.i5.i32.i32, i5 %adlen_assign_load, i32 3, i32 4" [source/aead.c:40]   --->   Operation 218 'partselect' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 219 [1/1] (1.56ns)   --->   "%icmp_ln40 = icmp_eq  i2 %tmp_4, i2 0" [source/aead.c:40]   --->   Operation 219 'icmp' 'icmp_ln40' <Predicate = true> <Delay = 1.56> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 220 [1/1] (0.00ns)   --->   "%br_ln40 = br i1 %icmp_ln40, void %do.end27.split, void %while.end" [source/aead.c:40]   --->   Operation 220 'br' 'br_ln40' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 221 [1/1] (0.00ns)   --->   "%idx_load = load i5 %idx" [source/aead.c:40]   --->   Operation 221 'load' 'idx_load' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 222 [1/1] (0.00ns)   --->   "%trunc_ln40 = trunc i5 %idx_load" [source/aead.c:40]   --->   Operation 222 'trunc' 'trunc_ln40' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 223 [2/2] (3.79ns)   --->   "%tmp = call i64 @LOADBYTES, i8 %p_read_60, i8 %p_read_59, i8 %p_read_58, i8 %p_read2029, i8 %p_read_57, i8 %p_read_56, i8 %p_read_55, i8 %p_read_54, i8 %p_read_53, i8 %p_read_52, i8 %p_read_51, i8 %p_read_50, i8 %p_read_49, i8 %p_read3039, i8 %p_read_48, i8 %p_read_47, i4 8, i4 %trunc_ln40" [source/aead.c:41]   --->   Operation 223 'call' 'tmp' <Predicate = (!icmp_ln40)> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 224 [1/1] (1.78ns)   --->   "%add_ln45 = add i5 %adlen_assign_load, i5 24" [source/aead.c:45]   --->   Operation 224 'add' 'add_ln45' <Predicate = (!icmp_ln40)> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 225 [1/1] (1.78ns)   --->   "%add_ln40 = add i5 %idx_load, i5 8" [source/aead.c:40]   --->   Operation 225 'add' 'add_ln40' <Predicate = (!icmp_ln40)> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 226 [1/1] (1.58ns)   --->   "%store_ln11 = store i5 %add_ln45, i5 %adlen_assign" [source/aead.c:11]   --->   Operation 226 'store' 'store_ln11' <Predicate = (!icmp_ln40)> <Delay = 1.58>
+ST_15 : Operation 227 [1/1] (1.58ns)   --->   "%store_ln40 = store i5 %add_ln40, i5 %idx" [source/aead.c:40]   --->   Operation 227 'store' 'store_ln40' <Predicate = (!icmp_ln40)> <Delay = 1.58>
+ST_15 : Operation 228 [1/1] (0.00ns)   --->   "%idx53 = alloca i32 1"   --->   Operation 228 'alloca' 'idx53' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 229 [1/1] (0.00ns)   --->   "%mlen_assign = alloca i32 1" [source/aead.c:10]   --->   Operation 229 'alloca' 'mlen_assign' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 230 [1/1] (0.00ns)   --->   "%s_0_1_26 = alloca i32 1"   --->   Operation 230 'alloca' 's_0_1_26' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 231 [1/1] (0.00ns)   --->   "%s_1_1_27 = alloca i32 1"   --->   Operation 231 'alloca' 's_1_1_27' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 232 [1/1] (0.00ns)   --->   "%s_2_1_28 = alloca i32 1"   --->   Operation 232 'alloca' 's_2_1_28' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 233 [1/1] (0.00ns)   --->   "%s_3_1_29 = alloca i32 1"   --->   Operation 233 'alloca' 's_3_1_29' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 234 [1/1] (0.00ns)   --->   "%s_4_1_30 = alloca i32 1"   --->   Operation 234 'alloca' 's_4_1_30' <Predicate = (icmp_ln40)> <Delay = 0.00>
+ST_15 : Operation 235 [2/2] (3.79ns)   --->   "%tmp_1 = call i64 @LOADBYTES, i8 %p_read_60, i8 %p_read_59, i8 %p_read_58, i8 %p_read2029, i8 %p_read_57, i8 %p_read_56, i8 %p_read_55, i8 %p_read_54, i8 %p_read_53, i8 %p_read_52, i8 %p_read_51, i8 %p_read_50, i8 %p_read_49, i8 %p_read3039, i8 %p_read_48, i8 %p_read_47, i4 0, i4 0" [source/aead.c:48]   --->   Operation 235 'call' 'tmp_1' <Predicate = (icmp_ln40)> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 236 [1/1] (1.58ns)   --->   "%store_ln0 = store i5 0, i5 %idx53"   --->   Operation 236 'store' 'store_ln0' <Predicate = (icmp_ln40)> <Delay = 1.58>
+
+State 16 <SV = 15> <Delay = 1.58>
+ST_16 : Operation 237 [1/2] (1.58ns)   --->   "%tmp = call i64 @LOADBYTES, i8 %p_read_60, i8 %p_read_59, i8 %p_read_58, i8 %p_read2029, i8 %p_read_57, i8 %p_read_56, i8 %p_read_55, i8 %p_read_54, i8 %p_read_53, i8 %p_read_52, i8 %p_read_51, i8 %p_read_50, i8 %p_read_49, i8 %p_read3039, i8 %p_read_48, i8 %p_read_47, i4 8, i4 %trunc_ln40" [source/aead.c:41]   --->   Operation 237 'call' 'tmp' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 17 <SV = 16> <Delay = 5.94>
+ST_17 : Operation 238 [1/1] (0.00ns)   --->   "%s_0_0_load = load i64 %s_0_0" [source/aead.c:41]   --->   Operation 238 'load' 's_0_0_load' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 239 [1/1] (0.00ns)   --->   "%s_1_0_load_1 = load i64 %s_1_0" [source/permutations.h:38->source/aead.c:43]   --->   Operation 239 'load' 's_1_0_load_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 240 [1/1] (0.00ns)   --->   "%s_2_0_load_1 = load i64 %s_2_0" [source/permutations.h:38->source/aead.c:43]   --->   Operation 240 'load' 's_2_0_load_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 241 [1/1] (0.00ns)   --->   "%s_3_0_load_1 = load i64 %s_3_0" [source/permutations.h:38->source/aead.c:43]   --->   Operation 241 'load' 's_3_0_load_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 242 [1/1] (0.00ns)   --->   "%s_4_0_load_1 = load i64 %s_4_0" [source/permutations.h:38->source/aead.c:43]   --->   Operation 242 'load' 's_4_0_load_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 243 [1/1] (0.99ns)   --->   "%s_0_45 = xor i64 %s_0_0_load, i64 %tmp" [source/aead.c:41]   --->   Operation 243 'xor' 's_0_45' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 244 [1/1] (4.95ns)   --->   "%call_ret13 = call i320 @ROUND.6, i64 %s_0_45, i64 %s_1_0_load_1, i64 %s_2_0_load_1, i64 %s_3_0_load_1, i64 %s_4_0_load_1, i8 150" [source/permutations.h:38->source/aead.c:43]   --->   Operation 244 'call' 'call_ret13' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_17 : Operation 245 [1/1] (0.00ns)   --->   "%s_0_46 = extractvalue i320 %call_ret13" [source/permutations.h:38->source/aead.c:43]   --->   Operation 245 'extractvalue' 's_0_46' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 246 [1/1] (0.00ns)   --->   "%s_1_43 = extractvalue i320 %call_ret13" [source/permutations.h:38->source/aead.c:43]   --->   Operation 246 'extractvalue' 's_1_43' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 247 [1/1] (0.00ns)   --->   "%s_2_43 = extractvalue i320 %call_ret13" [source/permutations.h:38->source/aead.c:43]   --->   Operation 247 'extractvalue' 's_2_43' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 248 [1/1] (0.00ns)   --->   "%s_3_45 = extractvalue i320 %call_ret13" [source/permutations.h:38->source/aead.c:43]   --->   Operation 248 'extractvalue' 's_3_45' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 249 [1/1] (0.00ns)   --->   "%s_4_45 = extractvalue i320 %call_ret13" [source/permutations.h:38->source/aead.c:43]   --->   Operation 249 'extractvalue' 's_4_45' <Predicate = true> <Delay = 0.00>
+
+State 18 <SV = 17> <Delay = 4.95>
+ST_18 : Operation 250 [1/1] (4.95ns)   --->   "%call_ret14 = call i320 @ROUND.6, i64 %s_0_46, i64 %s_1_43, i64 %s_2_43, i64 %s_3_45, i64 %s_4_45, i8 135" [source/permutations.h:39->source/aead.c:43]   --->   Operation 250 'call' 'call_ret14' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 251 [1/1] (0.00ns)   --->   "%s_0_47 = extractvalue i320 %call_ret14" [source/permutations.h:39->source/aead.c:43]   --->   Operation 251 'extractvalue' 's_0_47' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 252 [1/1] (0.00ns)   --->   "%s_1_44 = extractvalue i320 %call_ret14" [source/permutations.h:39->source/aead.c:43]   --->   Operation 252 'extractvalue' 's_1_44' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 253 [1/1] (0.00ns)   --->   "%s_2_44 = extractvalue i320 %call_ret14" [source/permutations.h:39->source/aead.c:43]   --->   Operation 253 'extractvalue' 's_2_44' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 254 [1/1] (0.00ns)   --->   "%s_3_46 = extractvalue i320 %call_ret14" [source/permutations.h:39->source/aead.c:43]   --->   Operation 254 'extractvalue' 's_3_46' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 255 [1/1] (0.00ns)   --->   "%s_4_46 = extractvalue i320 %call_ret14" [source/permutations.h:39->source/aead.c:43]   --->   Operation 255 'extractvalue' 's_4_46' <Predicate = true> <Delay = 0.00>
+
+State 19 <SV = 18> <Delay = 4.95>
+ST_19 : Operation 256 [1/1] (4.95ns)   --->   "%call_ret15 = call i320 @ROUND.6, i64 %s_0_47, i64 %s_1_44, i64 %s_2_44, i64 %s_3_46, i64 %s_4_46, i8 120" [source/permutations.h:40->source/aead.c:43]   --->   Operation 256 'call' 'call_ret15' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_19 : Operation 257 [1/1] (0.00ns)   --->   "%s_0_48 = extractvalue i320 %call_ret15" [source/permutations.h:40->source/aead.c:43]   --->   Operation 257 'extractvalue' 's_0_48' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 258 [1/1] (0.00ns)   --->   "%s_1_45 = extractvalue i320 %call_ret15" [source/permutations.h:40->source/aead.c:43]   --->   Operation 258 'extractvalue' 's_1_45' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 259 [1/1] (0.00ns)   --->   "%s_2_45 = extractvalue i320 %call_ret15" [source/permutations.h:40->source/aead.c:43]   --->   Operation 259 'extractvalue' 's_2_45' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 260 [1/1] (0.00ns)   --->   "%s_3_47 = extractvalue i320 %call_ret15" [source/permutations.h:40->source/aead.c:43]   --->   Operation 260 'extractvalue' 's_3_47' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 261 [1/1] (0.00ns)   --->   "%s_4_47 = extractvalue i320 %call_ret15" [source/permutations.h:40->source/aead.c:43]   --->   Operation 261 'extractvalue' 's_4_47' <Predicate = true> <Delay = 0.00>
+
+State 20 <SV = 19> <Delay = 4.95>
+ST_20 : Operation 262 [1/1] (4.95ns)   --->   "%call_ret16 = call i320 @ROUND.6, i64 %s_0_48, i64 %s_1_45, i64 %s_2_45, i64 %s_3_47, i64 %s_4_47, i8 105" [source/permutations.h:41->source/aead.c:43]   --->   Operation 262 'call' 'call_ret16' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_20 : Operation 263 [1/1] (0.00ns)   --->   "%s_0_49 = extractvalue i320 %call_ret16" [source/permutations.h:41->source/aead.c:43]   --->   Operation 263 'extractvalue' 's_0_49' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 264 [1/1] (0.00ns)   --->   "%s_1_46 = extractvalue i320 %call_ret16" [source/permutations.h:41->source/aead.c:43]   --->   Operation 264 'extractvalue' 's_1_46' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 265 [1/1] (0.00ns)   --->   "%s_2_46 = extractvalue i320 %call_ret16" [source/permutations.h:41->source/aead.c:43]   --->   Operation 265 'extractvalue' 's_2_46' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 266 [1/1] (0.00ns)   --->   "%s_3_48 = extractvalue i320 %call_ret16" [source/permutations.h:41->source/aead.c:43]   --->   Operation 266 'extractvalue' 's_3_48' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 267 [1/1] (0.00ns)   --->   "%s_4_48 = extractvalue i320 %call_ret16" [source/permutations.h:41->source/aead.c:43]   --->   Operation 267 'extractvalue' 's_4_48' <Predicate = true> <Delay = 0.00>
+
+State 21 <SV = 20> <Delay = 4.95>
+ST_21 : Operation 268 [1/1] (4.95ns)   --->   "%call_ret17 = call i320 @ROUND.6, i64 %s_0_49, i64 %s_1_46, i64 %s_2_46, i64 %s_3_48, i64 %s_4_48, i8 90" [source/permutations.h:42->source/aead.c:43]   --->   Operation 268 'call' 'call_ret17' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_21 : Operation 269 [1/1] (0.00ns)   --->   "%s_0_50 = extractvalue i320 %call_ret17" [source/permutations.h:42->source/aead.c:43]   --->   Operation 269 'extractvalue' 's_0_50' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 270 [1/1] (0.00ns)   --->   "%s_1_47 = extractvalue i320 %call_ret17" [source/permutations.h:42->source/aead.c:43]   --->   Operation 270 'extractvalue' 's_1_47' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 271 [1/1] (0.00ns)   --->   "%s_2_47 = extractvalue i320 %call_ret17" [source/permutations.h:42->source/aead.c:43]   --->   Operation 271 'extractvalue' 's_2_47' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 272 [1/1] (0.00ns)   --->   "%s_3_49 = extractvalue i320 %call_ret17" [source/permutations.h:42->source/aead.c:43]   --->   Operation 272 'extractvalue' 's_3_49' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 273 [1/1] (0.00ns)   --->   "%s_4_49 = extractvalue i320 %call_ret17" [source/permutations.h:42->source/aead.c:43]   --->   Operation 273 'extractvalue' 's_4_49' <Predicate = true> <Delay = 0.00>
+
+State 22 <SV = 21> <Delay = 6.53>
+ST_22 : Operation 274 [1/1] (0.00ns)   --->   "%speclooptripcount_ln11 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2" [source/aead.c:11]   --->   Operation 274 'speclooptripcount' 'speclooptripcount_ln11' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 275 [1/1] (0.00ns)   --->   "%specloopname_ln40 = specloopname void @_ssdm_op_SpecLoopName, void @empty_18" [source/aead.c:40]   --->   Operation 275 'specloopname' 'specloopname_ln40' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 276 [1/1] (4.95ns)   --->   "%call_ret18 = call i320 @ROUND.6, i64 %s_0_50, i64 %s_1_47, i64 %s_2_47, i64 %s_3_49, i64 %s_4_49, i8 75" [source/permutations.h:43->source/aead.c:43]   --->   Operation 276 'call' 'call_ret18' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_22 : Operation 277 [1/1] (0.00ns)   --->   "%s_0_51 = extractvalue i320 %call_ret18" [source/permutations.h:43->source/aead.c:43]   --->   Operation 277 'extractvalue' 's_0_51' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 278 [1/1] (0.00ns)   --->   "%s_1_48 = extractvalue i320 %call_ret18" [source/permutations.h:43->source/aead.c:43]   --->   Operation 278 'extractvalue' 's_1_48' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 279 [1/1] (0.00ns)   --->   "%s_2_48 = extractvalue i320 %call_ret18" [source/permutations.h:43->source/aead.c:43]   --->   Operation 279 'extractvalue' 's_2_48' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 280 [1/1] (0.00ns)   --->   "%s_3_50 = extractvalue i320 %call_ret18" [source/permutations.h:43->source/aead.c:43]   --->   Operation 280 'extractvalue' 's_3_50' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 281 [1/1] (0.00ns)   --->   "%s_4_50 = extractvalue i320 %call_ret18" [source/permutations.h:43->source/aead.c:43]   --->   Operation 281 'extractvalue' 's_4_50' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 282 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_4_50, i64 %s_4_0" [source/permutations.h:43->source/aead.c:43]   --->   Operation 282 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_22 : Operation 283 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_3_50, i64 %s_3_0" [source/permutations.h:43->source/aead.c:43]   --->   Operation 283 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_22 : Operation 284 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_2_48, i64 %s_2_0" [source/permutations.h:43->source/aead.c:43]   --->   Operation 284 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_22 : Operation 285 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_1_48, i64 %s_1_0" [source/permutations.h:43->source/aead.c:43]   --->   Operation 285 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_22 : Operation 286 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_0_51, i64 %s_0_0" [source/permutations.h:43->source/aead.c:43]   --->   Operation 286 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_22 : Operation 287 [1/1] (0.00ns)   --->   "%br_ln40 = br void %do.end27" [source/aead.c:40]   --->   Operation 287 'br' 'br_ln40' <Predicate = true> <Delay = 0.00>
+
+State 23 <SV = 15> <Delay = 1.58>
+ST_23 : Operation 288 [1/2] (1.58ns)   --->   "%tmp_1 = call i64 @LOADBYTES, i8 %p_read_60, i8 %p_read_59, i8 %p_read_58, i8 %p_read2029, i8 %p_read_57, i8 %p_read_56, i8 %p_read_55, i8 %p_read_54, i8 %p_read_53, i8 %p_read_52, i8 %p_read_51, i8 %p_read_50, i8 %p_read_49, i8 %p_read3039, i8 %p_read_48, i8 %p_read_47, i4 0, i4 0" [source/aead.c:48]   --->   Operation 288 'call' 'tmp_1' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 24 <SV = 16> <Delay = 5.94>
+ST_24 : Operation 289 [1/1] (0.00ns)   --->   "%s_0_0_load_1 = load i64 %s_0_0" [source/aead.c:49]   --->   Operation 289 'load' 's_0_0_load_1' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 290 [1/1] (0.00ns)   --->   "%s_1_0_load = load i64 %s_1_0" [source/permutations.h:38->source/aead.c:51]   --->   Operation 290 'load' 's_1_0_load' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 291 [1/1] (0.00ns)   --->   "%s_2_0_load = load i64 %s_2_0" [source/permutations.h:38->source/aead.c:51]   --->   Operation 291 'load' 's_2_0_load' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 292 [1/1] (0.00ns)   --->   "%s_3_0_load = load i64 %s_3_0" [source/permutations.h:38->source/aead.c:51]   --->   Operation 292 'load' 's_3_0_load' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 293 [1/1] (0.00ns)   --->   "%s_4_0_load = load i64 %s_4_0" [source/permutations.h:38->source/aead.c:51]   --->   Operation 293 'load' 's_4_0_load' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 294 [1/1] (0.00ns) (grouped into LUT with out node s_0_19)   --->   "%xor_ln49 = xor i64 %tmp_1, i64 %s_0_0_load_1" [source/aead.c:49]   --->   Operation 294 'xor' 'xor_ln49' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 295 [1/1] (0.99ns) (out node of the LUT)   --->   "%s_0_19 = xor i64 %xor_ln49, i64 9223372036854775808" [source/aead.c:49]   --->   Operation 295 'xor' 's_0_19' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 296 [1/1] (4.95ns)   --->   "%call_ret19 = call i320 @ROUND.6, i64 %s_0_19, i64 %s_1_0_load, i64 %s_2_0_load, i64 %s_3_0_load, i64 %s_4_0_load, i8 150" [source/permutations.h:38->source/aead.c:51]   --->   Operation 296 'call' 'call_ret19' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_24 : Operation 297 [1/1] (0.00ns)   --->   "%s_0_20 = extractvalue i320 %call_ret19" [source/permutations.h:38->source/aead.c:51]   --->   Operation 297 'extractvalue' 's_0_20' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 298 [1/1] (0.00ns)   --->   "%s_1_19 = extractvalue i320 %call_ret19" [source/permutations.h:38->source/aead.c:51]   --->   Operation 298 'extractvalue' 's_1_19' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 299 [1/1] (0.00ns)   --->   "%s_2_19 = extractvalue i320 %call_ret19" [source/permutations.h:38->source/aead.c:51]   --->   Operation 299 'extractvalue' 's_2_19' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 300 [1/1] (0.00ns)   --->   "%s_3_21 = extractvalue i320 %call_ret19" [source/permutations.h:38->source/aead.c:51]   --->   Operation 300 'extractvalue' 's_3_21' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 301 [1/1] (0.00ns)   --->   "%s_4_20 = extractvalue i320 %call_ret19" [source/permutations.h:38->source/aead.c:51]   --->   Operation 301 'extractvalue' 's_4_20' <Predicate = true> <Delay = 0.00>
+
+State 25 <SV = 17> <Delay = 4.95>
+ST_25 : Operation 302 [1/1] (4.95ns)   --->   "%call_ret20 = call i320 @ROUND.6, i64 %s_0_20, i64 %s_1_19, i64 %s_2_19, i64 %s_3_21, i64 %s_4_20, i8 135" [source/permutations.h:39->source/aead.c:51]   --->   Operation 302 'call' 'call_ret20' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_25 : Operation 303 [1/1] (0.00ns)   --->   "%s_0_21 = extractvalue i320 %call_ret20" [source/permutations.h:39->source/aead.c:51]   --->   Operation 303 'extractvalue' 's_0_21' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 304 [1/1] (0.00ns)   --->   "%s_1_20 = extractvalue i320 %call_ret20" [source/permutations.h:39->source/aead.c:51]   --->   Operation 304 'extractvalue' 's_1_20' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 305 [1/1] (0.00ns)   --->   "%s_2_20 = extractvalue i320 %call_ret20" [source/permutations.h:39->source/aead.c:51]   --->   Operation 305 'extractvalue' 's_2_20' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 306 [1/1] (0.00ns)   --->   "%s_3_22 = extractvalue i320 %call_ret20" [source/permutations.h:39->source/aead.c:51]   --->   Operation 306 'extractvalue' 's_3_22' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 307 [1/1] (0.00ns)   --->   "%s_4_21 = extractvalue i320 %call_ret20" [source/permutations.h:39->source/aead.c:51]   --->   Operation 307 'extractvalue' 's_4_21' <Predicate = true> <Delay = 0.00>
+
+State 26 <SV = 18> <Delay = 4.95>
+ST_26 : Operation 308 [1/1] (4.95ns)   --->   "%call_ret21 = call i320 @ROUND.6, i64 %s_0_21, i64 %s_1_20, i64 %s_2_20, i64 %s_3_22, i64 %s_4_21, i8 120" [source/permutations.h:40->source/aead.c:51]   --->   Operation 308 'call' 'call_ret21' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_26 : Operation 309 [1/1] (0.00ns)   --->   "%s_0_22 = extractvalue i320 %call_ret21" [source/permutations.h:40->source/aead.c:51]   --->   Operation 309 'extractvalue' 's_0_22' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 310 [1/1] (0.00ns)   --->   "%s_1_21 = extractvalue i320 %call_ret21" [source/permutations.h:40->source/aead.c:51]   --->   Operation 310 'extractvalue' 's_1_21' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 311 [1/1] (0.00ns)   --->   "%s_2_21 = extractvalue i320 %call_ret21" [source/permutations.h:40->source/aead.c:51]   --->   Operation 311 'extractvalue' 's_2_21' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 312 [1/1] (0.00ns)   --->   "%s_3_23 = extractvalue i320 %call_ret21" [source/permutations.h:40->source/aead.c:51]   --->   Operation 312 'extractvalue' 's_3_23' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 313 [1/1] (0.00ns)   --->   "%s_4_22 = extractvalue i320 %call_ret21" [source/permutations.h:40->source/aead.c:51]   --->   Operation 313 'extractvalue' 's_4_22' <Predicate = true> <Delay = 0.00>
+
+State 27 <SV = 19> <Delay = 4.95>
+ST_27 : Operation 314 [1/1] (4.95ns)   --->   "%call_ret22 = call i320 @ROUND.6, i64 %s_0_22, i64 %s_1_21, i64 %s_2_21, i64 %s_3_23, i64 %s_4_22, i8 105" [source/permutations.h:41->source/aead.c:51]   --->   Operation 314 'call' 'call_ret22' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_27 : Operation 315 [1/1] (0.00ns)   --->   "%s_0_23 = extractvalue i320 %call_ret22" [source/permutations.h:41->source/aead.c:51]   --->   Operation 315 'extractvalue' 's_0_23' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 316 [1/1] (0.00ns)   --->   "%s_1_22 = extractvalue i320 %call_ret22" [source/permutations.h:41->source/aead.c:51]   --->   Operation 316 'extractvalue' 's_1_22' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 317 [1/1] (0.00ns)   --->   "%s_2_22 = extractvalue i320 %call_ret22" [source/permutations.h:41->source/aead.c:51]   --->   Operation 317 'extractvalue' 's_2_22' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 318 [1/1] (0.00ns)   --->   "%s_3_24 = extractvalue i320 %call_ret22" [source/permutations.h:41->source/aead.c:51]   --->   Operation 318 'extractvalue' 's_3_24' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 319 [1/1] (0.00ns)   --->   "%s_4_23 = extractvalue i320 %call_ret22" [source/permutations.h:41->source/aead.c:51]   --->   Operation 319 'extractvalue' 's_4_23' <Predicate = true> <Delay = 0.00>
+
+State 28 <SV = 20> <Delay = 4.95>
+ST_28 : Operation 320 [1/1] (4.95ns)   --->   "%call_ret23 = call i320 @ROUND.6, i64 %s_0_23, i64 %s_1_22, i64 %s_2_22, i64 %s_3_24, i64 %s_4_23, i8 90" [source/permutations.h:42->source/aead.c:51]   --->   Operation 320 'call' 'call_ret23' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_28 : Operation 321 [1/1] (0.00ns)   --->   "%s_0_24 = extractvalue i320 %call_ret23" [source/permutations.h:42->source/aead.c:51]   --->   Operation 321 'extractvalue' 's_0_24' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 322 [1/1] (0.00ns)   --->   "%s_1_23 = extractvalue i320 %call_ret23" [source/permutations.h:42->source/aead.c:51]   --->   Operation 322 'extractvalue' 's_1_23' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 323 [1/1] (0.00ns)   --->   "%s_2_23 = extractvalue i320 %call_ret23" [source/permutations.h:42->source/aead.c:51]   --->   Operation 323 'extractvalue' 's_2_23' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 324 [1/1] (0.00ns)   --->   "%s_3_25 = extractvalue i320 %call_ret23" [source/permutations.h:42->source/aead.c:51]   --->   Operation 324 'extractvalue' 's_3_25' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 325 [1/1] (0.00ns)   --->   "%s_4_24 = extractvalue i320 %call_ret23" [source/permutations.h:42->source/aead.c:51]   --->   Operation 325 'extractvalue' 's_4_24' <Predicate = true> <Delay = 0.00>
+
+State 29 <SV = 21> <Delay = 6.53>
+ST_29 : Operation 326 [1/1] (4.95ns)   --->   "%call_ret24 = call i320 @ROUND.6, i64 %s_0_24, i64 %s_1_23, i64 %s_2_23, i64 %s_3_25, i64 %s_4_24, i8 75" [source/permutations.h:43->source/aead.c:51]   --->   Operation 326 'call' 'call_ret24' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_29 : Operation 327 [1/1] (0.00ns)   --->   "%s_0_25 = extractvalue i320 %call_ret24" [source/permutations.h:43->source/aead.c:51]   --->   Operation 327 'extractvalue' 's_0_25' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 328 [1/1] (0.00ns)   --->   "%s_1_24 = extractvalue i320 %call_ret24" [source/permutations.h:43->source/aead.c:51]   --->   Operation 328 'extractvalue' 's_1_24' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 329 [1/1] (0.00ns)   --->   "%s_2_24 = extractvalue i320 %call_ret24" [source/permutations.h:43->source/aead.c:51]   --->   Operation 329 'extractvalue' 's_2_24' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 330 [1/1] (0.00ns)   --->   "%s_3_26 = extractvalue i320 %call_ret24" [source/permutations.h:43->source/aead.c:51]   --->   Operation 330 'extractvalue' 's_3_26' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 331 [1/1] (0.00ns) (grouped into LUT with out node s_4_26)   --->   "%s_4_25 = extractvalue i320 %call_ret24" [source/permutations.h:43->source/aead.c:51]   --->   Operation 331 'extractvalue' 's_4_25' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 332 [1/1] (0.99ns) (out node of the LUT)   --->   "%s_4_26 = xor i64 %s_4_25, i64 1" [source/aead.c:54]   --->   Operation 332 'xor' 's_4_26' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 333 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_3_26, i64 %s_3_1_29" [source/permutations.h:43->source/aead.c:51]   --->   Operation 333 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_29 : Operation 334 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_2_24, i64 %s_2_1_28" [source/permutations.h:43->source/aead.c:51]   --->   Operation 334 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_29 : Operation 335 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_1_24, i64 %s_1_1_27" [source/permutations.h:43->source/aead.c:51]   --->   Operation 335 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_29 : Operation 336 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_0_25, i64 %s_0_1_26" [source/permutations.h:43->source/aead.c:51]   --->   Operation 336 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+
+State 30 <SV = 22> <Delay = 1.58>
+ST_30 : Operation 337 [1/1] (1.58ns)   --->   "%store_ln54 = store i64 %s_4_26, i64 %s_4_1_30" [source/aead.c:54]   --->   Operation 337 'store' 'store_ln54' <Predicate = true> <Delay = 1.58>
+ST_30 : Operation 338 [1/1] (1.58ns)   --->   "%store_ln10 = store i5 16, i5 %mlen_assign" [source/aead.c:10]   --->   Operation 338 'store' 'store_ln10' <Predicate = true> <Delay = 1.58>
+ST_30 : Operation 339 [1/1] (0.00ns)   --->   "%br_ln58 = br void %do.end57" [source/aead.c:58]   --->   Operation 339 'br' 'br_ln58' <Predicate = true> <Delay = 0.00>
+
+State 31 <SV = 23> <Delay = 5.36>
+ST_31 : Operation 340 [1/1] (0.00ns)   --->   "%idx53_load = load i5 %idx53" [source/aead.c:58]   --->   Operation 340 'load' 'idx53_load' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 341 [1/1] (0.00ns)   --->   "%mlen_assign_load = load i5 %mlen_assign" [source/aead.c:65]   --->   Operation 341 'load' 'mlen_assign_load' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 342 [1/1] (0.00ns)   --->   "%trunc_ln58 = trunc i5 %idx53_load" [source/aead.c:58]   --->   Operation 342 'trunc' 'trunc_ln58' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 343 [1/1] (0.00ns)   --->   "%tmp_5 = partselect i2 @_ssdm_op_PartSelect.i2.i5.i32.i32, i5 %mlen_assign_load, i32 3, i32 4" [source/aead.c:58]   --->   Operation 343 'partselect' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 344 [1/1] (1.56ns)   --->   "%icmp_ln58 = icmp_eq  i2 %tmp_5, i2 0" [source/aead.c:58]   --->   Operation 344 'icmp' 'icmp_ln58' <Predicate = true> <Delay = 1.56> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 345 [1/1] (0.00ns)   --->   "%br_ln58 = br i1 %icmp_ln58, void %do.end57.split, void %while.end61" [source/aead.c:58]   --->   Operation 345 'br' 'br_ln58' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 346 [2/2] (3.79ns)   --->   "%tmp_2 = call i64 @LOADBYTES, i8 %p_read110, i8 %p_read211, i8 %p_read312, i8 %p_read413, i8 %p_read514, i8 %p_read615, i8 %p_read716, i8 %p_read817, i8 %p_read918, i8 %p_read1019, i8 %p_read_66, i8 %p_read_65, i8 %p_read_64, i8 %p_read_63, i8 %p_read_62, i8 %p_read_61, i4 8, i4 %trunc_ln58" [source/aead.c:59]   --->   Operation 346 'call' 'tmp_2' <Predicate = (!icmp_ln58)> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_31 : Operation 347 [1/1] (1.78ns)   --->   "%add_ln65 = add i5 %mlen_assign_load, i5 24" [source/aead.c:65]   --->   Operation 347 'add' 'add_ln65' <Predicate = (!icmp_ln58)> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 348 [1/1] (1.78ns)   --->   "%add_ln58 = add i5 %idx53_load, i5 8" [source/aead.c:58]   --->   Operation 348 'add' 'add_ln58' <Predicate = (!icmp_ln58)> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 349 [1/1] (1.58ns)   --->   "%store_ln10 = store i5 %add_ln65, i5 %mlen_assign" [source/aead.c:10]   --->   Operation 349 'store' 'store_ln10' <Predicate = (!icmp_ln58)> <Delay = 1.58>
+ST_31 : Operation 350 [1/1] (1.58ns)   --->   "%store_ln58 = store i5 %add_ln58, i5 %idx53" [source/aead.c:58]   --->   Operation 350 'store' 'store_ln58' <Predicate = (!icmp_ln58)> <Delay = 1.58>
+ST_31 : Operation 351 [2/2] (3.79ns)   --->   "%tmp_3 = call i64 @LOADBYTES, i8 %p_read110, i8 %p_read211, i8 %p_read312, i8 %p_read413, i8 %p_read514, i8 %p_read615, i8 %p_read716, i8 %p_read817, i8 %p_read918, i8 %p_read1019, i8 %p_read_66, i8 %p_read_65, i8 %p_read_64, i8 %p_read_63, i8 %p_read_62, i8 %p_read_61, i4 0, i4 0" [source/aead.c:68]   --->   Operation 351 'call' 'tmp_3' <Predicate = (icmp_ln58)> <Delay = 3.79> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 32 <SV = 24> <Delay = 7.17>
+ST_32 : Operation 352 [1/1] (0.00ns)   --->   "%s_0_1_load = load i64 %s_0_1_26" [source/aead.c:59]   --->   Operation 352 'load' 's_0_1_load' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 353 [1/2] (1.58ns)   --->   "%tmp_2 = call i64 @LOADBYTES, i8 %p_read110, i8 %p_read211, i8 %p_read312, i8 %p_read413, i8 %p_read514, i8 %p_read615, i8 %p_read716, i8 %p_read817, i8 %p_read918, i8 %p_read1019, i8 %p_read_66, i8 %p_read_65, i8 %p_read_64, i8 %p_read_63, i8 %p_read_62, i8 %p_read_61, i4 8, i4 %trunc_ln58" [source/aead.c:59]   --->   Operation 353 'call' 'tmp_2' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_32 : Operation 354 [1/1] (0.99ns)   --->   "%s_0_64 = xor i64 %s_0_1_load, i64 %tmp_2" [source/aead.c:59]   --->   Operation 354 'xor' 's_0_64' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 355 [2/2] (4.59ns)   --->   "%call_ln59 = call void @crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1, i8 %c_3, i8 %c_2, i8 %c_1, i8 %c_0, i64 %s_0_64, i4 %trunc_ln58" [source/aead.c:59]   --->   Operation 355 'call' 'call_ln59' <Predicate = true> <Delay = 4.59> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 33 <SV = 25> <Delay = 4.95>
+ST_33 : Operation 356 [1/1] (0.00ns)   --->   "%s_1_1_load_1 = load i64 %s_1_1_27" [source/permutations.h:38->source/aead.c:62]   --->   Operation 356 'load' 's_1_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 357 [1/1] (0.00ns)   --->   "%s_2_1_load_1 = load i64 %s_2_1_28" [source/permutations.h:38->source/aead.c:62]   --->   Operation 357 'load' 's_2_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 358 [1/1] (0.00ns)   --->   "%s_3_1_load_1 = load i64 %s_3_1_29" [source/permutations.h:38->source/aead.c:62]   --->   Operation 358 'load' 's_3_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 359 [1/1] (0.00ns)   --->   "%s_4_1_load_1 = load i64 %s_4_1_30" [source/permutations.h:38->source/aead.c:62]   --->   Operation 359 'load' 's_4_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 360 [1/2] (0.00ns)   --->   "%call_ln59 = call void @crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1, i8 %c_3, i8 %c_2, i8 %c_1, i8 %c_0, i64 %s_0_64, i4 %trunc_ln58" [source/aead.c:59]   --->   Operation 360 'call' 'call_ln59' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_33 : Operation 361 [1/1] (4.95ns)   --->   "%call_ret36 = call i320 @ROUND.6, i64 %s_0_64, i64 %s_1_1_load_1, i64 %s_2_1_load_1, i64 %s_3_1_load_1, i64 %s_4_1_load_1, i8 150" [source/permutations.h:38->source/aead.c:62]   --->   Operation 361 'call' 'call_ret36' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_33 : Operation 362 [1/1] (0.00ns)   --->   "%s_0_65 = extractvalue i320 %call_ret36" [source/permutations.h:38->source/aead.c:62]   --->   Operation 362 'extractvalue' 's_0_65' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 363 [1/1] (0.00ns)   --->   "%s_1_61 = extractvalue i320 %call_ret36" [source/permutations.h:38->source/aead.c:62]   --->   Operation 363 'extractvalue' 's_1_61' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 364 [1/1] (0.00ns)   --->   "%s_2_61 = extractvalue i320 %call_ret36" [source/permutations.h:38->source/aead.c:62]   --->   Operation 364 'extractvalue' 's_2_61' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 365 [1/1] (0.00ns)   --->   "%s_3 = extractvalue i320 %call_ret36" [source/permutations.h:38->source/aead.c:62]   --->   Operation 365 'extractvalue' 's_3' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 366 [1/1] (0.00ns)   --->   "%s_4_63 = extractvalue i320 %call_ret36" [source/permutations.h:38->source/aead.c:62]   --->   Operation 366 'extractvalue' 's_4_63' <Predicate = true> <Delay = 0.00>
+
+State 34 <SV = 26> <Delay = 4.95>
+ST_34 : Operation 367 [1/1] (4.95ns)   --->   "%call_ret37 = call i320 @ROUND.6, i64 %s_0_65, i64 %s_1_61, i64 %s_2_61, i64 %s_3, i64 %s_4_63, i8 135" [source/permutations.h:39->source/aead.c:62]   --->   Operation 367 'call' 'call_ret37' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_34 : Operation 368 [1/1] (0.00ns)   --->   "%s_0_66 = extractvalue i320 %call_ret37" [source/permutations.h:39->source/aead.c:62]   --->   Operation 368 'extractvalue' 's_0_66' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 369 [1/1] (0.00ns)   --->   "%s_1_62 = extractvalue i320 %call_ret37" [source/permutations.h:39->source/aead.c:62]   --->   Operation 369 'extractvalue' 's_1_62' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 370 [1/1] (0.00ns)   --->   "%s_2_62 = extractvalue i320 %call_ret37" [source/permutations.h:39->source/aead.c:62]   --->   Operation 370 'extractvalue' 's_2_62' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 371 [1/1] (0.00ns)   --->   "%s_3_64 = extractvalue i320 %call_ret37" [source/permutations.h:39->source/aead.c:62]   --->   Operation 371 'extractvalue' 's_3_64' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 372 [1/1] (0.00ns)   --->   "%s_4_64 = extractvalue i320 %call_ret37" [source/permutations.h:39->source/aead.c:62]   --->   Operation 372 'extractvalue' 's_4_64' <Predicate = true> <Delay = 0.00>
+
+State 35 <SV = 27> <Delay = 4.95>
+ST_35 : Operation 373 [1/1] (4.95ns)   --->   "%call_ret38 = call i320 @ROUND.6, i64 %s_0_66, i64 %s_1_62, i64 %s_2_62, i64 %s_3_64, i64 %s_4_64, i8 120" [source/permutations.h:40->source/aead.c:62]   --->   Operation 373 'call' 'call_ret38' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_35 : Operation 374 [1/1] (0.00ns)   --->   "%s_0_67 = extractvalue i320 %call_ret38" [source/permutations.h:40->source/aead.c:62]   --->   Operation 374 'extractvalue' 's_0_67' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 375 [1/1] (0.00ns)   --->   "%s_1_63 = extractvalue i320 %call_ret38" [source/permutations.h:40->source/aead.c:62]   --->   Operation 375 'extractvalue' 's_1_63' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 376 [1/1] (0.00ns)   --->   "%s_2_63 = extractvalue i320 %call_ret38" [source/permutations.h:40->source/aead.c:62]   --->   Operation 376 'extractvalue' 's_2_63' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 377 [1/1] (0.00ns)   --->   "%s_3_65 = extractvalue i320 %call_ret38" [source/permutations.h:40->source/aead.c:62]   --->   Operation 377 'extractvalue' 's_3_65' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 378 [1/1] (0.00ns)   --->   "%s_4_65 = extractvalue i320 %call_ret38" [source/permutations.h:40->source/aead.c:62]   --->   Operation 378 'extractvalue' 's_4_65' <Predicate = true> <Delay = 0.00>
+
+State 36 <SV = 28> <Delay = 4.95>
+ST_36 : Operation 379 [1/1] (4.95ns)   --->   "%call_ret39 = call i320 @ROUND.6, i64 %s_0_67, i64 %s_1_63, i64 %s_2_63, i64 %s_3_65, i64 %s_4_65, i8 105" [source/permutations.h:41->source/aead.c:62]   --->   Operation 379 'call' 'call_ret39' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_36 : Operation 380 [1/1] (0.00ns)   --->   "%s_0_68 = extractvalue i320 %call_ret39" [source/permutations.h:41->source/aead.c:62]   --->   Operation 380 'extractvalue' 's_0_68' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 381 [1/1] (0.00ns)   --->   "%s_1_64 = extractvalue i320 %call_ret39" [source/permutations.h:41->source/aead.c:62]   --->   Operation 381 'extractvalue' 's_1_64' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 382 [1/1] (0.00ns)   --->   "%s_2_64 = extractvalue i320 %call_ret39" [source/permutations.h:41->source/aead.c:62]   --->   Operation 382 'extractvalue' 's_2_64' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 383 [1/1] (0.00ns)   --->   "%s_3_66 = extractvalue i320 %call_ret39" [source/permutations.h:41->source/aead.c:62]   --->   Operation 383 'extractvalue' 's_3_66' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 384 [1/1] (0.00ns)   --->   "%s_4_66 = extractvalue i320 %call_ret39" [source/permutations.h:41->source/aead.c:62]   --->   Operation 384 'extractvalue' 's_4_66' <Predicate = true> <Delay = 0.00>
+
+State 37 <SV = 29> <Delay = 4.95>
+ST_37 : Operation 385 [1/1] (4.95ns)   --->   "%call_ret40 = call i320 @ROUND.6, i64 %s_0_68, i64 %s_1_64, i64 %s_2_64, i64 %s_3_66, i64 %s_4_66, i8 90" [source/permutations.h:42->source/aead.c:62]   --->   Operation 385 'call' 'call_ret40' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_37 : Operation 386 [1/1] (0.00ns)   --->   "%s_0_69 = extractvalue i320 %call_ret40" [source/permutations.h:42->source/aead.c:62]   --->   Operation 386 'extractvalue' 's_0_69' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 387 [1/1] (0.00ns)   --->   "%s_1_65 = extractvalue i320 %call_ret40" [source/permutations.h:42->source/aead.c:62]   --->   Operation 387 'extractvalue' 's_1_65' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 388 [1/1] (0.00ns)   --->   "%s_2_65 = extractvalue i320 %call_ret40" [source/permutations.h:42->source/aead.c:62]   --->   Operation 388 'extractvalue' 's_2_65' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 389 [1/1] (0.00ns)   --->   "%s_3_67 = extractvalue i320 %call_ret40" [source/permutations.h:42->source/aead.c:62]   --->   Operation 389 'extractvalue' 's_3_67' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 390 [1/1] (0.00ns)   --->   "%s_4_67 = extractvalue i320 %call_ret40" [source/permutations.h:42->source/aead.c:62]   --->   Operation 390 'extractvalue' 's_4_67' <Predicate = true> <Delay = 0.00>
+
+State 38 <SV = 30> <Delay = 6.53>
+ST_38 : Operation 391 [1/1] (0.00ns)   --->   "%speclooptripcount_ln10 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2" [source/aead.c:10]   --->   Operation 391 'speclooptripcount' 'speclooptripcount_ln10' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 392 [1/1] (0.00ns)   --->   "%specloopname_ln58 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [source/aead.c:58]   --->   Operation 392 'specloopname' 'specloopname_ln58' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 393 [1/1] (4.95ns)   --->   "%call_ret41 = call i320 @ROUND.6, i64 %s_0_69, i64 %s_1_65, i64 %s_2_65, i64 %s_3_67, i64 %s_4_67, i8 75" [source/permutations.h:43->source/aead.c:62]   --->   Operation 393 'call' 'call_ret41' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_38 : Operation 394 [1/1] (0.00ns)   --->   "%s_0_70 = extractvalue i320 %call_ret41" [source/permutations.h:43->source/aead.c:62]   --->   Operation 394 'extractvalue' 's_0_70' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 395 [1/1] (0.00ns)   --->   "%s_1_66 = extractvalue i320 %call_ret41" [source/permutations.h:43->source/aead.c:62]   --->   Operation 395 'extractvalue' 's_1_66' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 396 [1/1] (0.00ns)   --->   "%s_2_66 = extractvalue i320 %call_ret41" [source/permutations.h:43->source/aead.c:62]   --->   Operation 396 'extractvalue' 's_2_66' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 397 [1/1] (0.00ns)   --->   "%s_3_68 = extractvalue i320 %call_ret41" [source/permutations.h:43->source/aead.c:62]   --->   Operation 397 'extractvalue' 's_3_68' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 398 [1/1] (0.00ns)   --->   "%s_4_68 = extractvalue i320 %call_ret41" [source/permutations.h:43->source/aead.c:62]   --->   Operation 398 'extractvalue' 's_4_68' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 399 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_4_68, i64 %s_4_1_30" [source/permutations.h:43->source/aead.c:62]   --->   Operation 399 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_38 : Operation 400 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_3_68, i64 %s_3_1_29" [source/permutations.h:43->source/aead.c:62]   --->   Operation 400 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_38 : Operation 401 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_2_66, i64 %s_2_1_28" [source/permutations.h:43->source/aead.c:62]   --->   Operation 401 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_38 : Operation 402 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_1_66, i64 %s_1_1_27" [source/permutations.h:43->source/aead.c:62]   --->   Operation 402 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_38 : Operation 403 [1/1] (1.58ns)   --->   "%store_ln43 = store i64 %s_0_70, i64 %s_0_1_26" [source/permutations.h:43->source/aead.c:62]   --->   Operation 403 'store' 'store_ln43' <Predicate = true> <Delay = 1.58>
+ST_38 : Operation 404 [1/1] (0.00ns)   --->   "%br_ln58 = br void %do.end57" [source/aead.c:58]   --->   Operation 404 'br' 'br_ln58' <Predicate = true> <Delay = 0.00>
+
+State 39 <SV = 24> <Delay = 1.58>
+ST_39 : Operation 405 [1/2] (1.58ns)   --->   "%tmp_3 = call i64 @LOADBYTES, i8 %p_read110, i8 %p_read211, i8 %p_read312, i8 %p_read413, i8 %p_read514, i8 %p_read615, i8 %p_read716, i8 %p_read817, i8 %p_read918, i8 %p_read1019, i8 %p_read_66, i8 %p_read_65, i8 %p_read_64, i8 %p_read_63, i8 %p_read_62, i8 %p_read_61, i4 0, i4 0" [source/aead.c:68]   --->   Operation 405 'call' 'tmp_3' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 40 <SV = 25> <Delay = 5.94>
+ST_40 : Operation 406 [1/1] (0.00ns)   --->   "%s_0_1_load_1 = load i64 %s_0_1_26" [source/aead.c:70]   --->   Operation 406 'load' 's_0_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 407 [1/1] (0.00ns)   --->   "%s_1_1_load = load i64 %s_1_1_27" [source/aead.c:75]   --->   Operation 407 'load' 's_1_1_load' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 408 [1/1] (0.00ns)   --->   "%s_2_1_load = load i64 %s_2_1_28" [source/aead.c:76]   --->   Operation 408 'load' 's_2_1_load' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 409 [1/1] (0.00ns)   --->   "%s_3_1_load = load i64 %s_3_1_29" [source/permutations.h:12->source/aead.c:78]   --->   Operation 409 'load' 's_3_1_load' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 410 [1/1] (0.00ns)   --->   "%s_4_1_load = load i64 %s_4_1_30" [source/permutations.h:12->source/aead.c:78]   --->   Operation 410 'load' 's_4_1_load' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 411 [1/1] (0.00ns) (grouped into LUT with out node s_0_52)   --->   "%xor_ln70 = xor i64 %tmp_3, i64 %s_0_1_load_1" [source/aead.c:70]   --->   Operation 411 'xor' 'xor_ln70' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 412 [1/1] (0.99ns) (out node of the LUT)   --->   "%s_0_52 = xor i64 %xor_ln70, i64 9223372036854775808" [source/aead.c:70]   --->   Operation 412 'xor' 's_0_52' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 413 [1/1] (0.99ns)   --->   "%s_1_49 = xor i64 %s_1_1_load, i64 %K0" [source/aead.c:75]   --->   Operation 413 'xor' 's_1_49' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 414 [1/1] (0.99ns)   --->   "%s_2_49 = xor i64 %s_2_1_load, i64 %K1" [source/aead.c:76]   --->   Operation 414 'xor' 's_2_49' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 415 [1/1] (4.95ns)   --->   "%call_ret25 = call i320 @ROUND.6, i64 %s_0_52, i64 %s_1_49, i64 %s_2_49, i64 %s_3_1_load, i64 %s_4_1_load, i8 240" [source/permutations.h:12->source/aead.c:78]   --->   Operation 415 'call' 'call_ret25' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_40 : Operation 416 [1/1] (0.00ns)   --->   "%s_0_53 = extractvalue i320 %call_ret25" [source/permutations.h:12->source/aead.c:78]   --->   Operation 416 'extractvalue' 's_0_53' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 417 [1/1] (0.00ns)   --->   "%s_1_50 = extractvalue i320 %call_ret25" [source/permutations.h:12->source/aead.c:78]   --->   Operation 417 'extractvalue' 's_1_50' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 418 [1/1] (0.00ns)   --->   "%s_2_50 = extractvalue i320 %call_ret25" [source/permutations.h:12->source/aead.c:78]   --->   Operation 418 'extractvalue' 's_2_50' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 419 [1/1] (0.00ns)   --->   "%s_3_51 = extractvalue i320 %call_ret25" [source/permutations.h:12->source/aead.c:78]   --->   Operation 419 'extractvalue' 's_3_51' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 420 [1/1] (0.00ns)   --->   "%s_4_51 = extractvalue i320 %call_ret25" [source/permutations.h:12->source/aead.c:78]   --->   Operation 420 'extractvalue' 's_4_51' <Predicate = true> <Delay = 0.00>
+
+State 41 <SV = 26> <Delay = 4.95>
+ST_41 : Operation 421 [1/1] (4.95ns)   --->   "%call_ret26 = call i320 @ROUND.6, i64 %s_0_53, i64 %s_1_50, i64 %s_2_50, i64 %s_3_51, i64 %s_4_51, i8 225" [source/permutations.h:13->source/aead.c:78]   --->   Operation 421 'call' 'call_ret26' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_41 : Operation 422 [1/1] (0.00ns)   --->   "%s_0_54 = extractvalue i320 %call_ret26" [source/permutations.h:13->source/aead.c:78]   --->   Operation 422 'extractvalue' 's_0_54' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 423 [1/1] (0.00ns)   --->   "%s_1_51 = extractvalue i320 %call_ret26" [source/permutations.h:13->source/aead.c:78]   --->   Operation 423 'extractvalue' 's_1_51' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 424 [1/1] (0.00ns)   --->   "%s_2_51 = extractvalue i320 %call_ret26" [source/permutations.h:13->source/aead.c:78]   --->   Operation 424 'extractvalue' 's_2_51' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 425 [1/1] (0.00ns)   --->   "%s_3_52 = extractvalue i320 %call_ret26" [source/permutations.h:13->source/aead.c:78]   --->   Operation 425 'extractvalue' 's_3_52' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 426 [1/1] (0.00ns)   --->   "%s_4_52 = extractvalue i320 %call_ret26" [source/permutations.h:13->source/aead.c:78]   --->   Operation 426 'extractvalue' 's_4_52' <Predicate = true> <Delay = 0.00>
+
+State 42 <SV = 27> <Delay = 4.95>
+ST_42 : Operation 427 [1/1] (4.95ns)   --->   "%call_ret27 = call i320 @ROUND.6, i64 %s_0_54, i64 %s_1_51, i64 %s_2_51, i64 %s_3_52, i64 %s_4_52, i8 210" [source/permutations.h:14->source/aead.c:78]   --->   Operation 427 'call' 'call_ret27' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_42 : Operation 428 [1/1] (0.00ns)   --->   "%s_0_55 = extractvalue i320 %call_ret27" [source/permutations.h:14->source/aead.c:78]   --->   Operation 428 'extractvalue' 's_0_55' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 429 [1/1] (0.00ns)   --->   "%s_1_52 = extractvalue i320 %call_ret27" [source/permutations.h:14->source/aead.c:78]   --->   Operation 429 'extractvalue' 's_1_52' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 430 [1/1] (0.00ns)   --->   "%s_2_52 = extractvalue i320 %call_ret27" [source/permutations.h:14->source/aead.c:78]   --->   Operation 430 'extractvalue' 's_2_52' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 431 [1/1] (0.00ns)   --->   "%s_3_53 = extractvalue i320 %call_ret27" [source/permutations.h:14->source/aead.c:78]   --->   Operation 431 'extractvalue' 's_3_53' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 432 [1/1] (0.00ns)   --->   "%s_4_53 = extractvalue i320 %call_ret27" [source/permutations.h:14->source/aead.c:78]   --->   Operation 432 'extractvalue' 's_4_53' <Predicate = true> <Delay = 0.00>
+
+State 43 <SV = 28> <Delay = 4.95>
+ST_43 : Operation 433 [1/1] (4.95ns)   --->   "%call_ret28 = call i320 @ROUND.6, i64 %s_0_55, i64 %s_1_52, i64 %s_2_52, i64 %s_3_53, i64 %s_4_53, i8 195" [source/permutations.h:15->source/aead.c:78]   --->   Operation 433 'call' 'call_ret28' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_43 : Operation 434 [1/1] (0.00ns)   --->   "%s_0_56 = extractvalue i320 %call_ret28" [source/permutations.h:15->source/aead.c:78]   --->   Operation 434 'extractvalue' 's_0_56' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 435 [1/1] (0.00ns)   --->   "%s_1_53 = extractvalue i320 %call_ret28" [source/permutations.h:15->source/aead.c:78]   --->   Operation 435 'extractvalue' 's_1_53' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 436 [1/1] (0.00ns)   --->   "%s_2_53 = extractvalue i320 %call_ret28" [source/permutations.h:15->source/aead.c:78]   --->   Operation 436 'extractvalue' 's_2_53' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 437 [1/1] (0.00ns)   --->   "%s_3_54 = extractvalue i320 %call_ret28" [source/permutations.h:15->source/aead.c:78]   --->   Operation 437 'extractvalue' 's_3_54' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 438 [1/1] (0.00ns)   --->   "%s_4_54 = extractvalue i320 %call_ret28" [source/permutations.h:15->source/aead.c:78]   --->   Operation 438 'extractvalue' 's_4_54' <Predicate = true> <Delay = 0.00>
+
+State 44 <SV = 29> <Delay = 4.95>
+ST_44 : Operation 439 [1/1] (4.95ns)   --->   "%call_ret29 = call i320 @ROUND.6, i64 %s_0_56, i64 %s_1_53, i64 %s_2_53, i64 %s_3_54, i64 %s_4_54, i8 180" [source/permutations.h:16->source/aead.c:78]   --->   Operation 439 'call' 'call_ret29' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_44 : Operation 440 [1/1] (0.00ns)   --->   "%s_0_57 = extractvalue i320 %call_ret29" [source/permutations.h:16->source/aead.c:78]   --->   Operation 440 'extractvalue' 's_0_57' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 441 [1/1] (0.00ns)   --->   "%s_1_54 = extractvalue i320 %call_ret29" [source/permutations.h:16->source/aead.c:78]   --->   Operation 441 'extractvalue' 's_1_54' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 442 [1/1] (0.00ns)   --->   "%s_2_54 = extractvalue i320 %call_ret29" [source/permutations.h:16->source/aead.c:78]   --->   Operation 442 'extractvalue' 's_2_54' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 443 [1/1] (0.00ns)   --->   "%s_3_55 = extractvalue i320 %call_ret29" [source/permutations.h:16->source/aead.c:78]   --->   Operation 443 'extractvalue' 's_3_55' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 444 [1/1] (0.00ns)   --->   "%s_4_55 = extractvalue i320 %call_ret29" [source/permutations.h:16->source/aead.c:78]   --->   Operation 444 'extractvalue' 's_4_55' <Predicate = true> <Delay = 0.00>
+
+State 45 <SV = 30> <Delay = 4.95>
+ST_45 : Operation 445 [1/1] (4.95ns)   --->   "%call_ret30 = call i320 @ROUND.6, i64 %s_0_57, i64 %s_1_54, i64 %s_2_54, i64 %s_3_55, i64 %s_4_55, i8 165" [source/permutations.h:17->source/aead.c:78]   --->   Operation 445 'call' 'call_ret30' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_45 : Operation 446 [1/1] (0.00ns)   --->   "%s_0_58 = extractvalue i320 %call_ret30" [source/permutations.h:17->source/aead.c:78]   --->   Operation 446 'extractvalue' 's_0_58' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 447 [1/1] (0.00ns)   --->   "%s_1_55 = extractvalue i320 %call_ret30" [source/permutations.h:17->source/aead.c:78]   --->   Operation 447 'extractvalue' 's_1_55' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 448 [1/1] (0.00ns)   --->   "%s_2_55 = extractvalue i320 %call_ret30" [source/permutations.h:17->source/aead.c:78]   --->   Operation 448 'extractvalue' 's_2_55' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 449 [1/1] (0.00ns)   --->   "%s_3_56 = extractvalue i320 %call_ret30" [source/permutations.h:17->source/aead.c:78]   --->   Operation 449 'extractvalue' 's_3_56' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 450 [1/1] (0.00ns)   --->   "%s_4_56 = extractvalue i320 %call_ret30" [source/permutations.h:17->source/aead.c:78]   --->   Operation 450 'extractvalue' 's_4_56' <Predicate = true> <Delay = 0.00>
+
+State 46 <SV = 31> <Delay = 4.95>
+ST_46 : Operation 451 [1/1] (4.95ns)   --->   "%call_ret31 = call i320 @ROUND.6, i64 %s_0_58, i64 %s_1_55, i64 %s_2_55, i64 %s_3_56, i64 %s_4_56, i8 150" [source/permutations.h:18->source/aead.c:78]   --->   Operation 451 'call' 'call_ret31' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_46 : Operation 452 [1/1] (0.00ns)   --->   "%s_0_59 = extractvalue i320 %call_ret31" [source/permutations.h:18->source/aead.c:78]   --->   Operation 452 'extractvalue' 's_0_59' <Predicate = true> <Delay = 0.00>
+ST_46 : Operation 453 [1/1] (0.00ns)   --->   "%s_1_56 = extractvalue i320 %call_ret31" [source/permutations.h:18->source/aead.c:78]   --->   Operation 453 'extractvalue' 's_1_56' <Predicate = true> <Delay = 0.00>
+ST_46 : Operation 454 [1/1] (0.00ns)   --->   "%s_2_56 = extractvalue i320 %call_ret31" [source/permutations.h:18->source/aead.c:78]   --->   Operation 454 'extractvalue' 's_2_56' <Predicate = true> <Delay = 0.00>
+ST_46 : Operation 455 [1/1] (0.00ns)   --->   "%s_3_57 = extractvalue i320 %call_ret31" [source/permutations.h:18->source/aead.c:78]   --->   Operation 455 'extractvalue' 's_3_57' <Predicate = true> <Delay = 0.00>
+ST_46 : Operation 456 [1/1] (0.00ns)   --->   "%s_4_57 = extractvalue i320 %call_ret31" [source/permutations.h:18->source/aead.c:78]   --->   Operation 456 'extractvalue' 's_4_57' <Predicate = true> <Delay = 0.00>
+
+State 47 <SV = 32> <Delay = 4.95>
+ST_47 : Operation 457 [1/1] (4.95ns)   --->   "%call_ret32 = call i320 @ROUND.6, i64 %s_0_59, i64 %s_1_56, i64 %s_2_56, i64 %s_3_57, i64 %s_4_57, i8 135" [source/permutations.h:19->source/aead.c:78]   --->   Operation 457 'call' 'call_ret32' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_47 : Operation 458 [1/1] (0.00ns)   --->   "%s_0_60 = extractvalue i320 %call_ret32" [source/permutations.h:19->source/aead.c:78]   --->   Operation 458 'extractvalue' 's_0_60' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 459 [1/1] (0.00ns)   --->   "%s_1_57 = extractvalue i320 %call_ret32" [source/permutations.h:19->source/aead.c:78]   --->   Operation 459 'extractvalue' 's_1_57' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 460 [1/1] (0.00ns)   --->   "%s_2_57 = extractvalue i320 %call_ret32" [source/permutations.h:19->source/aead.c:78]   --->   Operation 460 'extractvalue' 's_2_57' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 461 [1/1] (0.00ns)   --->   "%s_3_58 = extractvalue i320 %call_ret32" [source/permutations.h:19->source/aead.c:78]   --->   Operation 461 'extractvalue' 's_3_58' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 462 [1/1] (0.00ns)   --->   "%s_4_58 = extractvalue i320 %call_ret32" [source/permutations.h:19->source/aead.c:78]   --->   Operation 462 'extractvalue' 's_4_58' <Predicate = true> <Delay = 0.00>
+
+State 48 <SV = 33> <Delay = 4.95>
+ST_48 : Operation 463 [1/1] (4.95ns)   --->   "%call_ret33 = call i320 @ROUND.6, i64 %s_0_60, i64 %s_1_57, i64 %s_2_57, i64 %s_3_58, i64 %s_4_58, i8 120" [source/permutations.h:20->source/aead.c:78]   --->   Operation 463 'call' 'call_ret33' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_48 : Operation 464 [1/1] (0.00ns)   --->   "%s_0_61 = extractvalue i320 %call_ret33" [source/permutations.h:20->source/aead.c:78]   --->   Operation 464 'extractvalue' 's_0_61' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 465 [1/1] (0.00ns)   --->   "%s_1_58 = extractvalue i320 %call_ret33" [source/permutations.h:20->source/aead.c:78]   --->   Operation 465 'extractvalue' 's_1_58' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 466 [1/1] (0.00ns)   --->   "%s_2_58 = extractvalue i320 %call_ret33" [source/permutations.h:20->source/aead.c:78]   --->   Operation 466 'extractvalue' 's_2_58' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 467 [1/1] (0.00ns)   --->   "%s_3_59 = extractvalue i320 %call_ret33" [source/permutations.h:20->source/aead.c:78]   --->   Operation 467 'extractvalue' 's_3_59' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 468 [1/1] (0.00ns)   --->   "%s_4_59 = extractvalue i320 %call_ret33" [source/permutations.h:20->source/aead.c:78]   --->   Operation 468 'extractvalue' 's_4_59' <Predicate = true> <Delay = 0.00>
+
+State 49 <SV = 34> <Delay = 4.95>
+ST_49 : Operation 469 [1/1] (4.95ns)   --->   "%call_ret34 = call i320 @ROUND.6, i64 %s_0_61, i64 %s_1_58, i64 %s_2_58, i64 %s_3_59, i64 %s_4_59, i8 105" [source/permutations.h:21->source/aead.c:78]   --->   Operation 469 'call' 'call_ret34' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_49 : Operation 470 [1/1] (0.00ns)   --->   "%s_0_62 = extractvalue i320 %call_ret34" [source/permutations.h:21->source/aead.c:78]   --->   Operation 470 'extractvalue' 's_0_62' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 471 [1/1] (0.00ns)   --->   "%s_1_59 = extractvalue i320 %call_ret34" [source/permutations.h:21->source/aead.c:78]   --->   Operation 471 'extractvalue' 's_1_59' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 472 [1/1] (0.00ns)   --->   "%s_2_59 = extractvalue i320 %call_ret34" [source/permutations.h:21->source/aead.c:78]   --->   Operation 472 'extractvalue' 's_2_59' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 473 [1/1] (0.00ns)   --->   "%s_3_60 = extractvalue i320 %call_ret34" [source/permutations.h:21->source/aead.c:78]   --->   Operation 473 'extractvalue' 's_3_60' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 474 [1/1] (0.00ns)   --->   "%s_4_60 = extractvalue i320 %call_ret34" [source/permutations.h:21->source/aead.c:78]   --->   Operation 474 'extractvalue' 's_4_60' <Predicate = true> <Delay = 0.00>
+
+State 50 <SV = 35> <Delay = 4.95>
+ST_50 : Operation 475 [1/1] (4.95ns)   --->   "%call_ret35 = call i320 @ROUND.6, i64 %s_0_62, i64 %s_1_59, i64 %s_2_59, i64 %s_3_60, i64 %s_4_60, i8 90" [source/permutations.h:22->source/aead.c:78]   --->   Operation 475 'call' 'call_ret35' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_50 : Operation 476 [1/1] (0.00ns)   --->   "%s_0_63 = extractvalue i320 %call_ret35" [source/permutations.h:22->source/aead.c:78]   --->   Operation 476 'extractvalue' 's_0_63' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 477 [1/1] (0.00ns)   --->   "%s_1_60 = extractvalue i320 %call_ret35" [source/permutations.h:22->source/aead.c:78]   --->   Operation 477 'extractvalue' 's_1_60' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 478 [1/1] (0.00ns)   --->   "%s_2_60 = extractvalue i320 %call_ret35" [source/permutations.h:22->source/aead.c:78]   --->   Operation 478 'extractvalue' 's_2_60' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 479 [1/1] (0.00ns)   --->   "%s_3_61 = extractvalue i320 %call_ret35" [source/permutations.h:22->source/aead.c:78]   --->   Operation 479 'extractvalue' 's_3_61' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 480 [1/1] (0.00ns)   --->   "%s_4_61 = extractvalue i320 %call_ret35" [source/permutations.h:22->source/aead.c:78]   --->   Operation 480 'extractvalue' 's_4_61' <Predicate = true> <Delay = 0.00>
+
+State 51 <SV = 36> <Delay = 5.94>
+ST_51 : Operation 481 [1/1] (4.95ns)   --->   "%call_ret = call i320 @ROUND.6, i64 %s_0_63, i64 %s_1_60, i64 %s_2_60, i64 %s_3_61, i64 %s_4_61, i8 75" [source/permutations.h:23->source/aead.c:78]   --->   Operation 481 'call' 'call_ret' <Predicate = true> <Delay = 4.95> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_51 : Operation 482 [1/1] (0.00ns) (grouped into LUT with out node s_3_63)   --->   "%s_3_62 = extractvalue i320 %call_ret" [source/permutations.h:23->source/aead.c:78]   --->   Operation 482 'extractvalue' 's_3_62' <Predicate = true> <Delay = 0.00>
+ST_51 : Operation 483 [1/1] (0.00ns) (grouped into LUT with out node xor_ln80)   --->   "%s_4_62 = extractvalue i320 %call_ret" [source/permutations.h:23->source/aead.c:78]   --->   Operation 483 'extractvalue' 's_4_62' <Predicate = true> <Delay = 0.00>
+ST_51 : Operation 484 [1/1] (0.99ns) (out node of the LUT)   --->   "%s_3_63 = xor i64 %s_3_62, i64 %K0" [source/aead.c:79]   --->   Operation 484 'xor' 's_3_63' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_51 : Operation 485 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln80 = xor i64 %s_4_62, i64 %K1" [source/aead.c:80]   --->   Operation 485 'xor' 'xor_ln80' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+
+State 52 <SV = 37> <Delay = 4.59>
+ST_52 : Operation 486 [2/2] (4.59ns)   --->   "%call_ln79 = call void @crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11, i8 %c_3, i8 %c_2, i8 %c_1, i8 %c_0, i64 %s_3_63" [source/aead.c:79]   --->   Operation 486 'call' 'call_ln79' <Predicate = true> <Delay = 4.59> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 53 <SV = 38> <Delay = 0.00>
+ST_53 : Operation 487 [1/2] (0.00ns)   --->   "%call_ln79 = call void @crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11, i8 %c_3, i8 %c_2, i8 %c_1, i8 %c_0, i64 %s_3_63" [source/aead.c:79]   --->   Operation 487 'call' 'call_ln79' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 54 <SV = 39> <Delay = 4.59>
+ST_54 : Operation 488 [2/2] (4.59ns)   --->   "%call_ln80 = call void @crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12, i8 %c_3, i8 %c_2, i8 %c_1, i8 %c_0, i64 %xor_ln80" [source/aead.c:80]   --->   Operation 488 'call' 'call_ln80' <Predicate = true> <Delay = 4.59> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 55 <SV = 40> <Delay = 0.00>
+ST_55 : Operation 489 [1/2] (0.00ns)   --->   "%call_ln80 = call void @crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12, i8 %c_3, i8 %c_2, i8 %c_1, i8 %c_0, i64 %xor_ln80" [source/aead.c:80]   --->   Operation 489 'call' 'call_ln80' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_55 : Operation 490 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 490 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 3.799ns
+The critical path consists of the following:
+	wire read operation ('p_read', source/aead.c:20) on port 'p_read64' (source/aead.c:20) [76]  (0.000 ns)
+	'call' operation 64 bit ('K0', source/aead.c:20) to 'LOADBYTES' [140]  (3.799 ns)
+
+ <State 2>: 6.538ns
+The critical path consists of the following:
+	'call' operation 64 bit ('K0', source/aead.c:20) to 'LOADBYTES' [140]  (1.588 ns)
+	'call' operation 320 bit ('call_ret1', source/permutations.h:12->source/aead.c:33) to 'ROUND.6' [144]  (4.950 ns)
+
+ <State 3>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret2', source/permutations.h:13->source/aead.c:33) to 'ROUND.6' [150]  (4.950 ns)
+
+ <State 4>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret3', source/permutations.h:14->source/aead.c:33) to 'ROUND.6' [156]  (4.950 ns)
+
+ <State 5>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret4', source/permutations.h:15->source/aead.c:33) to 'ROUND.6' [162]  (4.950 ns)
+
+ <State 6>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret5', source/permutations.h:16->source/aead.c:33) to 'ROUND.6' [168]  (4.950 ns)
+
+ <State 7>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret6', source/permutations.h:17->source/aead.c:33) to 'ROUND.6' [174]  (4.950 ns)
+
+ <State 8>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret7', source/permutations.h:18->source/aead.c:33) to 'ROUND.6' [180]  (4.950 ns)
+
+ <State 9>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret8', source/permutations.h:19->source/aead.c:33) to 'ROUND.6' [186]  (4.950 ns)
+
+ <State 10>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret9', source/permutations.h:20->source/aead.c:33) to 'ROUND.6' [192]  (4.950 ns)
+
+ <State 11>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret10', source/permutations.h:21->source/aead.c:33) to 'ROUND.6' [198]  (4.950 ns)
+
+ <State 12>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret11', source/permutations.h:22->source/aead.c:33) to 'ROUND.6' [204]  (4.950 ns)
+
+ <State 13>: 6.538ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret12', source/permutations.h:23->source/aead.c:33) to 'ROUND.6' [210]  (4.950 ns)
+	'store' operation 0 bit ('store_ln23', source/permutations.h:23->source/aead.c:33) of variable 's[2]', source/permutations.h:23->source/aead.c:33 on local variable 's_2_0' [220]  (1.588 ns)
+
+ <State 14>: 1.588ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln35', source/aead.c:35) of variable 's[4]', source/aead.c:35 on local variable 's_4_0' [218]  (1.588 ns)
+
+ <State 15>: 5.364ns
+The critical path consists of the following:
+	'load' operation 5 bit ('adlen', source/aead.c:45) on local variable 'adlen', source/aead.c:11 [227]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln40', source/aead.c:40) [229]  (1.565 ns)
+	'call' operation 64 bit ('tmp', source/aead.c:41) to 'LOADBYTES' [241]  (3.799 ns)
+
+ <State 16>: 1.588ns
+The critical path consists of the following:
+	'call' operation 64 bit ('tmp', source/aead.c:41) to 'LOADBYTES' [241]  (1.588 ns)
+
+ <State 17>: 5.940ns
+The critical path consists of the following:
+	'load' operation 64 bit ('s_0_0_load', source/aead.c:41) on local variable 's_0_0' [233]  (0.000 ns)
+	'xor' operation 64 bit ('s[0]', source/aead.c:41) [242]  (0.990 ns)
+	'call' operation 320 bit ('call_ret13', source/permutations.h:38->source/aead.c:43) to 'ROUND.6' [243]  (4.950 ns)
+
+ <State 18>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret14', source/permutations.h:39->source/aead.c:43) to 'ROUND.6' [249]  (4.950 ns)
+
+ <State 19>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret15', source/permutations.h:40->source/aead.c:43) to 'ROUND.6' [255]  (4.950 ns)
+
+ <State 20>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret16', source/permutations.h:41->source/aead.c:43) to 'ROUND.6' [261]  (4.950 ns)
+
+ <State 21>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret17', source/permutations.h:42->source/aead.c:43) to 'ROUND.6' [267]  (4.950 ns)
+
+ <State 22>: 6.538ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret18', source/permutations.h:43->source/aead.c:43) to 'ROUND.6' [273]  (4.950 ns)
+	'store' operation 0 bit ('store_ln43', source/permutations.h:43->source/aead.c:43) of variable 's[4]', source/permutations.h:43->source/aead.c:43 on local variable 's_4_0' [281]  (1.588 ns)
+
+ <State 23>: 1.588ns
+The critical path consists of the following:
+	'call' operation 64 bit ('tmp_1', source/aead.c:48) to 'LOADBYTES' [302]  (1.588 ns)
+
+ <State 24>: 5.940ns
+The critical path consists of the following:
+	'load' operation 64 bit ('s_0_0_load_1', source/aead.c:49) on local variable 's_0_0' [297]  (0.000 ns)
+	'xor' operation 64 bit ('xor_ln49', source/aead.c:49) [303]  (0.000 ns)
+	'xor' operation 64 bit ('s[0]', source/aead.c:49) [304]  (0.990 ns)
+	'call' operation 320 bit ('call_ret19', source/permutations.h:38->source/aead.c:51) to 'ROUND.6' [305]  (4.950 ns)
+
+ <State 25>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret20', source/permutations.h:39->source/aead.c:51) to 'ROUND.6' [311]  (4.950 ns)
+
+ <State 26>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret21', source/permutations.h:40->source/aead.c:51) to 'ROUND.6' [317]  (4.950 ns)
+
+ <State 27>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret22', source/permutations.h:41->source/aead.c:51) to 'ROUND.6' [323]  (4.950 ns)
+
+ <State 28>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret23', source/permutations.h:42->source/aead.c:51) to 'ROUND.6' [329]  (4.950 ns)
+
+ <State 29>: 6.538ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret24', source/permutations.h:43->source/aead.c:51) to 'ROUND.6' [335]  (4.950 ns)
+	'store' operation 0 bit ('store_ln43', source/permutations.h:43->source/aead.c:51) of variable 's[3]', source/permutations.h:43->source/aead.c:51 on local variable 's_3_1_29' [343]  (1.588 ns)
+
+ <State 30>: 1.588ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln54', source/aead.c:54) of variable 's[4]', source/aead.c:54 on local variable 's_4_1_30' [342]  (1.588 ns)
+
+ <State 31>: 5.364ns
+The critical path consists of the following:
+	'load' operation 5 bit ('mlen', source/aead.c:65) on local variable 'mlen', source/aead.c:10 [352]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln58', source/aead.c:58) [355]  (1.565 ns)
+	'call' operation 64 bit ('tmp_2', source/aead.c:59) to 'LOADBYTES' [365]  (3.799 ns)
+
+ <State 32>: 7.173ns
+The critical path consists of the following:
+	'call' operation 64 bit ('tmp_2', source/aead.c:59) to 'LOADBYTES' [365]  (1.588 ns)
+	'xor' operation 64 bit ('s[0]', source/aead.c:59) [366]  (0.990 ns)
+	'call' operation 0 bit ('call_ln59', source/aead.c:59) to 'crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1' [367]  (4.595 ns)
+
+ <State 33>: 4.950ns
+The critical path consists of the following:
+	'load' operation 64 bit ('s_1_1_load_1', source/permutations.h:38->source/aead.c:62) on local variable 's_1_1_27' [359]  (0.000 ns)
+	'call' operation 320 bit ('call_ret36', source/permutations.h:38->source/aead.c:62) to 'ROUND.6' [368]  (4.950 ns)
+
+ <State 34>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret37', source/permutations.h:39->source/aead.c:62) to 'ROUND.6' [374]  (4.950 ns)
+
+ <State 35>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret38', source/permutations.h:40->source/aead.c:62) to 'ROUND.6' [380]  (4.950 ns)
+
+ <State 36>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret39', source/permutations.h:41->source/aead.c:62) to 'ROUND.6' [386]  (4.950 ns)
+
+ <State 37>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret40', source/permutations.h:42->source/aead.c:62) to 'ROUND.6' [392]  (4.950 ns)
+
+ <State 38>: 6.538ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret41', source/permutations.h:43->source/aead.c:62) to 'ROUND.6' [398]  (4.950 ns)
+	'store' operation 0 bit ('store_ln43', source/permutations.h:43->source/aead.c:62) of variable 's[4]', source/permutations.h:43->source/aead.c:62 on local variable 's_4_1_30' [406]  (1.588 ns)
+
+ <State 39>: 1.588ns
+The critical path consists of the following:
+	'call' operation 64 bit ('tmp_3', source/aead.c:68) to 'LOADBYTES' [420]  (1.588 ns)
+
+ <State 40>: 5.940ns
+The critical path consists of the following:
+	'load' operation 64 bit ('s_0_1_load_1', source/aead.c:70) on local variable 's_0_1_26' [415]  (0.000 ns)
+	'xor' operation 64 bit ('xor_ln70', source/aead.c:70) [421]  (0.000 ns)
+	'xor' operation 64 bit ('s[0]', source/aead.c:70) [422]  (0.990 ns)
+	'call' operation 320 bit ('call_ret25', source/permutations.h:12->source/aead.c:78) to 'ROUND.6' [425]  (4.950 ns)
+
+ <State 41>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret26', source/permutations.h:13->source/aead.c:78) to 'ROUND.6' [431]  (4.950 ns)
+
+ <State 42>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret27', source/permutations.h:14->source/aead.c:78) to 'ROUND.6' [437]  (4.950 ns)
+
+ <State 43>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret28', source/permutations.h:15->source/aead.c:78) to 'ROUND.6' [443]  (4.950 ns)
+
+ <State 44>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret29', source/permutations.h:16->source/aead.c:78) to 'ROUND.6' [449]  (4.950 ns)
+
+ <State 45>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret30', source/permutations.h:17->source/aead.c:78) to 'ROUND.6' [455]  (4.950 ns)
+
+ <State 46>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret31', source/permutations.h:18->source/aead.c:78) to 'ROUND.6' [461]  (4.950 ns)
+
+ <State 47>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret32', source/permutations.h:19->source/aead.c:78) to 'ROUND.6' [467]  (4.950 ns)
+
+ <State 48>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret33', source/permutations.h:20->source/aead.c:78) to 'ROUND.6' [473]  (4.950 ns)
+
+ <State 49>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret34', source/permutations.h:21->source/aead.c:78) to 'ROUND.6' [479]  (4.950 ns)
+
+ <State 50>: 4.950ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret35', source/permutations.h:22->source/aead.c:78) to 'ROUND.6' [485]  (4.950 ns)
+
+ <State 51>: 5.940ns
+The critical path consists of the following:
+	'call' operation 320 bit ('call_ret', source/permutations.h:23->source/aead.c:78) to 'ROUND.6' [491]  (4.950 ns)
+	'xor' operation 64 bit ('s[3]', source/aead.c:79) [494]  (0.990 ns)
+
+ <State 52>: 4.595ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln79', source/aead.c:79) to 'crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11' [495]  (4.595 ns)
+
+ <State 53>: 0.000ns
+The critical path consists of the following:
+
+ <State 54>: 4.595ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln80', source/aead.c:80) to 'crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12' [497]  (4.595 ns)
+
+ <State 55>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

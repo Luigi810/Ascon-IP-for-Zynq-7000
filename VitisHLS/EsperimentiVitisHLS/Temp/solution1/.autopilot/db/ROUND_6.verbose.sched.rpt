@@ -1,0 +1,189 @@
+
+
+================================================================
+== Vitis HLS Report for 'ROUND_6'
+================================================================
+* Date:           Mon May 27 18:05:27 2024
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        Temp
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.950 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.95>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%C_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %C" [source/round.h:12]   --->   Operation 2 'read' 'C_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%s_4_read_1 = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %s_4_read" [source/round.h:12]   --->   Operation 3 'read' 's_4_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%s_3_read_1 = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %s_3_read" [source/round.h:12]   --->   Operation 4 'read' 's_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%s_2_read_1 = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %s_2_read" [source/round.h:12]   --->   Operation 5 'read' 's_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%s_1_read_1 = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %s_1_read" [source/round.h:12]   --->   Operation 6 'read' 's_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%s_0_read_1 = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %s_0_read" [source/round.h:12]   --->   Operation 7 'read' 's_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%zext_ln16 = zext i8 %C_read" [source/round.h:16]   --->   Operation 8 'zext' 'zext_ln16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.99ns)   --->   "%xor_ln16 = xor i64 %zext_ln16, i64 %s_2_read_1" [source/round.h:16]   --->   Operation 9 'xor' 'xor_ln16' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.99ns)   --->   "%xor_ln19 = xor i64 %s_0_read_1, i64 %s_4_read_1" [source/round.h:19]   --->   Operation 10 'xor' 'xor_ln19' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.99ns)   --->   "%xor_ln20 = xor i64 %s_3_read_1, i64 %s_4_read_1" [source/round.h:20]   --->   Operation 11 'xor' 'xor_ln20' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.99ns)   --->   "%xor_ln21 = xor i64 %xor_ln16, i64 %s_1_read_1" [source/round.h:21]   --->   Operation 12 'xor' 'xor_ln21' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns) (grouped into LUT with out node t)   --->   "%xor_ln23 = xor i64 %s_1_read_1, i64 18446744073709551615" [source/round.h:23]   --->   Operation 13 'xor' 'xor_ln23' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node t)   --->   "%and_ln23 = and i64 %xor_ln16, i64 %xor_ln23" [source/round.h:23]   --->   Operation 14 'and' 'and_ln23' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.99ns) (out node of the LUT)   --->   "%t = xor i64 %and_ln23, i64 %xor_ln19" [source/round.h:23]   --->   Operation 15 'xor' 't' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node t_3)   --->   "%xor_ln24 = xor i64 %xor_ln21, i64 18446744073709551615" [source/round.h:24]   --->   Operation 16 'xor' 'xor_ln24' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node t_3)   --->   "%and_ln24 = and i64 %s_3_read_1, i64 %xor_ln24" [source/round.h:24]   --->   Operation 17 'and' 'and_ln24' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node t_1)   --->   "%xor_ln25 = xor i64 %s_3_read_1, i64 18446744073709551615" [source/round.h:25]   --->   Operation 18 'xor' 'xor_ln25' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node t_1)   --->   "%and_ln25 = and i64 %s_4_read_1, i64 %xor_ln25" [source/round.h:25]   --->   Operation 19 'and' 'and_ln25' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.99ns) (out node of the LUT)   --->   "%t_1 = xor i64 %xor_ln21, i64 %and_ln25" [source/round.h:25]   --->   Operation 20 'xor' 't_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns) (grouped into LUT with out node t_5)   --->   "%xor_ln26 = xor i64 %xor_ln20, i64 18446744073709551615" [source/round.h:26]   --->   Operation 21 'xor' 'xor_ln26' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node t_5)   --->   "%and_ln26 = and i64 %xor_ln19, i64 %xor_ln26" [source/round.h:26]   --->   Operation 22 'and' 'and_ln26' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node t_2)   --->   "%xor_ln27 = xor i64 %xor_ln19, i64 18446744073709551615" [source/round.h:27]   --->   Operation 23 'xor' 'xor_ln27' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node t_2)   --->   "%and_ln27 = and i64 %s_1_read_1, i64 %xor_ln27" [source/round.h:27]   --->   Operation 24 'and' 'and_ln27' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.99ns) (out node of the LUT)   --->   "%t_2 = xor i64 %and_ln27, i64 %xor_ln20" [source/round.h:27]   --->   Operation 25 'xor' 't_2' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.00ns) (grouped into LUT with out node t_3)   --->   "%xor_ln29 = xor i64 %t, i64 %s_1_read_1" [source/round.h:29]   --->   Operation 26 'xor' 'xor_ln29' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.99ns) (out node of the LUT)   --->   "%t_3 = xor i64 %xor_ln29, i64 %and_ln24" [source/round.h:29]   --->   Operation 27 'xor' 't_3' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.99ns)   --->   "%t_4 = xor i64 %t, i64 %t_2" [source/round.h:30]   --->   Operation 28 'xor' 't_4' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.00ns) (grouped into LUT with out node t_5)   --->   "%xor_ln31 = xor i64 %t_1, i64 %s_3_read_1" [source/round.h:31]   --->   Operation 29 'xor' 'xor_ln31' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.99ns) (out node of the LUT)   --->   "%t_5 = xor i64 %xor_ln31, i64 %and_ln26" [source/round.h:31]   --->   Operation 30 'xor' 't_5' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (0.99ns)   --->   "%t_6 = xor i64 %t_1, i64 18446744073709551615" [source/round.h:32]   --->   Operation 31 'xor' 't_6' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%lshr_ln9 = partselect i45 @_ssdm_op_PartSelect.i45.i64.i32.i32, i64 %t_4, i32 19, i32 63" [source/round.h:9->source/round.h:35]   --->   Operation 32 'partselect' 'lshr_ln9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%trunc_ln9 = trunc i64 %t_4" [source/round.h:9->source/round.h:35]   --->   Operation 33 'trunc' 'trunc_ln9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%or_ln9 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i19.i45, i19 %trunc_ln9, i45 %lshr_ln9" [source/round.h:9->source/round.h:35]   --->   Operation 34 'bitconcatenate' 'or_ln9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%lshr_ln9_1 = partselect i36 @_ssdm_op_PartSelect.i36.i64.i32.i32, i64 %t_4, i32 28, i32 63" [source/round.h:9->source/round.h:35]   --->   Operation 35 'partselect' 'lshr_ln9_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%trunc_ln9_1 = trunc i64 %t_4" [source/round.h:9->source/round.h:35]   --->   Operation 36 'trunc' 'trunc_ln9_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%or_ln9_1 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i28.i36, i28 %trunc_ln9_1, i36 %lshr_ln9_1" [source/round.h:9->source/round.h:35]   --->   Operation 37 'bitconcatenate' 'or_ln9_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns) (grouped into LUT with out node xor_ln35_1)   --->   "%xor_ln35 = xor i64 %t_4, i64 %or_ln9_1" [source/round.h:35]   --->   Operation 38 'xor' 'xor_ln35' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln35_1 = xor i64 %xor_ln35, i64 %or_ln9" [source/round.h:35]   --->   Operation 39 'xor' 'xor_ln35_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%lshr_ln9_2 = partselect i3 @_ssdm_op_PartSelect.i3.i64.i32.i32, i64 %t_3, i32 61, i32 63" [source/round.h:9->source/round.h:36]   --->   Operation 40 'partselect' 'lshr_ln9_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%trunc_ln9_2 = trunc i64 %t_3" [source/round.h:9->source/round.h:36]   --->   Operation 41 'trunc' 'trunc_ln9_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%or_ln9_2 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i61.i3, i61 %trunc_ln9_2, i3 %lshr_ln9_2" [source/round.h:9->source/round.h:36]   --->   Operation 42 'bitconcatenate' 'or_ln9_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%lshr_ln9_3 = partselect i25 @_ssdm_op_PartSelect.i25.i64.i32.i32, i64 %t_3, i32 39, i32 63" [source/round.h:9->source/round.h:36]   --->   Operation 43 'partselect' 'lshr_ln9_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%trunc_ln9_3 = trunc i64 %t_3" [source/round.h:9->source/round.h:36]   --->   Operation 44 'trunc' 'trunc_ln9_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%or_ln9_3 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i39.i25, i39 %trunc_ln9_3, i25 %lshr_ln9_3" [source/round.h:9->source/round.h:36]   --->   Operation 45 'bitconcatenate' 'or_ln9_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node xor_ln36_1)   --->   "%xor_ln36 = xor i64 %t_3, i64 %or_ln9_3" [source/round.h:36]   --->   Operation 46 'xor' 'xor_ln36' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 47 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln36_1 = xor i64 %xor_ln36, i64 %or_ln9_2" [source/round.h:36]   --->   Operation 47 'xor' 'xor_ln36_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 48 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%lshr_ln9_4 = partselect i63 @_ssdm_op_PartSelect.i63.i64.i32.i32, i64 %t_6, i32 1, i32 63" [source/round.h:9->source/round.h:37]   --->   Operation 48 'partselect' 'lshr_ln9_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%trunc_ln9_4 = trunc i64 %t_6" [source/round.h:9->source/round.h:37]   --->   Operation 49 'trunc' 'trunc_ln9_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%or_ln9_4 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i1.i63, i1 %trunc_ln9_4, i63 %lshr_ln9_4" [source/round.h:9->source/round.h:37]   --->   Operation 50 'bitconcatenate' 'or_ln9_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%lshr_ln9_5 = partselect i58 @_ssdm_op_PartSelect.i58.i64.i32.i32, i64 %t_6, i32 6, i32 63" [source/round.h:9->source/round.h:37]   --->   Operation 51 'partselect' 'lshr_ln9_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%trunc_ln9_5 = trunc i64 %t_6" [source/round.h:9->source/round.h:37]   --->   Operation 52 'trunc' 'trunc_ln9_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%or_ln9_5 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i6.i58, i6 %trunc_ln9_5, i58 %lshr_ln9_5" [source/round.h:9->source/round.h:37]   --->   Operation 53 'bitconcatenate' 'or_ln9_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns) (grouped into LUT with out node xor_ln37_1)   --->   "%xor_ln37 = xor i64 %or_ln9_5, i64 %t_6" [source/round.h:37]   --->   Operation 54 'xor' 'xor_ln37' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln37_1 = xor i64 %xor_ln37, i64 %or_ln9_4" [source/round.h:37]   --->   Operation 55 'xor' 'xor_ln37_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 56 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%lshr_ln9_6 = partselect i54 @_ssdm_op_PartSelect.i54.i64.i32.i32, i64 %t_5, i32 10, i32 63" [source/round.h:9->source/round.h:38]   --->   Operation 56 'partselect' 'lshr_ln9_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%trunc_ln9_6 = trunc i64 %t_5" [source/round.h:9->source/round.h:38]   --->   Operation 57 'trunc' 'trunc_ln9_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%or_ln9_6 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i10.i54, i10 %trunc_ln9_6, i54 %lshr_ln9_6" [source/round.h:9->source/round.h:38]   --->   Operation 58 'bitconcatenate' 'or_ln9_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%lshr_ln9_7 = partselect i47 @_ssdm_op_PartSelect.i47.i64.i32.i32, i64 %t_5, i32 17, i32 63" [source/round.h:9->source/round.h:38]   --->   Operation 59 'partselect' 'lshr_ln9_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%trunc_ln9_7 = trunc i64 %t_5" [source/round.h:9->source/round.h:38]   --->   Operation 60 'trunc' 'trunc_ln9_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%or_ln9_7 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i17.i47, i17 %trunc_ln9_7, i47 %lshr_ln9_7" [source/round.h:9->source/round.h:38]   --->   Operation 61 'bitconcatenate' 'or_ln9_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node xor_ln38_1)   --->   "%xor_ln38 = xor i64 %t_5, i64 %or_ln9_7" [source/round.h:38]   --->   Operation 62 'xor' 'xor_ln38' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 63 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln38_1 = xor i64 %xor_ln38, i64 %or_ln9_6" [source/round.h:38]   --->   Operation 63 'xor' 'xor_ln38_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 64 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%lshr_ln9_8 = partselect i57 @_ssdm_op_PartSelect.i57.i64.i32.i32, i64 %t_2, i32 7, i32 63" [source/round.h:9->source/round.h:39]   --->   Operation 64 'partselect' 'lshr_ln9_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%trunc_ln9_8 = trunc i64 %t_2" [source/round.h:9->source/round.h:39]   --->   Operation 65 'trunc' 'trunc_ln9_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%or_ln9_8 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i7.i57, i7 %trunc_ln9_8, i57 %lshr_ln9_8" [source/round.h:9->source/round.h:39]   --->   Operation 66 'bitconcatenate' 'or_ln9_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%lshr_ln9_9 = partselect i23 @_ssdm_op_PartSelect.i23.i64.i32.i32, i64 %t_2, i32 41, i32 63" [source/round.h:9->source/round.h:39]   --->   Operation 67 'partselect' 'lshr_ln9_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%trunc_ln9_9 = trunc i64 %t_2" [source/round.h:9->source/round.h:39]   --->   Operation 68 'trunc' 'trunc_ln9_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%or_ln9_9 = bitconcatenate i64 @_ssdm_op_BitConcatenate.i64.i41.i23, i41 %trunc_ln9_9, i23 %lshr_ln9_9" [source/round.h:9->source/round.h:39]   --->   Operation 69 'bitconcatenate' 'or_ln9_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns) (grouped into LUT with out node xor_ln39_1)   --->   "%xor_ln39 = xor i64 %t_2, i64 %or_ln9_9" [source/round.h:39]   --->   Operation 70 'xor' 'xor_ln39' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 71 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln39_1 = xor i64 %xor_ln39, i64 %or_ln9_8" [source/round.h:39]   --->   Operation 71 'xor' 'xor_ln39_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%mrv = insertvalue i320 <undef>, i64 %xor_ln35_1" [source/round.h:41]   --->   Operation 72 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue i320 %mrv, i64 %xor_ln36_1" [source/round.h:41]   --->   Operation 73 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue i320 %mrv_1, i64 %xor_ln37_1" [source/round.h:41]   --->   Operation 74 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue i320 %mrv_2, i64 %xor_ln38_1" [source/round.h:41]   --->   Operation 75 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue i320 %mrv_3, i64 %xor_ln39_1" [source/round.h:41]   --->   Operation 76 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%ret_ln41 = ret i320 %mrv_4" [source/round.h:41]   --->   Operation 77 'ret' 'ret_ln41' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 4.950ns
+The critical path consists of the following:
+	wire read operation ('C_read', source/round.h:12) on port 'C' (source/round.h:12) [7]  (0.000 ns)
+	'xor' operation 64 bit ('xor_ln16', source/round.h:16) [14]  (0.990 ns)
+	'xor' operation 64 bit ('xor_ln21', source/round.h:21) [17]  (0.990 ns)
+	'xor' operation 64 bit ('t', source/round.h:25) [25]  (0.990 ns)
+	'xor' operation 64 bit ('t', source/round.h:32) [36]  (0.990 ns)
+	'xor' operation 64 bit ('s[2]', source/round.h:37) [60]  (0.990 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

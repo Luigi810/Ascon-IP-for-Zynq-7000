@@ -1,0 +1,169 @@
+
+
+================================================================
+== Vitis HLS Report for 'LOADBYTES'
+================================================================
+* Date:           Tue May 28 19:29:19 2024
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        EsperimentiVitisHLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.728 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max   | min | max |   Type  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |        2|       10|  20.000 ns|  0.100 us|    2|   10|       no|
+    +---------+---------+-----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_22_1  |        0|        8|         2|          1|          1|  0 ~ 8|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+----+-------+-------+-----+
+|       Name      | BRAM_18K| DSP|   FF  |  LUT  | URAM|
++-----------------+---------+----+-------+-------+-----+
+|DSP              |        -|   -|      -|      -|    -|
+|Expression       |        -|   -|      0|    301|    -|
+|FIFO             |        -|   -|      -|      -|    -|
+|Instance         |        -|   -|      0|     65|    -|
+|Memory           |        -|   -|      -|      -|    -|
+|Multiplexer      |        -|   -|      -|     59|    -|
+|Register         |        -|   -|     82|      -|    -|
++-----------------+---------+----+-------+-------+-----+
+|Total            |        0|   0|     82|    425|    0|
++-----------------+---------+----+-------+-------+-----+
+|Available        |      120|  80|  35200|  17600|    0|
++-----------------+---------+----+-------+-------+-----+
+|Utilization (%)  |        0|   0|     ~0|      2|    0|
++-----------------+---------+----+-------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+----+---+----+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP| FF| LUT| URAM|
+    +--------------------------+----------------------+---------+----+---+----+-----+
+    |sparsemux_33_4_8_1_1_U42  |sparsemux_33_4_8_1_1  |        0|   0|  0|  65|    0|
+    +--------------------------+----------------------+---------+----+---+----+-----+
+    |Total                     |                      |        0|   0|  0|  65|    0|
+    +--------------------------+----------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+-----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT | Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+-----+------------+------------+
+    |add_ln22_1_fu_237_p2  |         +|   0|  0|   13|           4|           1|
+    |tmp_fu_257_p34        |         +|   0|  0|   13|           4|           4|
+    |sub_ln22_fu_337_p2    |         -|   0|  0|   14|           5|           6|
+    |icmp_ln22_fu_231_p2   |      icmp|   0|  0|   13|           4|           4|
+    |x_1_fu_363_p2         |        or|   0|  0|   64|          64|          64|
+    |shl_ln22_fu_357_p2    |       shl|   0|  0|  182|          64|          64|
+    |ap_enable_pp0         |       xor|   0|  0|    2|           1|           2|
+    +----------------------+----------+----+---+-----+------------+------------+
+    |Total                 |          |   0|  0|  301|         146|         145|
+    +----------------------+----------+----+---+-----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------+----+-----------+-----+-----------+
+    |            Name           | LUT| Input Size| Bits| Total Bits|
+    +---------------------------+----+-----------+-----+-----------+
+    |ap_done_int                |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1    |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_3       |   9|          2|    4|          8|
+    |ap_sig_allocacmp_x_load_1  |  14|          3|   64|        192|
+    |i_fu_106                   |   9|          2|    4|          8|
+    |x_fu_102                   |   9|          2|   64|        128|
+    +---------------------------+----+-----------+-----+-----------+
+    |Total                      |  59|         13|  138|        340|
+    +---------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                |   1|   0|    1|          0|
+    |ap_done_reg              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
+    |i_fu_106                 |   4|   0|    4|          0|
+    |sub_ln22_reg_400         |   3|   0|    6|          3|
+    |tmp_reg_395              |   8|   0|    8|          0|
+    |x_fu_102                 |  64|   0|   64|          0|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    |  82|   0|   85|          3|
+    +-------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------+-----+-----+------------+---------------+--------------+
+|   RTL Ports   | Dir | Bits|  Protocol  | Source Object |    C Type    |
++---------------+-----+-----+------------+---------------+--------------+
+|ap_clk         |   in|    1|  ap_ctrl_hs|      LOADBYTES|  return value|
+|ap_rst         |   in|    1|  ap_ctrl_hs|      LOADBYTES|  return value|
+|ap_start       |   in|    1|  ap_ctrl_hs|      LOADBYTES|  return value|
+|ap_done        |  out|    1|  ap_ctrl_hs|      LOADBYTES|  return value|
+|ap_idle        |  out|    1|  ap_ctrl_hs|      LOADBYTES|  return value|
+|ap_ready       |  out|    1|  ap_ctrl_hs|      LOADBYTES|  return value|
+|ap_return      |  out|   64|  ap_ctrl_hs|      LOADBYTES|  return value|
+|bytes_read     |   in|    8|     ap_none|     bytes_read|        scalar|
+|bytes_read_47  |   in|    8|     ap_none|  bytes_read_47|        scalar|
+|bytes_read_48  |   in|    8|     ap_none|  bytes_read_48|        scalar|
+|bytes_read_49  |   in|    8|     ap_none|  bytes_read_49|        scalar|
+|bytes_read_50  |   in|    8|     ap_none|  bytes_read_50|        scalar|
+|bytes_read_51  |   in|    8|     ap_none|  bytes_read_51|        scalar|
+|bytes_read_52  |   in|    8|     ap_none|  bytes_read_52|        scalar|
+|bytes_read_53  |   in|    8|     ap_none|  bytes_read_53|        scalar|
+|bytes_read_54  |   in|    8|     ap_none|  bytes_read_54|        scalar|
+|bytes_read_55  |   in|    8|     ap_none|  bytes_read_55|        scalar|
+|bytes_read_56  |   in|    8|     ap_none|  bytes_read_56|        scalar|
+|bytes_read_57  |   in|    8|     ap_none|  bytes_read_57|        scalar|
+|bytes_read_58  |   in|    8|     ap_none|  bytes_read_58|        scalar|
+|bytes_read_59  |   in|    8|     ap_none|  bytes_read_59|        scalar|
+|bytes_read_60  |   in|    8|     ap_none|  bytes_read_60|        scalar|
+|bytes_read_61  |   in|    8|     ap_none|  bytes_read_61|        scalar|
+|n              |   in|    4|     ap_none|              n|        scalar|
+|idx            |   in|    4|     ap_none|            idx|        scalar|
++---------------+-----+-----+------------+---------------+--------------+
+

@@ -1,0 +1,55 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'crypto_aead_encrypt'" level="0">
+<item name = "Date">Tue May 28 19:29:17 2024
+</item>
+<item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
+<item name = "Project">EsperimentiVitisHLS</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z010-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.008 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">126, 182, 1.260 us, 1.820 us, 126, 182, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_LOADBYTES_fu_650">LOADBYTES, 2, 10, 20.000 ns, 0.100 us, 2, 10, no</column>
+<column name="grp_LOADBYTES_fu_690">LOADBYTES, 2, 10, 20.000 ns, 0.100 us, 2, 10, no</column>
+<column name="grp_LOADBYTES_fu_730">LOADBYTES, 2, 10, 20.000 ns, 0.100 us, 2, 10, no</column>
+<column name="grp_LOADBYTES_fu_770">LOADBYTES, 2, 10, 20.000 ns, 0.100 us, 2, 10, no</column>
+<column name="grp_ROUND_6_fu_811">ROUND_6, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1_fu_838">crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1, 10, 10, 0.100 us, 0.100 us, 10, 10, no</column>
+<column name="grp_crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11_fu_852">crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11, 10, 10, 0.100 us, 0.100 us, 10, 10, no</column>
+<column name="grp_crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12_fu_865">crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12, 10, 10, 0.100 us, 0.100 us, 10, 10, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_40_3">20, 36, 10 ~ 18, -, -, 2, no</column>
+<column name="- VITIS_LOOP_58_7">40, 56, 20 ~ 28, -, -, 2, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

@@ -1,0 +1,169 @@
+
+
+================================================================
+== Vitis HLS Report for 'u64_to_u8_array_clone'
+================================================================
+* Date:           Tue May 28 19:29:15 2024
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        EsperimentiVitisHLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.423 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.42>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%specpipeline_ln9 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [EsperimentiVitisHLS/source/temp.c:9]   --->   Operation 2 'specpipeline' 'specpipeline_ln9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%idx_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %idx" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 3 'read' 'idx_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%p_read_1 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read15" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 4 'read' 'p_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%p_read_2 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read14" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 5 'read' 'p_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%p_read_3 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read13" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 6 'read' 'p_read_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%p_read_4 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read12" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 7 'read' 'p_read_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%p_read_5 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read11" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 8 'read' 'p_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%p_read_6 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read10" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 9 'read' 'p_read_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%p_read_7 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read9" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 10 'read' 'p_read_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%p_read_8 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read8" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 11 'read' 'p_read_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%p_read_9 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 12 'read' 'p_read_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%p_read_10 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read6" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 13 'read' 'p_read_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%p_read_11 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read5" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 14 'read' 'p_read_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_read_12 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read4" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 15 'read' 'p_read_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%p_read_13 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read3" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 16 'read' 'p_read_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%p_read_14 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read2" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 17 'read' 'p_read_14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%p_read_15 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read1" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 18 'read' 'p_read_15' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%p_read16 = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %p_read" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 19 'read' 'p_read16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%a_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %a" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 20 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln13 = trunc i64 %a_read" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 21 'trunc' 'trunc_ln13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%trunc_ln13_1 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 8, i32 15" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 22 'partselect' 'trunc_ln13_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln13_2 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 16, i32 23" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 23 'partselect' 'trunc_ln13_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%trunc_ln13_3 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 24, i32 31" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 24 'partselect' 'trunc_ln13_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%trunc_ln13_4 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 32, i32 39" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 25 'partselect' 'trunc_ln13_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%trunc_ln13_5 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 40, i32 47" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 26 'partselect' 'trunc_ln13_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln13_6 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 48, i32 55" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 27 'partselect' 'trunc_ln13_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%trunc_ln13_7 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 56, i32 63" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 28 'partselect' 'trunc_ln13_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (2.42ns)   --->   "%b_write_assign = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read16, i4 0, i8 %trunc_ln13_7, i4 1, i8 %p_read16, i4 2, i8 %p_read16, i4 3, i8 %p_read16, i4 4, i8 %p_read16, i4 5, i8 %p_read16, i4 6, i8 %p_read16, i4 7, i8 %p_read16, i8 %trunc_ln13_6, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 29 'sparsemux' 'b_write_assign' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (2.42ns)   --->   "%b_write_assign_s = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13, i4 0, i8 %p_read_1, i4 1, i8 %p_read_1, i4 2, i8 %p_read_1, i4 3, i8 %p_read_1, i4 4, i8 %p_read_1, i4 5, i8 %p_read_1, i4 6, i8 %p_read_1, i4 7, i8 %p_read_1, i8 %trunc_ln13_7, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 30 'sparsemux' 'b_write_assign_s' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (2.42ns)   --->   "%b_write_assign_14 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_1, i4 0, i8 %p_read_2, i4 1, i8 %p_read_2, i4 2, i8 %p_read_2, i4 3, i8 %p_read_2, i4 4, i8 %p_read_2, i4 5, i8 %p_read_2, i4 6, i8 %p_read_2, i4 7, i8 %trunc_ln13, i8 %p_read_2, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 31 'sparsemux' 'b_write_assign_14' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (2.42ns)   --->   "%b_write_assign_1 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_15, i4 0, i8 %trunc_ln13_6, i4 1, i8 %trunc_ln13_7, i4 2, i8 %p_read_15, i4 3, i8 %p_read_15, i4 4, i8 %p_read_15, i4 5, i8 %p_read_15, i4 6, i8 %p_read_15, i4 7, i8 %p_read_15, i8 %trunc_ln13_5, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 32 'sparsemux' 'b_write_assign_1' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (2.42ns)   --->   "%b_write_assign_13 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_2, i4 0, i8 %p_read_3, i4 1, i8 %p_read_3, i4 2, i8 %p_read_3, i4 3, i8 %p_read_3, i4 4, i8 %p_read_3, i4 5, i8 %p_read_3, i4 6, i8 %trunc_ln13, i4 7, i8 %trunc_ln13_1, i8 %p_read_3, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 33 'sparsemux' 'b_write_assign_13' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 34 [1/1] (2.42ns)   --->   "%b_write_assign_12 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_3, i4 0, i8 %p_read_4, i4 1, i8 %p_read_4, i4 2, i8 %p_read_4, i4 3, i8 %p_read_4, i4 4, i8 %p_read_4, i4 5, i8 %trunc_ln13, i4 6, i8 %trunc_ln13_1, i4 7, i8 %trunc_ln13_2, i8 %p_read_4, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 34 'sparsemux' 'b_write_assign_12' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (2.42ns)   --->   "%b_write_assign_2 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_14, i4 0, i8 %trunc_ln13_5, i4 1, i8 %trunc_ln13_6, i4 2, i8 %trunc_ln13_7, i4 3, i8 %p_read_14, i4 4, i8 %p_read_14, i4 5, i8 %p_read_14, i4 6, i8 %p_read_14, i4 7, i8 %p_read_14, i8 %trunc_ln13_4, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 35 'sparsemux' 'b_write_assign_2' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (2.42ns)   --->   "%b_write_assign_11 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_4, i4 0, i8 %p_read_5, i4 1, i8 %p_read_5, i4 2, i8 %p_read_5, i4 3, i8 %p_read_5, i4 4, i8 %trunc_ln13, i4 5, i8 %trunc_ln13_1, i4 6, i8 %trunc_ln13_2, i4 7, i8 %trunc_ln13_3, i8 %p_read_5, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 36 'sparsemux' 'b_write_assign_11' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 37 [1/1] (2.42ns)   --->   "%b_write_assign_10 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_5, i4 0, i8 %p_read_6, i4 1, i8 %p_read_6, i4 2, i8 %p_read_6, i4 3, i8 %trunc_ln13, i4 4, i8 %trunc_ln13_1, i4 5, i8 %trunc_ln13_2, i4 6, i8 %trunc_ln13_3, i4 7, i8 %trunc_ln13_4, i8 %p_read_6, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 37 'sparsemux' 'b_write_assign_10' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (2.42ns)   --->   "%b_write_assign_3 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_13, i4 0, i8 %trunc_ln13_4, i4 1, i8 %trunc_ln13_5, i4 2, i8 %trunc_ln13_6, i4 3, i8 %trunc_ln13_7, i4 4, i8 %p_read_13, i4 5, i8 %p_read_13, i4 6, i8 %p_read_13, i4 7, i8 %p_read_13, i8 %trunc_ln13_3, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 38 'sparsemux' 'b_write_assign_3' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (2.42ns)   --->   "%b_write_assign_9 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_6, i4 0, i8 %p_read_7, i4 1, i8 %p_read_7, i4 2, i8 %trunc_ln13, i4 3, i8 %trunc_ln13_1, i4 4, i8 %trunc_ln13_2, i4 5, i8 %trunc_ln13_3, i4 6, i8 %trunc_ln13_4, i4 7, i8 %trunc_ln13_5, i8 %p_read_7, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 39 'sparsemux' 'b_write_assign_9' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (2.42ns)   --->   "%b_write_assign_8 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %trunc_ln13_7, i4 0, i8 %p_read_8, i4 1, i8 %trunc_ln13, i4 2, i8 %trunc_ln13_1, i4 3, i8 %trunc_ln13_2, i4 4, i8 %trunc_ln13_3, i4 5, i8 %trunc_ln13_4, i4 6, i8 %trunc_ln13_5, i4 7, i8 %trunc_ln13_6, i8 %p_read_8, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 40 'sparsemux' 'b_write_assign_8' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (2.42ns)   --->   "%b_write_assign_4 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_12, i4 0, i8 %trunc_ln13_3, i4 1, i8 %trunc_ln13_4, i4 2, i8 %trunc_ln13_5, i4 3, i8 %trunc_ln13_6, i4 4, i8 %trunc_ln13_7, i4 5, i8 %p_read_12, i4 6, i8 %p_read_12, i4 7, i8 %p_read_12, i8 %trunc_ln13_2, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 41 'sparsemux' 'b_write_assign_4' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 42 [1/1] (2.42ns)   --->   "%b_write_assign_7 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_9, i4 0, i8 %trunc_ln13, i4 1, i8 %trunc_ln13_1, i4 2, i8 %trunc_ln13_2, i4 3, i8 %trunc_ln13_3, i4 4, i8 %trunc_ln13_4, i4 5, i8 %trunc_ln13_5, i4 6, i8 %trunc_ln13_6, i4 7, i8 %trunc_ln13_7, i8 %p_read_9, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 42 'sparsemux' 'b_write_assign_7' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 43 [1/1] (2.42ns)   --->   "%b_write_assign_6 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_10, i4 0, i8 %trunc_ln13_1, i4 1, i8 %trunc_ln13_2, i4 2, i8 %trunc_ln13_3, i4 3, i8 %trunc_ln13_4, i4 4, i8 %trunc_ln13_5, i4 5, i8 %trunc_ln13_6, i4 6, i8 %trunc_ln13_7, i4 7, i8 %p_read_10, i8 %trunc_ln13, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 43 'sparsemux' 'b_write_assign_6' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (2.42ns)   --->   "%b_write_assign_5 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.9i8.i8.i4, i4 8, i8 %p_read_11, i4 0, i8 %trunc_ln13_2, i4 1, i8 %trunc_ln13_3, i4 2, i8 %trunc_ln13_4, i4 3, i8 %trunc_ln13_5, i4 4, i8 %trunc_ln13_6, i4 5, i8 %trunc_ln13_7, i4 6, i8 %p_read_11, i4 7, i8 %p_read_11, i8 %trunc_ln13_1, i4 %idx_read" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 44 'sparsemux' 'b_write_assign_5' <Predicate = true> <Delay = 2.42> <CoreInst = "SparseMux">   --->   Core 135 'SparseMux' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%mrv = insertvalue i128 <undef>, i8 %b_write_assign" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 45 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue i128 %mrv, i8 %b_write_assign_1" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 46 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue i128 %mrv_1, i8 %b_write_assign_2" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 47 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue i128 %mrv_2, i8 %b_write_assign_3" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 48 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue i128 %mrv_3, i8 %b_write_assign_4" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 49 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%mrv_5 = insertvalue i128 %mrv_4, i8 %b_write_assign_5" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 50 'insertvalue' 'mrv_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%mrv_6 = insertvalue i128 %mrv_5, i8 %b_write_assign_6" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 51 'insertvalue' 'mrv_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%mrv_7 = insertvalue i128 %mrv_6, i8 %b_write_assign_7" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 52 'insertvalue' 'mrv_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%mrv_8 = insertvalue i128 %mrv_7, i8 %b_write_assign_8" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 53 'insertvalue' 'mrv_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%mrv_9 = insertvalue i128 %mrv_8, i8 %b_write_assign_9" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 54 'insertvalue' 'mrv_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%mrv_s = insertvalue i128 %mrv_9, i8 %b_write_assign_10" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 55 'insertvalue' 'mrv_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%mrv_10 = insertvalue i128 %mrv_s, i8 %b_write_assign_11" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 56 'insertvalue' 'mrv_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%mrv_11 = insertvalue i128 %mrv_10, i8 %b_write_assign_12" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 57 'insertvalue' 'mrv_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%mrv_12 = insertvalue i128 %mrv_11, i8 %b_write_assign_13" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 58 'insertvalue' 'mrv_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%mrv_13 = insertvalue i128 %mrv_12, i8 %b_write_assign_14" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 59 'insertvalue' 'mrv_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%mrv_14 = insertvalue i128 %mrv_13, i8 %b_write_assign_s" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 60 'insertvalue' 'mrv_14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%ret_ln15 = ret i128 %mrv_14" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 61 'ret' 'ret_ln15' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 2.423ns
+The critical path consists of the following:
+	wire read operation ('idx_read', EsperimentiVitisHLS/source/temp.c:7) on port 'idx' (EsperimentiVitisHLS/source/temp.c:7) [20]  (0.000 ns)
+	'sparsemux' operation 8 bit ('b', EsperimentiVitisHLS/source/temp.c:15) [46]  (2.423 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

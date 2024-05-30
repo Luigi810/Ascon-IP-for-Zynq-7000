@@ -1,0 +1,247 @@
+---
+MainSourceFile:  'C:/Users/lguer/AppData/Roaming/Xilinx/Vitis/VitisHLS/AsconOptimizedHLS/EsperimentiVitisHLS/solution1/.autopilot/db/aead.pp.0.c'
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_39_1:  '
+    FileOffset:      39
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\round.h'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          15488
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_39_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_22_1:  '
+    FileOffset:      22
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\word.h'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          28828
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_22_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_29_1:  '
+    FileOffset:      29
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\word.h'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          28993
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_29_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_35_1:  '
+    FileOffset:      35
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\word.h'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          29144
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_35_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_32_1:  '
+    FileOffset:      32
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30006
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_32_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_36_2:  '
+    FileOffset:      36
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30069
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_36_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_40_3:  '
+    FileOffset:      40
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30108
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_40_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_42_4:  '
+    FileOffset:      42
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30169
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_42_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_50_5:  '
+    FileOffset:      50
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30337
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_50_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_55_6:  '
+    FileOffset:      55
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30389
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_55_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_58_7:  '
+    FileOffset:      58
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30411
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_58_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_61_8:  '
+    FileOffset:      61
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30496
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_61_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_72_9:  '
+    FileOffset:      72
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30701
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_72_9: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_77_10:  '
+    FileOffset:      77
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30755
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_77_10: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_81_11:  '
+    FileOffset:      81
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          30818
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_81_11: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_115_1:  '
+    FileOffset:      115
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          31691
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_115_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_119_2:  '
+    FileOffset:      119
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          31754
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_119_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_123_3:  '
+    FileOffset:      123
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          31793
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_123_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_125_4:  '
+    FileOffset:      125
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          31854
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_125_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_133_5:  '
+    FileOffset:      133
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32022
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_133_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_138_6:  '
+    FileOffset:      138
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32074
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_138_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_142_7:  '
+    FileOffset:      142
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32110
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_142_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_146_8:  '
+    FileOffset:      146
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32221
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_146_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_159_9:  '
+    FileOffset:      159
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32488
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_159_9: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_164_10:  '
+    FileOffset:      164
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32542
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_164_10: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_168_11:  '
+    FileOffset:      168
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32605
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_168_11: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_178_12:  '
+    FileOffset:      178
+    FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\source\aead.c'
+    Replacements:    
+      - FilePath:        'C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c'
+        Offset:          32733
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_178_12: '
+...

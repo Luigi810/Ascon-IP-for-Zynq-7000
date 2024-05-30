@@ -1,0 +1,56 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "3",
+    "file": "temp.c",
+    "fileloc": 54,
+    "instructions": 18,
+    "loads": {
+      "L": 1
+    },
+    "name": "axi_encrypt",
+    "total_instructions": 4726
+  },
+  "1": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "word.h",
+    "fileloc": 19,
+    "instructions": 21,
+    "loads": {
+      "L": 1
+    },
+    "name": "LOADBYTES",
+    "total_instructions": 21
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "round.h",
+    "fileloc": 12,
+    "instructions": 80,
+    "loads": {
+      "L": 5
+    },
+    "name": "ROUND",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 80
+  },
+  "3": {
+    "basicblocks": 9,
+    "calls": "1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2",
+    "file": "aead.c",
+    "fileloc": 8,
+    "instructions": 178,
+    "loads": {
+      "L": 13
+    },
+    "name": "crypto_aead_encrypt",
+    "stores": {
+      "L": 22
+    },
+    "total_instructions": 4708
+  }
+}

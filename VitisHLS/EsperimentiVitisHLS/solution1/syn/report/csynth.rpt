@@ -1,0 +1,308 @@
+
+
+================================================================
+== Synthesis Summary Report of 'axi_encrypt'
+================================================================
++ General Information: 
+    * Date:           Tue May 28 19:29:22 2024
+    * Version:        2023.2 (Build 4023990 on Oct 11 2023)
+    * Project:        EsperimentiVitisHLS
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z010-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+--------+----+------------+-------------+-----+
+    |                      Modules                      |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |        |    |            |             |     |
+    |                      & Loops                      |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM  | DSP|     FF     |     LUT     | URAM|
+    +---------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+--------+----+------------+-------------+-----+
+    |+ axi_encrypt                                      |  Timing|  -0.71|      206|  2.060e+03|         -|      207|     -|        no|  8 (6%)|   -|  5106 (14%)|  14976 (85%)|    -|
+    | + u64_to_u8_array                                 |      II|   3.12|        1|     10.000|         -|        2|     -|       yes|       -|   -|    84 (~0%)|     489 (2%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + u64_to_u8_array_clone                           |      II|   4.88|        0|      0.000|         -|        1|     -|       yes|       -|   -|           -|     768 (4%)|    -|
+    | + crypto_aead_encrypt                             |  Timing|  -0.71|      182|  1.820e+03|         -|      182|     -|        no|       -|   -|   2009 (5%)|   6694 (38%)|    -|
+    |  + LOADBYTES                                      |       -|   1.57|       10|    100.000|         -|       10|     -|        no|       -|   -|    82 (~0%)|     425 (2%)|    -|
+    |   o VITIS_LOOP_22_1                               |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    |  + LOADBYTES                                      |       -|   1.57|       10|    100.000|         -|       10|     -|        no|       -|   -|    82 (~0%)|     425 (2%)|    -|
+    |   o VITIS_LOOP_22_1                               |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    |  + LOADBYTES                                      |       -|   1.57|       10|    100.000|         -|       10|     -|        no|       -|   -|    82 (~0%)|     425 (2%)|    -|
+    |   o VITIS_LOOP_22_1                               |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    |  + LOADBYTES                                      |       -|   1.57|       10|    100.000|         -|       10|     -|        no|       -|   -|    82 (~0%)|     425 (2%)|    -|
+    |   o VITIS_LOOP_22_1                               |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    |  + ROUND_6                                        |       -|   2.35|        0|      0.000|         -|        0|     -|        no|       -|   -|           -|   2112 (12%)|    -|
+    |  + crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11  |  Timing|  -0.71|       10|    100.000|         -|       10|     -|        no|       -|   -|    18 (~0%)|     260 (1%)|    -|
+    |   o VITIS_LOOP_29_1                               |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    |  + crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12  |  Timing|  -0.71|       10|    100.000|         -|       10|     -|        no|       -|   -|    18 (~0%)|     260 (1%)|    -|
+    |   o VITIS_LOOP_29_1                               |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    |  o VITIS_LOOP_40_3                                |       -|   7.30|       36|    360.000|        18|        -|     2|        no|       -|   -|           -|            -|    -|
+    |  o VITIS_LOOP_58_7                                |       -|   7.30|       56|    560.000|        28|        -|     2|        no|       -|   -|           -|            -|    -|
+    |   + crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1  |  Timing|  -0.71|       10|    100.000|         -|       10|     -|        no|       -|   -|    19 (~0%)|     262 (1%)|    -|
+    |    o VITIS_LOOP_29_1                              |       -|   7.30|        8|     80.000|         2|        1|     8|       yes|       -|   -|           -|            -|    -|
+    +---------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+--------+----+------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | 64 -> 64   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=8            |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 24     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | ap_return | 0x10   | 32    | R      | Data signal of ap_return         |                                                                      |
+| s_axi_control | c_1       | 0x18   | 32    | W      | Data signal of c                 |                                                                      |
+| s_axi_control | c_2       | 0x1c   | 32    | W      | Data signal of c                 |                                                                      |
+| s_axi_control | m_1       | 0x24   | 32    | W      | Data signal of m                 |                                                                      |
+| s_axi_control | m_2       | 0x28   | 32    | W      | Data signal of m                 |                                                                      |
+| s_axi_control | ad_1      | 0x30   | 32    | W      | Data signal of ad                |                                                                      |
+| s_axi_control | ad_2      | 0x34   | 32    | W      | Data signal of ad                |                                                                      |
+| s_axi_control | nsec_1    | 0x3c   | 32    | W      | Data signal of nsec              |                                                                      |
+| s_axi_control | nsec_2    | 0x40   | 32    | W      | Data signal of nsec              |                                                                      |
+| s_axi_control | npub_1    | 0x48   | 32    | W      | Data signal of npub              |                                                                      |
+| s_axi_control | npub_2    | 0x4c   | 32    | W      | Data signal of npub              |                                                                      |
+| s_axi_control | k_1       | 0x54   | 32    | W      | Data signal of k                 |                                                                      |
+| s_axi_control | k_2       | 0x58   | 32    | W      | Data signal of k                 |                                                                      |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+--------------------------------+
+| Argument | Direction | Datatype                       |
++----------+-----------+--------------------------------+
+| c        | in        | long long unsigned int*        |
+| m        | in        | long long unsigned int const * |
+| ad       | in        | long long unsigned int const * |
+| nsec     | in        | long long unsigned int*        |
+| npub     | in        | long long unsigned int const * |
+| k        | in        | long long unsigned int const * |
+| return   | out       | int                            |
++----------+-----------+--------------------------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                             |
++----------+---------------+-----------+----------+-------------------------------------+
+| c        | m_axi_gmem    | interface |          |                                     |
+| c        | s_axi_control | register  | offset   | name=c_1 offset=0x18 range=32       |
+| c        | s_axi_control | register  | offset   | name=c_2 offset=0x1c range=32       |
+| m        | m_axi_gmem    | interface |          |                                     |
+| m        | s_axi_control | register  | offset   | name=m_1 offset=0x24 range=32       |
+| m        | s_axi_control | register  | offset   | name=m_2 offset=0x28 range=32       |
+| ad       | m_axi_gmem    | interface |          |                                     |
+| ad       | s_axi_control | register  | offset   | name=ad_1 offset=0x30 range=32      |
+| ad       | s_axi_control | register  | offset   | name=ad_2 offset=0x34 range=32      |
+| nsec     | m_axi_gmem    | interface |          |                                     |
+| nsec     | s_axi_control | register  | offset   | name=nsec_1 offset=0x3c range=32    |
+| nsec     | s_axi_control | register  | offset   | name=nsec_2 offset=0x40 range=32    |
+| npub     | m_axi_gmem    | interface |          |                                     |
+| npub     | s_axi_control | register  | offset   | name=npub_1 offset=0x48 range=32    |
+| npub     | s_axi_control | register  | offset   | name=npub_2 offset=0x4c range=32    |
+| k        | m_axi_gmem    | interface |          |                                     |
+| k        | s_axi_control | register  | offset   | name=k_1 offset=0x54 range=32       |
+| k        | s_axi_control | register  | offset   | name=k_2 offset=0x58 range=32       |
+| return   | s_axi_control | register  |          | name=ap_return offset=0x10 range=32 |
++----------+---------------+-----------+----------+-------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+
+| HW Interface | Direction | Length | Width |
++--------------+-----------+--------+-------+
+| m_axi_gmem   | read      | 4      | 64    |
+| m_axi_gmem   | read      | 2      | 64    |
++--------------+-----------+--------+-------+
+
+* All M_AXI Variable Accesses
++--------------+----------+------------------------------------------+-----------+--------------+--------+------------+-------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                          | Direction | Burst Status | Length | Resolution | Problem                                                                                               |
++--------------+----------+------------------------------------------+-----------+--------------+--------+------------+-------------------------------------------------------------------------------------------------------+
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:125:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:125:18 | read      | Inferred     | 4      |            |                                                                                                       |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:126:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:126:18 | read      | Inferred     | 4      |            |                                                                                                       |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:127:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:127:18 | read      | Inferred     | 4      |            |                                                                                                       |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:128:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | c        | EsperimentiVitisHLS/source/temp.c:128:18 | read      | Inferred     | 4      |            |                                                                                                       |
+| m_axi_gmem   | m        | EsperimentiVitisHLS/source/temp.c:130:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | m        | EsperimentiVitisHLS/source/temp.c:130:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | m        | EsperimentiVitisHLS/source/temp.c:131:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | m        | EsperimentiVitisHLS/source/temp.c:131:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | ad       | EsperimentiVitisHLS/source/temp.c:133:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | ad       | EsperimentiVitisHLS/source/temp.c:133:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | ad       | EsperimentiVitisHLS/source/temp.c:134:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | ad       | EsperimentiVitisHLS/source/temp.c:134:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | nsec     | EsperimentiVitisHLS/source/temp.c:136:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | nsec     | EsperimentiVitisHLS/source/temp.c:136:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | nsec     | EsperimentiVitisHLS/source/temp.c:137:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | nsec     | EsperimentiVitisHLS/source/temp.c:137:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | npub     | EsperimentiVitisHLS/source/temp.c:139:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | npub     | EsperimentiVitisHLS/source/temp.c:139:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | npub     | EsperimentiVitisHLS/source/temp.c:140:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | npub     | EsperimentiVitisHLS/source/temp.c:140:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | k        | EsperimentiVitisHLS/source/temp.c:142:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | k        | EsperimentiVitisHLS/source/temp.c:142:18 | read      | Inferred     | 2      |            |                                                                                                       |
+| m_axi_gmem   | k        | EsperimentiVitisHLS/source/temp.c:143:18 | read      | Widen Fail   |        | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | k        | EsperimentiVitisHLS/source/temp.c:143:18 | read      | Inferred     | 2      |            |                                                                                                       |
++--------------+----------+------------------------------------------+-----------+--------------+--------+------------+-------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------------------------+-----+--------+------------+-----+--------+---------+
+| Name                                              | DSP | Pragma | Variable   | Op  | Impl   | Latency |
++---------------------------------------------------+-----+--------+------------+-----+--------+---------+
+| + axi_encrypt                                     | 0   |        |            |     |        |         |
+|  + u64_to_u8_array                                | 0   |        |            |     |        |         |
+|    add_ln7_fu_358_p2                              |     |        | add_ln7    | add | fabric | 0       |
+|    add_ln7_1_fu_364_p2                            |     |        | add_ln7_1  | add | fabric | 0       |
+|    add_ln7_2_fu_370_p2                            |     |        | add_ln7_2  | add | fabric | 0       |
+|    add_ln7_3_fu_376_p2                            |     |        | add_ln7_3  | add | fabric | 0       |
+|    add_ln7_4_fu_382_p2                            |     |        | add_ln7_4  | add | fabric | 0       |
+|    add_ln7_5_fu_388_p2                            |     |        | add_ln7_5  | add | fabric | 0       |
+|    add_ln7_6_fu_394_p2                            |     |        | add_ln7_6  | add | fabric | 0       |
+|  + crypto_aead_encrypt                            | 0   |        |            |     |        |         |
+|    add_ln45_fu_1043_p2                            |     |        | add_ln45   | add | fabric | 0       |
+|    add_ln40_fu_1049_p2                            |     |        | add_ln40   | add | fabric | 0       |
+|    add_ln65_fu_1181_p2                            |     |        | add_ln65   | add | fabric | 0       |
+|    add_ln58_fu_1187_p2                            |     |        | add_ln58   | add | fabric | 0       |
+|   + LOADBYTES (grp_LOADBYTES_fu_650)              | 0   |        |            |     |        |         |
+|     add_ln22_1_fu_237_p2                          |     |        | add_ln22_1 | add | fabric | 0       |
+|     tmp_fu_257_p34                                |     |        | add_ln22   | add | fabric | 0       |
+|     sub_ln22_fu_337_p2                            |     |        | sub_ln22   | sub | fabric | 0       |
+|   + LOADBYTES (grp_LOADBYTES_fu_690)              | 0   |        |            |     |        |         |
+|     add_ln22_1_fu_237_p2                          |     |        | add_ln22_1 | add | fabric | 0       |
+|     tmp_fu_257_p34                                |     |        | add_ln22   | add | fabric | 0       |
+|     sub_ln22_fu_337_p2                            |     |        | sub_ln22   | sub | fabric | 0       |
+|   + LOADBYTES (grp_LOADBYTES_fu_730)              | 0   |        |            |     |        |         |
+|     add_ln22_1_fu_237_p2                          |     |        | add_ln22_1 | add | fabric | 0       |
+|     tmp_fu_257_p34                                |     |        | add_ln22   | add | fabric | 0       |
+|     sub_ln22_fu_337_p2                            |     |        | sub_ln22   | sub | fabric | 0       |
+|   + LOADBYTES (grp_LOADBYTES_fu_770)              | 0   |        |            |     |        |         |
+|     add_ln22_1_fu_237_p2                          |     |        | add_ln22_1 | add | fabric | 0       |
+|     tmp_fu_257_p34                                |     |        | add_ln22   | add | fabric | 0       |
+|     sub_ln22_fu_337_p2                            |     |        | sub_ln22   | sub | fabric | 0       |
+|   + crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_1  | 0   |        |            |     |        |         |
+|     add_ln29_fu_150_p2                            |     |        | add_ln29   | add | fabric | 0       |
+|     sub_ln29_fu_172_p2                            |     |        | sub_ln29   | sub | fabric | 0       |
+|   + crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_11 | 0   |        |            |     |        |         |
+|     add_ln29_fu_132_p2                            |     |        | add_ln29   | add | fabric | 0       |
+|     sub_ln29_fu_154_p2                            |     |        | sub_ln29   | sub | fabric | 0       |
+|   + crypto_aead_encrypt_Pipeline_VITIS_LOOP_29_12 | 0   |        |            |     |        |         |
+|     add_ln29_fu_134_p2                            |     |        | add_ln29   | add | fabric | 0       |
+|     sub_ln29_fu_156_p2                            |     |        | sub_ln29   | sub | fabric | 0       |
++---------------------------------------------------+-----+--------+------------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+--------------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage        | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |              |           |      |      |        |          |      |         | Banks            |
++-------------------+--------------+-----------+------+------+--------+----------+------+---------+------------------+
+| + axi_encrypt     |              |           | 8    | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface    | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface    | m_axi     | 8    |      |        |          |      |         |                  |
+|   c_u8_U          | ram_1p array |           |      |      |        | c_u8     | auto | 1       | 8, 8, 1          |
+|   c_u8_1_U        | ram_1p array |           |      |      |        | c_u8_1   | auto | 1       | 8, 8, 1          |
+|   c_u8_2_U        | ram_1p array |           |      |      |        | c_u8_2   | auto | 1       | 8, 8, 1          |
+|   c_u8_3_U        | ram_1p array |           |      |      |        | c_u8_3   | auto | 1       | 8, 8, 1          |
++-------------------+--------------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+------------------------------------------+--------------------------------------------------------------+
+| Type      | Options                                  | Location                                                     |
++-----------+------------------------------------------+--------------------------------------------------------------+
+| pipeline  |                                          | EsperimentiVitisHLS/source/temp.c:9 in u64_to_u8_array       |
+| interface | m_axi port=m offset=slave bundle=gmem    | EsperimentiVitisHLS/source/temp.c:28 in axi_decrypt, m       |
+| interface | m_axi port=nsec offset=slave bundle=gmem | EsperimentiVitisHLS/source/temp.c:29 in axi_decrypt, nsec    |
+| interface | m_axi port=c offset=slave bundle=gmem    | EsperimentiVitisHLS/source/temp.c:30 in axi_decrypt, c       |
+| interface | m_axi port=ad offset=slave bundle=gmem   | EsperimentiVitisHLS/source/temp.c:31 in axi_decrypt, ad      |
+| interface | m_axi port=npub offset=slave bundle=gmem | EsperimentiVitisHLS/source/temp.c:32 in axi_decrypt, npub    |
+| interface | m_axi port=k offset=slave bundle=gmem    | EsperimentiVitisHLS/source/temp.c:33 in axi_decrypt, k       |
+| interface | s_axilite port=m bundle=control          | EsperimentiVitisHLS/source/temp.c:35 in axi_decrypt, m       |
+| interface | s_axilite port=nsec bundle=control       | EsperimentiVitisHLS/source/temp.c:36 in axi_decrypt, nsec    |
+| interface | s_axilite port=c bundle=control          | EsperimentiVitisHLS/source/temp.c:37 in axi_decrypt, c       |
+| interface | s_axilite port=ad bundle=control         | EsperimentiVitisHLS/source/temp.c:38 in axi_decrypt, ad      |
+| interface | s_axilite port=npub bundle=control       | EsperimentiVitisHLS/source/temp.c:39 in axi_decrypt, npub    |
+| interface | s_axilite port=k bundle=control          | EsperimentiVitisHLS/source/temp.c:40 in axi_decrypt, k       |
+| interface | s_axilite port=return bundle=control     | EsperimentiVitisHLS/source/temp.c:41 in axi_decrypt, return  |
+| interface | m_axi port=c offset=slave bundle=gmem    | EsperimentiVitisHLS/source/temp.c:98 in axi_encrypt, c       |
+| interface | m_axi port=m offset=slave bundle=gmem    | EsperimentiVitisHLS/source/temp.c:99 in axi_encrypt, m       |
+| interface | m_axi port=ad offset=slave bundle=gmem   | EsperimentiVitisHLS/source/temp.c:100 in axi_encrypt, ad     |
+| interface | m_axi port=nsec offset=slave bundle=gmem | EsperimentiVitisHLS/source/temp.c:101 in axi_encrypt, nsec   |
+| interface | m_axi port=npub offset=slave bundle=gmem | EsperimentiVitisHLS/source/temp.c:102 in axi_encrypt, npub   |
+| interface | m_axi port=k offset=slave bundle=gmem    | EsperimentiVitisHLS/source/temp.c:103 in axi_encrypt, k      |
+| interface | s_axilite port=c bundle=control          | EsperimentiVitisHLS/source/temp.c:105 in axi_encrypt, c      |
+| interface | s_axilite port=m bundle=control          | EsperimentiVitisHLS/source/temp.c:106 in axi_encrypt, m      |
+| interface | s_axilite port=ad bundle=control         | EsperimentiVitisHLS/source/temp.c:107 in axi_encrypt, ad     |
+| interface | s_axilite port=nsec bundle=control       | EsperimentiVitisHLS/source/temp.c:108 in axi_encrypt, nsec   |
+| interface | s_axilite port=npub bundle=control       | EsperimentiVitisHLS/source/temp.c:109 in axi_encrypt, npub   |
+| interface | s_axilite port=k bundle=control          | EsperimentiVitisHLS/source/temp.c:110 in axi_encrypt, k      |
+| interface | s_axilite port=return bundle=control     | EsperimentiVitisHLS/source/temp.c:111 in axi_encrypt, return |
++-----------+------------------------------------------+--------------------------------------------------------------+
+
+* Inferred Pragmas
++----------------------------------------------+-----------------+------------------------------------------+---------------------------------+
+| Source Pragma                                | Inferred Pragma | Options                                  | Location                        |
++----------------------------------------------+-----------------+------------------------------------------+---------------------------------+
+| pipeline EsperimentiVitisHLS/source/temp.c:9 | array_partition | dim=1 type=cyclic factor=4 variable=c_u8 | variable c_u8 in axi_encrypt    |
+| pipeline EsperimentiVitisHLS/source/temp.c:9 | array_partition | dim=1 type=complete  variable=m_u8       | variable m_u8 in axi_encrypt    |
+| pipeline EsperimentiVitisHLS/source/temp.c:9 | array_partition | dim=1 type=complete  variable=ad_u8      | variable ad_u8 in axi_encrypt   |
+| pipeline EsperimentiVitisHLS/source/temp.c:9 | array_partition | dim=1 type=complete  variable=nsec_u8    | variable nsec_u8 in axi_encrypt |
+| pipeline EsperimentiVitisHLS/source/temp.c:9 | array_partition | dim=1 type=complete  variable=npub_u8    | variable npub_u8 in axi_encrypt |
+| pipeline EsperimentiVitisHLS/source/temp.c:9 | array_partition | dim=1 type=complete  variable=k_u8       | variable k_u8 in axi_encrypt    |
++----------------------------------------------+-----------------+------------------------------------------+---------------------------------+
+
+

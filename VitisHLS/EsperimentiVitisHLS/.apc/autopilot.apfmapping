@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <variables>
+    <variable name="BASE_PATH" value="C:/Path/to/Workspace"/>
+  </variables>
+  <source>
+    <originFiles name="ascon.h" path="${BASE_PATH}/source/ascon.h"/>
+    <originFiles name="temp.c" path="${BASE_PATH}/EsperimentiVitisHLS/source/temp.c"/>
+    <originFiles name="temp.h" path="${BASE_PATH}/EsperimentiVitisHLS/source/temp.h"/>
+    <originFiles name="aead.c" path="${BASE_PATH}/source/aead.c"/>
+    <originFiles name="api.h" path="${BASE_PATH}/source/api.h"/>
+    <originFiles name="constants.h" path="${BASE_PATH}/source/constants.h"/>
+    <originFiles name="crypto_aead.h" path="${BASE_PATH}/source/crypto_aead.h"/>
+    <originFiles name="permutations.h" path="${BASE_PATH}/source/permutations.h"/>
+    <originFiles name="printstate.c" path="${BASE_PATH}/source/printstate.c"/>
+    <originFiles name="printstate.h" path="${BASE_PATH}/source/printstate.h"/>
+    <originFiles name="round.h" path="${BASE_PATH}/source/round.h"/>
+    <originFiles name="word.h" path="${BASE_PATH}/source/word.h"/>
+  </source>
+  <testbench>
+    <originFiles name="tb_temp.c" path="${BASE_PATH}/EsperimentiVitisHLS/source/tb_temp.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
+

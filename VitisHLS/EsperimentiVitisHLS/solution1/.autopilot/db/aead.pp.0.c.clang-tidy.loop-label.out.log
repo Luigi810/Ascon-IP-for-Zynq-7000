@@ -1,0 +1,135 @@
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:446:3: warning: Added loop label VITIS_LOOP_39_1:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_39_1: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:446:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:658:3: warning: Added loop label VITIS_LOOP_22_1:   [xilinx-label-all-loops]
+  for (i = 0; i < n; ++i) x |= ((uint64_t)(bytes[i]) << (56 - 8 * (i)));
+  ^~~
+  VITIS_LOOP_22_1: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:658:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:665:3: warning: Added loop label VITIS_LOOP_29_1:   [xilinx-label-all-loops]
+  for (i = 0; i < n; ++i) bytes[i] = ((uint8_t)((uint64_t)(x) >> (56 - 8 * (i))));
+  ^~~
+  VITIS_LOOP_29_1: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:665:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:671:3: warning: Added loop label VITIS_LOOP_35_1:   [xilinx-label-all-loops]
+  for (i = 0; i < n; ++i) x &= ~((uint64_t)(0xff) << (56 - 8 * (i)));
+  ^~~
+  VITIS_LOOP_35_1: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:671:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:700:3: warning: Added loop label VITIS_LOOP_32_1:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_32_1: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:700:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:704:3: warning: Added loop label VITIS_LOOP_36_2:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_36_2: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:704:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:708:5: warning: Added loop label VITIS_LOOP_40_3:   [xilinx-label-all-loops]
+    while (adlen >= 8) {
+    ^~~~~
+    VITIS_LOOP_40_3: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:708:5: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:710:7: warning: Added loop label VITIS_LOOP_42_4:   [xilinx-label-all-loops]
+      do { } while (0);
+      ^~
+      VITIS_LOOP_42_4: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:710:7: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:718:5: warning: Added loop label VITIS_LOOP_50_5:   [xilinx-label-all-loops]
+    do { } while (0);
+    ^~
+    VITIS_LOOP_50_5: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:718:5: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:723:3: warning: Added loop label VITIS_LOOP_55_6:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_55_6: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:723:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:726:3: warning: Added loop label VITIS_LOOP_58_7:   [xilinx-label-all-loops]
+  while (mlen >= 8) {
+  ^~~~~
+  VITIS_LOOP_58_7: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:726:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:729:5: warning: Added loop label VITIS_LOOP_61_8:   [xilinx-label-all-loops]
+    do { } while (0);
+    ^~
+    VITIS_LOOP_61_8: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:729:5: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:740:3: warning: Added loop label VITIS_LOOP_72_9:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_72_9: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:740:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:745:3: warning: Added loop label VITIS_LOOP_77_10:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_77_10: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:745:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:749:3: warning: Added loop label VITIS_LOOP_81_11:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_81_11: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:749:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:783:3: warning: Added loop label VITIS_LOOP_115_1:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_115_1: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:783:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:787:3: warning: Added loop label VITIS_LOOP_119_2:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_119_2: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:787:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:791:5: warning: Added loop label VITIS_LOOP_123_3:   [xilinx-label-all-loops]
+    while (adlen >= 8) {
+    ^~~~~
+    VITIS_LOOP_123_3: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:791:5: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:793:7: warning: Added loop label VITIS_LOOP_125_4:   [xilinx-label-all-loops]
+      do { } while (0);
+      ^~
+      VITIS_LOOP_125_4: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:793:7: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:801:5: warning: Added loop label VITIS_LOOP_133_5:   [xilinx-label-all-loops]
+    do { } while (0);
+    ^~
+    VITIS_LOOP_133_5: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:801:5: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:806:3: warning: Added loop label VITIS_LOOP_138_6:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_138_6: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:806:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:810:3: warning: Added loop label VITIS_LOOP_142_7:   [xilinx-label-all-loops]
+  while (clen >= 8) {
+  ^~~~~
+  VITIS_LOOP_142_7: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:810:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:814:5: warning: Added loop label VITIS_LOOP_146_8:   [xilinx-label-all-loops]
+    do { } while (0);
+    ^~
+    VITIS_LOOP_146_8: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:814:5: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:827:3: warning: Added loop label VITIS_LOOP_159_9:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_159_9: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:827:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:832:3: warning: Added loop label VITIS_LOOP_164_10:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_164_10: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:832:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:836:3: warning: Added loop label VITIS_LOOP_168_11:   [xilinx-label-all-loops]
+  do { } while (0);
+  ^~
+  VITIS_LOOP_168_11: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:836:3: note: FIX-IT applied suggested code changes
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:846:3: warning: Added loop label VITIS_LOOP_178_12:   [xilinx-label-all-loops]
+  for (i = 0; i < 16; ++i) result |= c[i] ^ t[i];
+  ^~~
+  VITIS_LOOP_178_12: 
+C:\Users\lguer\AppData\Roaming\Xilinx\Vitis\VitisHLS\AsconOptimizedHLS\EsperimentiVitisHLS\solution1\.autopilot\db\aead.pp.0.c:846:3: note: FIX-IT applied suggested code changes

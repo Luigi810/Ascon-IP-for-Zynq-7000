@@ -1,0 +1,60 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 13,674       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  |  8,161       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          |  6,842       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  |  4,292       | user inline pragmas are applied                                                        |
+|               | (4) simplification          |  4,292       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         |  4,391       | user array partition pragmas are applied                                               |
+|               | (2) simplification          |  4,391       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  |  4,391       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           |  4,391       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         |  4,417       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     |  4,403       | loop and instruction simplification                                                    |
+|               | (2) parallelization         |  4,395       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         |  8,069       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          |  6,181       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                |  6,189       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           |  6,213       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++------------------------+-------------------+-------------------+------------------+------------------+------------------+------------------+
+| Function               | Location          | Compile/Link      | Unroll/Inline    | Array/Struct     | Performance      | HW Transforms    |
++------------------------+-------------------+-------------------+------------------+------------------+------------------+------------------+
+| + axi_encrypt          | temp.c:93         | 13,674            | 4,292            | 4,417            | 6,181            | 6,213            |
+|    u64_to_u8_array     | temp.c:7          |   252 (14 calls)  |  532 (14 calls)  |  644 (14 calls)  | 2,150 (14 calls) | 2,164 (14 calls) |
+|  + crypto_aead_encrypt | aead.c:8          | 13,308            | 3,686            | 3,697            | 3,871            | 3,886            |
+|     LOADBYTES          | word.h:19         |   152 (8 calls)   |  168 (8 calls)   |  184 (8 calls)   |  296 (8 calls)   |  296 (8 calls)   |
+|   + P12                | permutations.h:11 | 7,370 (2 calls)   |                  |                  |                  |                  |
+|    + ROUND             | round.h:12        | 7,344 (24 calls)  |                  |                  |                  |                  |
+|       ROR              | round.h:8         | 1,920 (240 calls) |                  |                  |                  |                  |
+|   + P6                 | permutations.h:37 | 5,529 (3 calls)   |                  |                  |                  |                  |
+|    + ROUND             | round.h:12        | 5,508 (18 calls)  |                  |                  |                  |                  |
+|       ROR              | round.h:8         | 1,440 (180 calls) |                  |                  |                  |                  |
+|     STOREBYTES         | word.h:27         |    68 (4 calls)   |                  |                  |                  |                  |
+|     ROUND              | round.h:12        |                   | 3,360 (42 calls) | 3,360 (42 calls) | 3,360 (42 calls) | 3,360 (42 calls) |
++------------------------+-------------------+-------------------+------------------+------------------+------------------+------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

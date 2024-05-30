@@ -1,0 +1,223 @@
+
+
+================================================================
+== Vitis HLS Report for 'u64_to_u8_array'
+================================================================
+* Date:           Tue May 28 19:29:15 2024
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        EsperimentiVitisHLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.182 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        1|        1|  10.000 ns|  10.000 ns|    2|    2|      yes|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.18>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%idx_read = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %idx"   --->   Operation 3 'read' 'idx_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %a"   --->   Operation 4 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%empty = trunc i5 %idx_read"   --->   Operation 5 'trunc' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%specpipeline_ln9 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [EsperimentiVitisHLS/source/temp.c:9]   --->   Operation 6 'specpipeline' 'specpipeline_ln9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.78ns)   --->   "%add_ln7 = add i5 %idx_read, i5 1" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 7 'add' 'add_ln7' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (1.78ns)   --->   "%add_ln7_1 = add i5 %idx_read, i5 2" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 8 'add' 'add_ln7_1' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (1.78ns)   --->   "%add_ln7_2 = add i5 %idx_read, i5 3" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 9 'add' 'add_ln7_2' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (1.78ns)   --->   "%add_ln7_3 = add i5 %idx_read, i5 4" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 10 'add' 'add_ln7_3' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (1.78ns)   --->   "%add_ln7_4 = add i5 %idx_read, i5 5" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 11 'add' 'add_ln7_4' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (1.78ns)   --->   "%add_ln7_5 = add i5 %idx_read, i5 6" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 12 'add' 'add_ln7_5' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (1.78ns)   --->   "%add_ln7_6 = add i5 %idx_read, i5 7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 13 'add' 'add_ln7_6' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%lshr_ln7 = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %idx_read, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 14 'partselect' 'lshr_ln7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln7 = zext i3 %lshr_ln7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 15 'zext' 'zext_ln7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%b_0_addr = getelementptr i8 %b_0, i64 0, i64 %zext_ln7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 16 'getelementptr' 'b_0_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%b_1_addr = getelementptr i8 %b_1, i64 0, i64 %zext_ln7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 17 'getelementptr' 'b_1_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%b_2_addr = getelementptr i8 %b_2, i64 0, i64 %zext_ln7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 18 'getelementptr' 'b_2_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%b_3_addr = getelementptr i8 %b_3, i64 0, i64 %zext_ln7" [EsperimentiVitisHLS/source/temp.c:7]   --->   Operation 19 'getelementptr' 'b_3_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%trunc_ln13 = trunc i64 %a_read" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 20 'trunc' 'trunc_ln13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7_6, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 21 'partselect' 'lshr_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln13 = zext i3 %lshr_ln" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 22 'zext' 'zext_ln13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%b_0_addr_1 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 23 'getelementptr' 'b_0_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%b_1_addr_1 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 24 'getelementptr' 'b_1_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%b_2_addr_1 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 25 'getelementptr' 'b_2_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%b_3_addr_1 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 26 'getelementptr' 'b_3_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln13_8 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 8, i32 15" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 27 'partselect' 'trunc_ln13_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%lshr_ln13_8 = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7_5, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 28 'partselect' 'lshr_ln13_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%zext_ln13_1 = zext i3 %lshr_ln13_8" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 29 'zext' 'zext_ln13_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%b_0_addr_2 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 30 'getelementptr' 'b_0_addr_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%b_1_addr_2 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 31 'getelementptr' 'b_1_addr_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%b_2_addr_2 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 32 'getelementptr' 'b_2_addr_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%b_3_addr_2 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 33 'getelementptr' 'b_3_addr_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%trunc_ln13_9 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 16, i32 23" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 34 'partselect' 'trunc_ln13_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%lshr_ln13_s = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7_4, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 35 'partselect' 'lshr_ln13_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%zext_ln13_2 = zext i3 %lshr_ln13_s" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 36 'zext' 'zext_ln13_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%b_0_addr_3 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 37 'getelementptr' 'b_0_addr_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%b_1_addr_3 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 38 'getelementptr' 'b_1_addr_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%b_2_addr_3 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 39 'getelementptr' 'b_2_addr_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%b_3_addr_3 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 40 'getelementptr' 'b_3_addr_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%trunc_ln13_s = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 24, i32 31" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 41 'partselect' 'trunc_ln13_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%lshr_ln13_1 = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7_3, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 42 'partselect' 'lshr_ln13_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln13_3 = zext i3 %lshr_ln13_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 43 'zext' 'zext_ln13_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%b_0_addr_4 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 44 'getelementptr' 'b_0_addr_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%b_1_addr_4 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 45 'getelementptr' 'b_1_addr_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%b_2_addr_4 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 46 'getelementptr' 'b_2_addr_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%b_3_addr_4 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 47 'getelementptr' 'b_3_addr_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%trunc_ln13_1 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 32, i32 39" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 48 'partselect' 'trunc_ln13_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%lshr_ln13_2 = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7_2, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 49 'partselect' 'lshr_ln13_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%zext_ln13_4 = zext i3 %lshr_ln13_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 50 'zext' 'zext_ln13_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%b_0_addr_5 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 51 'getelementptr' 'b_0_addr_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%b_1_addr_5 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 52 'getelementptr' 'b_1_addr_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%b_2_addr_5 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 53 'getelementptr' 'b_2_addr_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%b_3_addr_5 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 54 'getelementptr' 'b_3_addr_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%trunc_ln13_2 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 40, i32 47" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 55 'partselect' 'trunc_ln13_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%lshr_ln13_3 = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7_1, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 56 'partselect' 'lshr_ln13_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%zext_ln13_5 = zext i3 %lshr_ln13_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 57 'zext' 'zext_ln13_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%b_0_addr_6 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 58 'getelementptr' 'b_0_addr_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%b_1_addr_6 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 59 'getelementptr' 'b_1_addr_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%b_2_addr_6 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 60 'getelementptr' 'b_2_addr_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%b_3_addr_6 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 61 'getelementptr' 'b_3_addr_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%trunc_ln13_3 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 48, i32 55" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 62 'partselect' 'trunc_ln13_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%lshr_ln13_4 = partselect i3 @_ssdm_op_PartSelect.i3.i5.i32.i32, i5 %add_ln7, i32 2, i32 4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 63 'partselect' 'lshr_ln13_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%zext_ln13_6 = zext i3 %lshr_ln13_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 64 'zext' 'zext_ln13_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%b_0_addr_7 = getelementptr i8 %b_0, i64 0, i64 %zext_ln13_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 65 'getelementptr' 'b_0_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%b_1_addr_7 = getelementptr i8 %b_1, i64 0, i64 %zext_ln13_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 66 'getelementptr' 'b_1_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%b_2_addr_7 = getelementptr i8 %b_2, i64 0, i64 %zext_ln13_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 67 'getelementptr' 'b_2_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%b_3_addr_7 = getelementptr i8 %b_3, i64 0, i64 %zext_ln13_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 68 'getelementptr' 'b_3_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%trunc_ln13_4 = partselect i8 @_ssdm_op_PartSelect.i8.i64.i32.i32, i64 %a_read, i32 56, i32 63" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 69 'partselect' 'trunc_ln13_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (1.86ns)   --->   "%switch_ln13 = switch i2 %empty, void %.case.3, i2 1, void %.case.1, i2 2, void %.case.2, i2 0, void %.case.0" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 70 'switch' 'switch_ln13' <Predicate = true> <Delay = 1.86>
+ST_1 : Operation 71 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13, i3 %b_3_addr_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 71 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 72 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_8, i3 %b_2_addr_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 72 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 73 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_9, i3 %b_1_addr_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 73 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 74 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_s, i3 %b_0_addr_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 74 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 75 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13, i3 %b_1_addr_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 75 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 76 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_8, i3 %b_0_addr_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 76 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 77 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_9, i3 %b_3_addr_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 77 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 78 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_s, i3 %b_2_addr_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 78 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 79 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13, i3 %b_0_addr_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 79 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 80 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_8, i3 %b_3_addr_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 80 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 81 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_9, i3 %b_2_addr_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 81 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 82 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_s, i3 %b_1_addr_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 82 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 83 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13, i3 %b_2_addr_1" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 83 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 84 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_8, i3 %b_1_addr_2" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 84 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 85 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_9, i3 %b_0_addr_3" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 85 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 86 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_s, i3 %b_3_addr_4" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 86 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 87 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_1, i3 %b_3_addr_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 87 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 88 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_2, i3 %b_2_addr_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 88 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 89 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_3, i3 %b_1_addr_7" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 89 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 90 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_4, i3 %b_0_addr" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 90 'store' 'store_ln13' <Predicate = (empty == 0)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%br_ln13 = br void %.exit" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 91 'br' 'br_ln13' <Predicate = (empty == 0)> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_1, i3 %b_1_addr_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 92 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 93 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_2, i3 %b_0_addr_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 93 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 94 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_3, i3 %b_3_addr_7" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 94 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 95 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_4, i3 %b_2_addr" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 95 'store' 'store_ln13' <Predicate = (empty == 2)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%br_ln13 = br void %.exit" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 96 'br' 'br_ln13' <Predicate = (empty == 2)> <Delay = 0.00>
+ST_2 : Operation 97 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_1, i3 %b_0_addr_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 97 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 98 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_2, i3 %b_3_addr_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 98 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 99 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_3, i3 %b_2_addr_7" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 99 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 100 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_4, i3 %b_1_addr" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 100 'store' 'store_ln13' <Predicate = (empty == 1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 101 [1/1] (0.00ns)   --->   "%br_ln13 = br void %.exit" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 101 'br' 'br_ln13' <Predicate = (empty == 1)> <Delay = 0.00>
+ST_2 : Operation 102 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_1, i3 %b_2_addr_5" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 102 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 103 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_2, i3 %b_1_addr_6" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 103 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 104 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_3, i3 %b_0_addr_7" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 104 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 105 [1/1] (2.32ns)   --->   "%store_ln13 = store i8 %trunc_ln13_4, i3 %b_3_addr" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 105 'store' 'store_ln13' <Predicate = (empty == 3)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%br_ln13 = br void %.exit" [EsperimentiVitisHLS/source/temp.c:13]   --->   Operation 106 'br' 'br_ln13' <Predicate = (empty == 3)> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%ret_ln15 = ret" [EsperimentiVitisHLS/source/temp.c:15]   --->   Operation 107 'ret' 'ret_ln15' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 4.182ns
+The critical path consists of the following:
+	wire read operation ('idx_read') on port 'idx' [7]  (0.000 ns)
+	'store' operation 0 bit ('store_ln13', EsperimentiVitisHLS/source/temp.c:13) of variable 'trunc_ln13', EsperimentiVitisHLS/source/temp.c:13 on array 'b_2' [106]  (2.322 ns)
+	blocking operation 1.86009 ns on control path)
+
+ <State 2>: 2.322ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln13', EsperimentiVitisHLS/source/temp.c:13) of variable 'trunc_ln13_1', EsperimentiVitisHLS/source/temp.c:13 on array 'b_2' [110]  (2.322 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

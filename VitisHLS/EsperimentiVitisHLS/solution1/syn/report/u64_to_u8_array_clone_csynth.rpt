@@ -1,0 +1,154 @@
+
+
+================================================================
+== Vitis HLS Report for 'u64_to_u8_array_clone'
+================================================================
+* Date:           Tue May 28 19:29:18 2024
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        EsperimentiVitisHLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.423 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+----+-------+-------+-----+
+|       Name      | BRAM_18K| DSP|   FF  |  LUT  | URAM|
++-----------------+---------+----+-------+-------+-----+
+|DSP              |        -|   -|      -|      -|    -|
+|Expression       |        -|   -|      -|      -|    -|
+|FIFO             |        -|   -|      -|      -|    -|
+|Instance         |        -|   -|      0|    768|    -|
+|Memory           |        -|   -|      -|      -|    -|
+|Multiplexer      |        -|   -|      -|      -|    -|
+|Register         |        -|   -|      -|      -|    -|
++-----------------+---------+----+-------+-------+-----+
+|Total            |        0|   0|      0|    768|    0|
++-----------------+---------+----+-------+-------+-----+
+|Available        |      120|  80|  35200|  17600|    0|
++-----------------+---------+----+-------+-------+-----+
+|Utilization (%)  |        0|   0|      0|      4|    0|
++-----------------+---------+----+-------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+----+---+----+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP| FF| LUT| URAM|
+    +--------------------------+----------------------+---------+----+---+----+-----+
+    |sparsemux_19_4_8_1_1_U7   |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U8   |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U9   |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U10  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U11  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U12  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U13  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U14  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U15  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U16  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U17  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U18  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U19  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U20  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U21  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    |sparsemux_19_4_8_1_1_U22  |sparsemux_19_4_8_1_1  |        0|   0|  0|  48|    0|
+    +--------------------------+----------------------+---------+----+---+----+-----+
+    |Total                     |                      |        0|   0|  0| 768|    0|
+    +--------------------------+----------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------+-----+-----+------------+-----------------------+--------------+
+|   RTL Ports  | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++--------------+-----+-----+------------+-----------------------+--------------+
+|ap_ready      |  out|    1|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_0   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_1   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_2   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_3   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_4   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_5   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_6   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_7   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_8   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_9   |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_10  |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_11  |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_12  |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_13  |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_14  |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|ap_return_15  |  out|    8|  ap_ctrl_hs|  u64_to_u8_array.clone|  return value|
+|a             |   in|   64|     ap_none|                      a|        scalar|
+|p_read        |   in|    8|     ap_none|                 p_read|        scalar|
+|p_read1       |   in|    8|     ap_none|                p_read1|        scalar|
+|p_read2       |   in|    8|     ap_none|                p_read2|        scalar|
+|p_read3       |   in|    8|     ap_none|                p_read3|        scalar|
+|p_read4       |   in|    8|     ap_none|                p_read4|        scalar|
+|p_read5       |   in|    8|     ap_none|                p_read5|        scalar|
+|p_read6       |   in|    8|     ap_none|                p_read6|        scalar|
+|p_read7       |   in|    8|     ap_none|                p_read7|        scalar|
+|p_read8       |   in|    8|     ap_none|                p_read8|        scalar|
+|p_read9       |   in|    8|     ap_none|                p_read9|        scalar|
+|p_read10      |   in|    8|     ap_none|               p_read10|        scalar|
+|p_read11      |   in|    8|     ap_none|               p_read11|        scalar|
+|p_read12      |   in|    8|     ap_none|               p_read12|        scalar|
+|p_read13      |   in|    8|     ap_none|               p_read13|        scalar|
+|p_read14      |   in|    8|     ap_none|               p_read14|        scalar|
+|p_read15      |   in|    8|     ap_none|               p_read15|        scalar|
+|idx           |   in|    4|     ap_none|                    idx|        scalar|
++--------------+-----+-----+------------+-----------------------+--------------+
+

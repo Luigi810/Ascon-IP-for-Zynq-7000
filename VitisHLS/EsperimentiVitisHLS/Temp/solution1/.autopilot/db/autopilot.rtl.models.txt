@@ -1,0 +1,6 @@
+axi_encrypt_gmem_m_axi
+axi_encrypt_control_s_axi
+LOADBYTES_1
+ROUND_6
+crypto_aead_encrypt_1
+axi_encrypt

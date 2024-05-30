@@ -49,7 +49,7 @@ Le performance di tale soluzione sono nettamente migliori rispetto alle altre in
 
 ![Encrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
 
-![Decrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
+![Decrypt](RefactoringImages/HLS_PerformanceSintesi_decrypt7(AeadPipelined).png)
 
 
 Alla base di tale soluzione ci sono dei registri a cavallo tra due blocchi consecutivi della pipe volto a mantenere lo stato. Si usa a tal scopo in C una variabile di stato ascon_state_t s relativa a ciascun stadio della pipeline. In C tale comportamento è ottenuto tramite 4 variabili di stato s1,s2,s3,s4 e un utility function per l'assegnazione:

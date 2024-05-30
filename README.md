@@ -30,7 +30,7 @@ Questo progetto nasce dal tentativo di migliorare la legibilità del codice, uti
 
 Tuttavia tali ottimizzazioni tendono a parallelizzare le operazioni ma risulta una intrinseca dipendenza tra le operazioni in termini temporali quindi la maggior parte delle operazioni non può essere parallelizzata, come mostrato nella seguente immagine.
 
-[Dipendenza temporale tra le invocazioni di ROUND](RefactoringImages/HLS_ScheduleView_encrypt1Lvl2(EncryptInvocaLePermutazioniCheInvocanoRoundFortementeSequenziali).png)
+![Dipendenza temporale tra le invocazioni di ROUND](RefactoringImages/HLS_ScheduleView_encrypt1Lvl2(EncryptInvocaLePermutazioniCheInvocanoRoundFortementeSequenziali).png)
 
 ## Versione Pipelined (soluzione 4)
 Tuttavia si può cercare ancora di scomporre l'algoritmo di Ascon in un certo numero di fasi separate per ottenere una struttura pipelined in modo che i risultati del primo blocco vengano presi in ingresso dal successivo. 
@@ -47,9 +47,9 @@ Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/axi_ascon.c
 
 Le performance di tale soluzione sono nettamente migliori rispetto alle altre in termini di latenza (ma non in termini di occupazione spaziale): 
 
-[Encrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
+![Encrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
 
-[Decrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
+![Decrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
 
 
 Alla base di tale soluzione ci sono dei registri a cavallo tra due blocchi consecutivi della pipe volto a mantenere lo stato. Si usa a tal scopo in C una variabile di stato ascon_state_t s relativa a ciascun stadio della pipeline. In C tale comportamento è ottenuto tramite 4 variabili di stato s1,s2,s3,s4 e un utility function per l'assegnazione:
@@ -74,7 +74,7 @@ Per aggiungere l'ip al catalogo in vivado si va su Tools->Settings-> IP-> Reposi
 
 ## Block Design
 
-[Block Design](RefactoringImages/BlockDesign(perAggiungereIPToolsSettingsIPRepositoriesAdd).png)
+![Block Design](RefactoringImages/BlockDesign(perAggiungereIPToolsSettingsIPRepositoriesAdd).png)
 
 Dopo aver generato il Block disgn si può generare il platform file del progetto.
 
@@ -86,12 +86,12 @@ Poi eseguendo Generate Bitstream otteniamo il platform file (XSA) che poi andrem
 ### Creazione Platform project
 In Vitis dopo aver aperto un workspace creiamo un nuovo platform project per ottenere alla fine il nostro .xpfm, quindi selezionamo il nostro xsa di partenza con browse e selezioniamo come OS una standalone application (a meno che non serva un OS per altre elaborazioni, in tal caso agire di conseguenza).
 
-[Platform project](RefactoringImages/Vitis_CreatePlatformComponentWindow1.png)
+![Platform project](RefactoringImages/Vitis_CreatePlatformComponentWindow1.png)
 
 ### Creazione Application Project (Standalone application)
 Dopo aver creato la zynq platform su vitis, creiamo un nuovo application project (utile partire dal template Hello world per avere i file per l'inizializazione della scheda e main.c autogenerati) e selezioniamo la nostra Piattaforma custom. Abbiamo ora nella cartella Applicatio/Sources/src un linker script, un file di inizializazione platform.c e un file in cui è contenuto il nostro main() (hello_world.c). Useremo la funzione main per inizializzare ed usare le nostre IP servendoci delle funzioni AXI ad esse relative automaticamente generate da VITIS.
 
-[Application project](RefactoringImages/Vitis_CreateNewApplication(SelezionePlatform).png)
+![Application project](RefactoringImages/Vitis_CreateNewApplication(SelezionePlatform).png)
 
 Dettagli sulle interfacce AXI per le ip in C:\Path\To\Vitis\Platform\Project\platformAscon\zynq_fsbl\zynq_fsbl_bsp\hw_artifacts\drivers
 

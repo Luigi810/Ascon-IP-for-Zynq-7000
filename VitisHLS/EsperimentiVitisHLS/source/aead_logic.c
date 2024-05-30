@@ -1,9 +1,4 @@
-#include "api.h"
-#include "ascon.h"
-#include "crypto_aead.h"
-#include "permutations.h"
-#include "printstate.h"
-#include "word.h"
+#include "aead_logic.h"
 
 void initialize_state(ascon_state_t *s, const unsigned char *k, const unsigned char *npub) {
 	  /* load key and nonce */
@@ -132,85 +127,4 @@ void ascon_state_set(ascon_state_t *a, ascon_state_t b){
 	a->x[2]=b.x[2];
 	a->x[3]=b.x[3];
 	a->x[4]=b.x[4];
-}
-
-int crypto_aead_encrypt(unsigned char* c, unsigned long long* clen,
-                        const unsigned char* m, unsigned long long mlen,
-                        const unsigned char* ad, unsigned long long adlen,
-                        const unsigned char* nsec, const unsigned char* npub,
-                        const unsigned char* k) {
-	(void)nsec;
-
-	/* set ciphertext size */
-	*clen = mlen + CRYPTO_ABYTES;
-
-	ascon_state_t s1;
-	ascon_state_t s2;
-	ascon_state_t s3;
-	ascon_state_t s4;
-
-	initialize_state(&s1, k, npub);
-
-
-	ascon_state_set(&s2,s1);
-
-
-	if (adlen) {
-		additional_data_func(&s2, ad, adlen);
-	}
-
-	ascon_state_set(&s3,s2);
-
-	/* domain separation */
-	s3.x[4] ^= 1;
-	printstate("domain separation", &s3);
-
-	//c viene toccato solo da qui in poi
-
-	process_data_enc(&s3, m, mlen, c);
-
-	ascon_state_set(&s4,s3);
-
-	finalize_state_enc(&s4, k, c);
-
-	return 0;
-}
-
-int crypto_aead_decrypt(unsigned char* m, unsigned long long* mlen,
-                        unsigned char* nsec, const unsigned char* c,
-                        unsigned long long clen, const unsigned char* ad,
-                        unsigned long long adlen, const unsigned char* npub,
-                        const unsigned char* k) {
-	(void)nsec;
-
-	if (clen < CRYPTO_ABYTES) return -1;
-
-	/* set plaintext size */
-	*mlen = clen - CRYPTO_ABYTES;
-
-	ascon_state_t s1;
-	ascon_state_t s2;
-	ascon_state_t s3;
-	ascon_state_t s4;
-
-	initialize_state(&s1, k, npub);
-
-	ascon_state_set(&s2, s1);
-
-	if (adlen) {
-		additional_data_func(&s2, ad, adlen);
-	}
-
-	ascon_state_set(&s3, s2);
-
-	/* domain separation */
-	s3.x[4] ^= 1;
-	printstate("domain separation", &s3);
-
-	process_data_dec(&s3, c, clen, m);
-
-	ascon_state_set(&s4, s3);
-
-	int result=finalize_state_dec(&s4, k, c);
-	return  result;
 }

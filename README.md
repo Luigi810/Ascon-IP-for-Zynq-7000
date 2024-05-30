@@ -69,7 +69,7 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 
 
 |IP  | Performance Encryption | Performance Decryption  |
-|----|------------------------|
+|----|------------------------|-------------------------|
 |1   |![Performance encryption 1](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|![Performance decryption 1](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|
 |2   |![Performance encryption 2](RefactoringImages/HLS_PerformanceSintesi_encrypt5(DatiRaggruppatiA64BitConAxiFull).pngHLS_PerformanceSintesi_encrypt1.png.png)|![Performance decryption 2](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|
 |3   |![Performance encryption 3](RefactoringImages/HLS_PerformanceSintesi_encrypt6(DatiRaggruppatiA64BitConAxiFullCaricamentoParallelizato).pngHLS_PerformanceSintesi_encrypt1.png.png)|![Performance decryption 3](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png.png)|

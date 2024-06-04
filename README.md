@@ -2,6 +2,9 @@
  An HDL implementation of the Ascon algorithm using the official C reference implementation. Part of a project for Embedded Systems Exam, more reference on [naplespu.com/es](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon) (need credentials to have access). The IP is meant to be integrated on a Xilinx Zynq 7000 Zybo Board. You can see this as a simple guide (in Italian) to program a Zynq 7000 Zybo with a custom IP using Vitis HLS, Vivado e Vitis.
 **Target Board : xc7z010-clg400-1**
 
+# Installation
+To use the IP in your project you can directly download the IPs in the archives **AxiDec4(Pipelined).zip** and **AxiEnc4(Pipelined).zip** in Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/ and then, after extracting the directories you can add the path on your PC where the IP were extracted to the Tools->Settings-> IP-> Repository-> + (Add Repository)  in Vivado so that you can use them in a block design as catalog IPs.
+
 ## Codice:
 
 Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/

@@ -2,6 +2,9 @@
  An HDL implementation of the Ascon algorithm using the official C reference implementation. Part of a project for Embedded Systems Exam, more reference on [naplespu.com/es](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon) (need credentials to have access). The IP is meant to be integrated on a Xilinx Zynq 7000 Zybo Board. You can see this as a simple guide (in Italian) to program a Zynq 7000 Zybo with a custom IP using Vitis HLS, Vivado e Vitis.
 **Target Board : xc7z010-clg400-1**
 
+# Installation
+To use the IP in your project you can directly download the IPs in the archives **AxiDec4(Pipelined).zip** and **AxiEnc4(Pipelined).zip** in Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/ and then, after extracting the directories you can add the path on your PC where the IP were extracted to the Tools->Settings-> IP-> Repository-> + (Add Repository)  in Vivado so that you can use them in a block design as catalog IPs.
+
 ## Codice:
 
 Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/
@@ -26,7 +29,7 @@ Il codice relativo alle funzioni axi_encrypt e axi_decrypt sono contenute nel fi
 Il senso di implementazioni alternative nasce dal fatto che per via di esigenze di progetto potrei avere dei vincoli di spazio più stringenti e più tolleranza per quanto riguarda i tempi di esecuzione. In tal caso in base ai vincoli di progetto si può intergrare una IP più adatta alle esigenze specifiche. In particolare le IP della soluzione 1 occupano un numero di LUTs che è circa la metà di quelle occupate dalle IP della soluzione finale, la quale invece compensa con prestazioni in termini di throughput migliori.
 
 ## Obiettivo primario
-Questo progetto nasce dal tentativo di migliorare la legibilità del codice, utilizzare il protocollo AXI Full invece che AXI lite in quanto più adatto per la trasmissione di dati più corposi di 32 bit e migliorare le performance della IP presentata nel [articolo di documentazione](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon), in particolare si cerca di usare in un primo momento le seguenti direttive per migliorare le performance in termini di latenza a discapito di una maggiore occupazione in termini di risorse Hardware su FPGA. Le seguenti direttive servono a ottimizzare il codice come descritto:
+Questo progetto nasce dal tentativo di migliorare la legibilità del codice, utilizzare il protocollo AXI Full invece che AXI lite in quanto più adatto per la trasmissione di dati più corposi di 32 bit e migliorare le performance della IP presentata nell' [articolo di documentazione](http://www.naplespu.com/es/index.php?title=Implementazione_HLS_di_un_acceleratore_hardware_di_cifratura/decifratura_mediante_l%27algoritmo_Ascon#Ascon), in particolare si cerca di usare in un primo momento le seguenti direttive per migliorare le performance in termini di latenza a discapito di una maggiore occupazione in termini di risorse Hardware su FPGA. Le seguenti direttive servono a ottimizzare il codice come descritto:
 
 
 \#pragma HLS PIPELINE: Utilizzato nei loop per aumentare il throughput riducendo la latenza.

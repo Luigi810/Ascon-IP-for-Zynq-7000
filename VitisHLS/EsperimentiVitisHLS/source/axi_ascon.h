@@ -5,12 +5,21 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-int axi_encrypt(uint64_t c[4],const uint64_t m[2],
-				const uint64_t ad[2],uint64_t nsec[2],
-				const uint64_t npub[2],const uint64_t k[2]);
 
-int axi_decrypt(uint64_t m[2],uint64_t nsec[2],
-				const uint64_t c[4],const uint64_t ad[2],
-				const uint64_t npub[2],const uint64_t k[2]);
+typedef struct {
+    uint64_t array[4];
+} u256;
+
+typedef struct {
+    uint64_t array[2];
+} u128;
+
+
+int axi_encrypt(u256 c,const u128 m,
+				const u128 ad,u128 nsec,
+				const u128 npub,const u128 k);
+int axi_decrypt(u128 m, u128 nsec,
+				const u256 c, const u128 ad,
+				const u128 npub, const u128 k);
 
 #endif

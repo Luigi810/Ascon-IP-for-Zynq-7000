@@ -128,8 +128,9 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 |       3                                 |              |    |
 |       4                                 |              |    |
 |       5                                 | source_64bit | 2  |
-|       6                                 | source       | 3  |
-|       7                                 | source       | 4  |
+|       6                                 | source_sol3  | 3  |
+|       7                                 | source_sol4  | 4  |
+|       8                                 | source       | 5  |
 
 
 |IP  | Performance Encryption | Performance Decryption  |
@@ -137,11 +138,12 @@ Application Project path : C:\Path\To\Vitis\Application\Project\Vitis\Applicatio
 |1   |![Performance encryption 1](RefactoringImages/HLS_PerformanceSintesi_encrypt1.png)|![Performance decryption 1](RefactoringImages/HLS_PerformanceSintesi_decrypt1.png)|
 |2   |![Performance encryption 2](RefactoringImages/HLS_PerformanceSintesi_encrypt5(DatiRaggruppatiA64BitConAxiFull).png)|![Performance decryption 2](RefactoringImages/HLS_PerformanceSintesi_decrypt5(DatiRaggruppatiA64BitConAxiFull).png)|
 |3   |![Performance encryption 3](RefactoringImages/HLS_PerformanceSintesi_encrypt6(DatiRaggruppatiA64BitConAxiFullCaricamentoParallelizato).png)|![Performance decryption 3](RefactoringImages/HLS_PerformanceSintesi_decrypt6(DatiRaggruppatiA64BitConAxiFullCaricamentoParallelizato).png)|
-|4   |![Performance encryption 4](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)|![Performance decryption 3](RefactoringImages/HLS_PerformanceSintesi_decrypt7(AeadPipelined).png)|
+|4   |![Performance encryption 4](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)|![Performance decryption 4](RefactoringImages/HLS_PerformanceSintesi_decrypt7(AeadPipelined).png)|
+|5   |![Performance encryption 5](RefactoringImages/HLS_PerformanceSintesi_encrypt8.png)|![Performance decryption 5](RefactoringImages/HLS_PerformanceSintesi_decrypt8.png)|
 
 
 
 
-La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(3). In casi di workload dove si riesce a tenere la pipeline sempre piena allora la soluzione 4 offre notevoli benefici prestazionali.
+La soluzione più semplice e facile da leggere è quella relativa alla IP 1. Possiamo ottimizzare l'ip facendo la raccolta di dati su vettori uint64_t e poi convertendoli in vettori uint8_t(2). Questa raccolta può essere fatta anche in parallelo(3). In casi di workload dove si riesce a tenere la pipeline sempre piena allora la soluzione 5 offre notevoli benefici prestazionali.
 
 

@@ -3,17 +3,19 @@
 **Target Board : xc7z010-clg400-1**
 
 # Installation
-To use the IP in your project you can directly download the IPs in the archives **AxiDec4(Pipelined).zip** and **AxiEnc4(Pipelined).zip** in Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/ and then, after extracting the directories you can add the path on your PC where the IP were extracted to the Tools->Settings-> IP-> Repository-> + (Add Repository)  in Vivado so that you can use them in a block design as catalog IPs.
+To use the IP in your project you can directly download the IPs in the archives **AxiDec5.zip** and **AxiEnc5.zip** in Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/ and then, after extracting the directories you can add the path on your PC where the IP were extracted to the Tools->Settings-> IP-> Repository-> + (Add Repository)  in Vivado so that you can use them in a block design as catalog IPs.
 
 ## Codice:
 
-Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/
+Codice soluzione 5: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/
 
 Codice soluzione 1: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_8bit/
 
 Codice soluzione 2: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_64bit/
 
-Codice soluzione 3: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source/
+Codice soluzione 3: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_sol3/
+
+Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_sol4/
 
 ### Per la soluzione finale
 Il codice rilevante è quello dei moduli :
@@ -51,7 +53,7 @@ Tuttavia tali ottimizzazioni tendono a parallelizzare le operazioni ma risulta u
 
 Inoltre non è stato necessario quasi in nessun caso l'utilizzo delle direttive pragma in quanto la maggior parte delle volte Vitis opera autonomamente le ottimizzazioni possibili.
 
-## Versione Pipelined (soluzione 4)
+## Versione Pipelined (soluzione 4 e 5)
 Tuttavia si può cercare ancora di scomporre l'algoritmo di Ascon in un certo numero di fasi separate per ottenere una struttura pipelined in modo che i risultati del primo blocco vengano presi in ingresso dal successivo. 
 
 Il beneficio di tale approccio potrebbe esistere nel momento in cui si richiedano ripetute operazioni di encrypt o decrypt. Ciò ha particolarmente senso se il tempo di computazione dell'algoritmo è varie volte maggiore del tempo richiesto per la manipolazione dei dati (che sfrutta il protocollo AXI per il caricamento dei dati nell'IP e l'utility function **u64_to_u8_array()**)in ingresso che costituisce di fatto il primo blocco di tale pipeline.
@@ -66,9 +68,9 @@ Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/axi_ascon.c
 
 Le performance teoriche di tale soluzione sono nettamente migliori rispetto alle altre in termini di latenza (ma non in termini di occupazione spaziale): 
 
-![Encrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt7(AeadPipelined).png)
+![Encrypt](RefactoringImages/HLS_PerformanceSintesi_encrypt8.png)
 
-![Decrypt](RefactoringImages/HLS_PerformanceSintesi_decrypt7(AeadPipelined).png)
+![Decrypt](RefactoringImages/HLS_PerformanceSintesi_decrypt8.png)
 
 Sebbene la latenza teorica risulti molto bassa in realtà il vantaggio vero si ha quanto più si può tenere piena la pipeline nel tempo, in un caso di workload di questo tipo allora si può ottenere un throughput (Throughput= (numero di operazioni)/(tempo per la loro esecuzione)) prossimo a quello teorico, ossia che tende al limite superiore (upperbound) pari al reciproco del tempo di esecuzione (latenza) del blocco più lento della pipe. Ci si avvicina a tale valore nel caso in cui si abbia un gran numero di operazioni di encrypt(o decrypt) consecutive e si tiene la pipeline sempre piena.
 

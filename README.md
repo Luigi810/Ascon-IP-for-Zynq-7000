@@ -7,15 +7,15 @@ To use the IP in your project you can directly download the IPs in the archives 
 
 ## Codice:
 
-Codice soluzione 5: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/
+Codice soluzione 5: Ascon-IP-for-Zynq-7000/VitisHLS/source/
 
-Codice soluzione 1: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_8bit/
+Codice soluzione 1: Ascon-IP-for-Zynq-7000/VitisHLS/SoluzioniPrecedenti/source_8bit/
 
-Codice soluzione 2: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_64bit/
+Codice soluzione 2: Ascon-IP-for-Zynq-7000/VitisHLS/SoluzioniPrecedenti/source_64bit/
 
-Codice soluzione 3: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_sol3/
+Codice soluzione 3: Ascon-IP-for-Zynq-7000/VitisHLS/SoluzioniPrecedenti/source_sol3/
 
-Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/SoluzioniPrecedenti/source_sol4/
+Codice soluzione 4: Ascon-IP-for-Zynq-7000/VitisHLS/SoluzioniPrecedenti/source_sol4/
 
 ### Per la soluzione finale
 Il codice rilevante è quello dei moduli :
@@ -60,11 +60,11 @@ Il beneficio di tale approccio potrebbe esistere nel momento in cui si richiedan
 
 Il codice relativo a tale soluzione è quello nella directory Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source, in particolare abbiamo le top function (relative alle IP) nel file
 
-Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/axi_ascon.c 
+Ascon-IP-for-Zynq-7000/VitisHLS/source/axi_ascon.c 
  
 mentre le modifiche per rendere l'IP pipelined (con una pipeline di 4 stadi in entrambi i casi) sono modifiche al codice di riferimento ufficiale di [Ascon](https://github.com/ascon/ascon-c/blob/main/crypto_aead/ascon128av12/ref/aead.c) nel file 
 
-Ascon-IP-for-Zynq-7000/VitisHLS/EsperimentiVitisHLS/source/axi_ascon.c
+Ascon-IP-for-Zynq-7000/VitisHLS/source/axi_ascon.c
 
 Le performance teoriche di tale soluzione sono nettamente migliori rispetto alle altre in termini di latenza (ma non in termini di occupazione spaziale): 
 

@@ -1,6 +1,0 @@
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'lguer' on host 'luigipc' (Windows NT_amd64 version 6.2) on Tue May 28 18:55:32 +0200 2024
-INFO: [HLS 200-10] In directory 'C:/Users/lguer/AppData/Roaming/Xilinx/Vitis/VitisHLS/AsconOptimizedHLS/EsperimentiVitisHLS/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is C:/Users/lguer/AppData/Roaming/Xilinx/Vitis/VitisHLS/AsconOptimizedHLS/EsperimentiVitisHLS/solution1/csim/build/apcc_db_lguer/212882156270247
-INFO: [APCC 202-1] APCC is done.
-INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 0 seconds. Total elapsed time: 1.096 seconds; peak allocated memory: 0.000 MB.
